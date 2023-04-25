@@ -26,6 +26,7 @@
   padding: 1.5em;
   will-change: filter;
   transition: 0.75s;
+  cursor: pointer;
 }
 
 .logo:hover {

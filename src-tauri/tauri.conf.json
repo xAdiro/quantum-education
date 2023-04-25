@@ -15,7 +15,15 @@
       "all": false,
       "shell": {
         "all": false,
-        "open": true
+        "execute": true,
+        "open": true,
+        "scope": [
+          {
+            "name": "run-python",
+            "cmd": "python",
+            "args": true
+          }
+        ]
       }
     },
     "bundle": {
