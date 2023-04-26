@@ -22,7 +22,38 @@ tauriButton?.addEventListener('click', async () => {
             type: 'scatter',
         };
 
-        Plotly.newPlot('plotly-chart', [{ y: xy.y }]);
+        Plotly.newPlot('plotly-chart', [{ x: xy.x, y: xy.y }], {
+            sliders: [
+                {
+                    pad: { t: 30 },
+                    currentvalue: {
+                        xanchor: 'right',
+                        prefix: 'color: ',
+                        font: {
+                            color: '#888',
+                            size: 20,
+                        },
+                    },
+                    steps: [
+                        {
+                            label: 'red',
+                            method: 'restyle',
+                            args: ['line.color', 'red'],
+                        },
+                        {
+                            label: 'green',
+                            method: 'restyle',
+                            args: ['line.color', 'green'],
+                        },
+                        {
+                            label: 'blue',
+                            method: 'restyle',
+                            args: ['line.color', 'blue'],
+                        },
+                    ],
+                },
+            ],
+        });
     });
 
     // command.on('close', (data) => {
