@@ -3,7 +3,6 @@ import numpy as np
 import json
 import sys
 
-
 h = 1
 
 
@@ -22,12 +21,10 @@ def infinite_well(a, n: int = 1):
     else:
         y2 = A*np.cos(k*x2)
 
-    x1 = list(x1)
-    x2 = list(x2)
-    x3 = list(x3)
-    y1 = list(y1)
-    y2 = list(y2)
-    y3 = list(y3)
+    x1 = x1.tolist()
+    x2 = x2.tolist()
+    x3 = x3.tolist()
+    y2 = y2.tolist()
 
     return x1 + x2 + x3, y1 + y2 + y3
 

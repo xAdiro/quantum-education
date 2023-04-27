@@ -5,8 +5,9 @@
     <link rel="stylesheet" href="/src/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tauri App</title>
-    <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script>
+    <!-- <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script> -->
     <script type="module" src="/src/main.ts" defer></script>
+    <script type="module" src="/src/infinite-well-chart.ts"></script>
   </head>
 
   <body>
@@ -19,10 +20,9 @@
           alt="Tauri logo"
         />
       </div>
-      <button class="js-sin-button">
-        JS function
-      </button>
-      <div id="plotly-chart"></div>
+      <canvas id="chart"></canvas>
+      <input type="range" class="slider" value="1" min="1" max="10" id="n-setting" oninput="this.nextElementSibling.value=`n=${this.value}`">
+      <output>n=1</output>
     </div>
   </body>
 </html>
