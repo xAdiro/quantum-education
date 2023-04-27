@@ -47,10 +47,14 @@ export function draw(
             hover: {
                 intersect: false,
             },
+            scales: {
+                yAxis: {
+                    min: -1.5,
+                    max: 1.5,
+                },
+            },
         },
     };
 
     return new Chart(<HTMLCanvasElement>target, config);
 }
-
-export function connectSliderTo(chart: Chart) {}
