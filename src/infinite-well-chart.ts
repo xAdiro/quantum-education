@@ -1,4 +1,4 @@
-import { draw } from './line-chart';
+import { draw, updateWellChart } from './line-chart';
 import { getInfiniteWell } from './commands';
 import { Chart } from 'chart.js';
 
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     const command = getInfiniteWell(a, BigInt(1));
     command.stdout.on('data', (text) => {
         const xy: plotData = JSON.parse(text);
-        chart = draw(xy, target);
+        chart = draw(xy, target, a);
     });
     await command.spawn();
 });
@@ -25,21 +25,7 @@ slider?.addEventListener('input', async () => {
     command.stdout.on('data', (text) => {
         const xy: plotData = JSON.parse(text);
 
-        const data = {
-            labels: xy.x,
-            datasets: [
-                {
-                    label: 'Studnia',
-                    data: xy.y,
-                    fill: false,
-                    borderColor: 'rgb(51, 204, 255)',
-                    tension: 0.1,
-                },
-            ],
-        };
-
-        chart.data = data;
-        chart.update();
+        updateWellChart(chart, xy);
     });
     await command.spawn();
 });

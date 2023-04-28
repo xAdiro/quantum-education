@@ -46,6 +46,10 @@ button {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
+.chart-controls{
+  display:flex;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     color: #f6f6f6;
