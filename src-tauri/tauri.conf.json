@@ -20,7 +20,7 @@
         "scope": [
           {
             "name": "run-python",
-            "cmd": "python",
+            "cmd": "python3",
             "args": true
           }
         ]
@@ -35,7 +35,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "pl.adiro",
       "targets": "all"
     },
     "security": {
