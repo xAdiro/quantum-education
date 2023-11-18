@@ -5,27 +5,21 @@
     <link rel="stylesheet" href="/src/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tauri App</title>
-    <!-- <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script> -->
     <script type="module" src="/src/main.ts" defer></script>
     <script type="module" src="/src/infinite-well-chart.ts"></script>
   </head>
 
   <body>
     <div class="container">
-      <h1>Infinite potential well</h1>
-      <div class="tauri">
-        <img
-          src="/src/assets/tauri.svg"
-          class="logo"
-          alt="Tauri logo"
-        />
-      </div>
-      <canvas id="chart"></canvas>
-      <div class="chart-controls">
-        <input type="range" class="slider" value="1" min="1" max="10" id="n-setting" oninput="this.nextElementSibling.value=`n=${this.value}`">
-        <output>n=1</output>
-      </div>
-      
+        <nav class="side-menu">
+          <a href=""><img class="logo" src="/src/assets/quant-icon.png"></a>
+          <a href="">I Dualizm korpuskularno-falowy</a>
+          <a href="">II Nieskończona studnia potencjału</a>
+          <a href="">III Skończona studnia potencjału</a>
+          <a href="">IV Próg potencjału</a>
+          <a href="">V Bariera potencjału</a>
+          <a href="">Ustawienia</a>
+        </nav>
     </div>
   </body>
 </html>
