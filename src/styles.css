@@ -1,14 +1,14 @@
-@font-face{
+@font-face {
   font-family: Akatab;
   src: url("assets/fonts/Akatab.ttf")
 }
 
-@font-face{
+@font-face {
   font-family: ABeeZee;
   src: url("assets/fonts/ABeeZee.ttf");
 }
 
-@font-face{
+@font-face {
   font-family: AROneSans;
   src: url("assets/fonts/AR\ One\ sans.ttf")
 }
@@ -16,7 +16,7 @@
 :root {
   --accent-color: rgb(1, 196, 138);
 
-  
+
   font-family: Akatab;
   font-size: 16px;
   line-height: 24px;
@@ -31,73 +31,126 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-body{
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(118, 255, 140);
+}
+
+body {
   margin: 0;
 }
 
-.container{
+.icon {
+  width: 2em;
+  will-change: filter;
+  transition: 0.25s;
+}
+
+
+
+.container {
   display: flex;
   height: 100vh;
 }
 
-.content{
+.content {
   --menu-width: calc(150px + 1em);
   margin-left: var(--menu-width);
-  padding: 1em;
+  padding: 5em;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.title{
+
+.title {
   align-items: center;
 }
 
-.side-menu{
+.side-menu {
   font-size: larger;
 
   position: absolute;
   margin: 0;
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 2em;
   height: 100vh;
   background-color: #0f0f0f;
   padding: 0.5em;
   gap: 1em;
 }
 
-.side-menu:hover{
+.side-menu:hover {
   width: auto;
 }
 
-.side-menu a{
+.side-menu a {
   text-decoration: none;
 }
-.side-menu a:hover{
+
+.side-menu a:hover {
   color: rgb(253, 253, 253);
 }
-.side-menu a:active{
+
+.side-menu a:active {
   color: rgb(160, 194, 184);
 }
 
 
 
-.side-menu a{
+.side-menu a {
   color: var(--accent-color);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.side-menu a:last-of-type{
+.side-menu a:last-of-type {
   margin-top: auto;
   margin-bottom: 1em;
+}
+
+.home-header {
+  margin-left: -10em;
+  margin-right: -10em;
+  margin-top: -3em;
+  width: calc(100% + 20em);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #1a1a1a; */
+  border-radius: 2em;
+}
+
+.home-header h1 {
+  font-size: 4em;
+}
+
+
+.home-title-line {
+  width: 300px;
+  height: 3px;
+  background-color: whitesmoke;
+  border-radius: 2em;
 }
 
 
 @media (prefers-color-scheme: dark) {
   :root {
     color: #f6f6f6;
-    background-color: #2f2f2f;
+    background-color: #242424;
+  }
+
+  .settings .icon {
+    content: url("assets/icons/cogwheel-light.png");
+  }
+
+  .settings .icon:hover {
+    content: url("assets/icons/cogwheel-fill-light.png");
   }
 }

@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/src/styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/src/main.ts" defer></script>
-    <script type="module" src="/src/infinite-well-chart.ts"></script>
-  </head>
 
-  <body>
-    <div class="container">
-      <nav class="side-menu">
-        <a href="">I Dualizm korpuskularno-falowy</a>
-        <a href="/src/html/infinite-well.html">II Nieskończona studnia potencjału</a>
-        <a href="">III Skończona studnia potencjału</a>
-        <a href="">IV Próg potencjału</a>
-        <a href="">V Bariera potencjału</a>
-        <a href="">Ustawienia</a>
-      </nav>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tauri App</title>
+  <script type="module" src="/src/main.ts" defer></script>
+  <script type="module" src="/src/infinite-well-chart.ts"></script>
+</head>
 
-      <main class="content">
+<body>
+  <div class="container">
+    <nav class="side-menu">
+      <a href="">I Dualizm korpuskularno-falowy</a>
+      <a href="/src/html/infinite-well.html">II Nieskończona studnia potencjału</a>
+      <a href="">III Skończona studnia potencjału</a>
+      <a href="">IV Próg potencjału</a>
+      <a href="">V Bariera potencjału</a>
+      <a href="" class="settings"><img class="icon" href="/src/assets/icons/cogwheel-dark.png">Ustawienia</a>
+    </nav>
+
+    <main class="content">
+      <div class="home-header">
+        <img width="200px" src="/src/assets/icons/quant-icon.png">
         <h1 class="title">Quantum learning</h1>
-      </main>
+      </div>
+      <hr class="home-title-line">
+      <p>
+        Quantum learning jest interaktywnym programem, który ma ułatwić naukę zagadnień z zakresu mechaniki kwantowej.
+        Duży nacisk położony został położony na interaktywne wizualizacje zagadnień co ma pomóc
+      </p>
+      <p>
+        Program zrealizowany został w ramach pracy inżynierskiej, a jego
+        <a href="https://github.com/xAdiro/quantum-education" target="_blank">kod jest dostępny na githubie</a>
+      </p>
+    </main>
 
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>
