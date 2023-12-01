@@ -74,7 +74,6 @@ body {
 
 .side-menu {
   font-size: larger;
-
   position: absolute;
   margin: 0;
   display: flex;
@@ -86,12 +85,21 @@ body {
   gap: 1em;
 }
 
+.side-menu .chapter-name{
+  display: none;
+}
+
 .side-menu:hover {
   width: auto;
 }
 
+.side-menu:hover .chapter-name{
+  display: inline;
+}
+
 .side-menu a {
   text-decoration: none;
+  margin-left: 0;
 }
 
 .side-menu a:hover {
@@ -108,7 +116,6 @@ body {
   color: var(--accent-color);
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .side-menu a:last-of-type {
