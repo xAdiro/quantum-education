@@ -5,15 +5,32 @@
         <title>Tauri App</title>
     </head>
     <body>
-        <p>
-            Przykłady studni potencjału pokazały nam, że w kwantowym świecie zjawiska bardzo różnią się od klasycznych przewidywań. 
-            Roważmy teraz ruch cząstki przez zmieniający się potencjał, zwany progiem potencjału.
+        <nav class="side-menu">
+            <a href="">I<span class="chapter-name"> Dualizm korpuskularno-falowy</span></a>
+            <a href="/src/html/infinite-well.html">II<span class="chapter-name"> Nieskończona studnia potencjału</span></a>
+            <a href="">III<span class="chapter-name"> Skończona studnia potencjału</span></a>
+            <a href="/src/html/jump.html">IV<span class="chapter-name"> Próg potencjału</span></a>
+            <a href="">V<span class="chapter-name"> Bariera potencjału</span></a>
+            <a href="" class="settings"><img class="icon" href="/src/assets/icons/cogwheel-dark.png">Ustawienia</a>
+        </nav>
+        <div class="side-menu-block"></div>
+        
 
-            Na początek zobaczmy co przewiduje fizyka Newtonowska. Spradźmy jak porusza się kulka, o jakiejś energii potencjalnej i kinetycznej
-            <canvas id="classic-jump-chart"></canvas>
-
+        <main class="content">
+            <div class="home-header">
+                <h1 class="title">Próg potencjału</h1>
             </div>
-        </p>
-        <script type="module" src="/src/ts/charts/classic-jump-chart.ts"></script>
+            <p>
+                Przykłady studni potencjału pokazały nam, że w kwantowym świecie zjawiska bardzo różnią się od klasycznych przewidywań. 
+                Roważmy teraz ruch cząstki przez zmieniający się potencjał, zwany progiem potencjału.
+
+                Na początek zobaczmy co przewiduje fizyka Newtonowska. Spradźmy jak porusza się kulka, o jakiejś energii potencjalnej i kinetycznej
+                <canvas id="classic-jump-chart"></canvas>
+
+                </div>
+            </p>
+        </main>
+        <!-- <script type="module" src="/src/ts/charts/classic-jump-chart.ts"></script> -->
+        <script type="module" src="/src/ts/charts/classic-ball.ts"></script>
     </body>
 </html>

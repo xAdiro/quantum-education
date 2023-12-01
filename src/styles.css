@@ -1,7 +1,8 @@
 @font-face {
   font-family: Akatab;
   src: url("assets/fonts/akatab-ext.woff2") format("woff2");
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+    U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -11,12 +12,11 @@
 
 @font-face {
   font-family: AROneSans;
-  src: url("assets/fonts/AR\ One\ sans.ttf")
+  src: url("assets/fonts/AR\ One\ sans.ttf");
 }
 
 :root {
   --accent-color: rgb(1, 196, 138);
-
 
   font-family: Akatab;
   font-size: 16px;
@@ -52,20 +52,20 @@ body {
   transition: 0.25s;
 }
 
-
-
 .container {
   display: flex;
+  align-items: stretch;
   height: 100vh;
 }
 
 .content {
-  --menu-width: calc(150px + 1em);
-  margin-left: var(--menu-width);
   padding: 5em;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
@@ -79,13 +79,23 @@ body {
   display: flex;
   flex-direction: column;
   width: 2em;
-  height: 100vh;
+  height: calc(100vh - 1em);
   background-color: #0f0f0f;
   padding: 0.5em;
   gap: 1em;
 }
 
-.side-menu .chapter-name{
+.side-menu-block {
+  font-size: larger;
+  margin: 0;
+  display: sticky;
+  width: 2em;
+  height: calc(100vh - 1em);
+  padding: 0.5em;
+  display: inline;
+}
+
+.side-menu .chapter-name {
   display: none;
 }
 
@@ -93,7 +103,7 @@ body {
   width: auto;
 }
 
-.side-menu:hover .chapter-name{
+.side-menu:hover .chapter-name {
   display: inline;
 }
 
@@ -109,8 +119,6 @@ body {
 .side-menu a:active {
   color: rgb(160, 194, 184);
 }
-
-
 
 .side-menu a {
   color: var(--accent-color);
@@ -139,14 +147,17 @@ body {
   font-size: 4em;
 }
 
-
 .home-title-line {
   width: 300px;
   height: 3px;
   background-color: whitesmoke;
   border-radius: 2em;
 }
-
+#classic-jump-chart {
+  max-width: 50%;
+  margin-right: 400px;
+  margin-left: auto;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
