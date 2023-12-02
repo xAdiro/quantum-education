@@ -66,6 +66,7 @@ body {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  font-size: 24px;
 }
 
 .title {
@@ -158,13 +159,11 @@ body {
   display: flex;
 }
 
-.classic-jump-tool > button {
-}
+.classic-jump-tool>button {}
 
-.classic-jump-tool > .slider {
-}
+.classic-jump-tool>.slider {}
 
-.classic-jump-tool > #classic-jump-chart {
+.classic-jump-tool>#classic-jump-chart {
   /* max-width: 50%;
   margin-right: 400px;
   margin-left: auto; */

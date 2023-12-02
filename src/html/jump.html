@@ -1,38 +1,44 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="/src/styles.css" />
-        <title>Tauri App</title>
-    </head>
-    <body>
-        <nav class="side-menu">
-            <a href="">I<span class="chapter-name"> Dualizm korpuskularno-falowy</span></a>
-            <a href="/src/html/infinite-well.html">II<span class="chapter-name"> Nieskończona studnia potencjału</span></a>
-            <a href="">III<span class="chapter-name"> Skończona studnia potencjału</span></a>
-            <a href="/src/html/jump.html">IV<span class="chapter-name"> Próg potencjału</span></a>
-            <a href="">V<span class="chapter-name"> Bariera potencjału</span></a>
-            <a href="" class="settings"><img class="icon" href="/src/assets/icons/cogwheel-dark.png">Ustawienia</a>
-        </nav>
-        <div class="side-menu-block"></div>
-        
 
-        <main class="content">
-            <div class="home-header">
-                <h1 class="title">Próg potencjału</h1>
-            </div>
-            <p>
-                Przykłady studni potencjału pokazały nam, że w kwantowym świecie zjawiska bardzo różnią się od klasycznych przewidywań. 
-                Roważmy teraz ruch cząstki przez zmieniający się potencjał, zwany progiem potencjału.
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/src/styles.css" />
+    <title>Tauri App</title>
+</head>
 
-                Na początek zobaczmy co przewiduje fizyka Newtonowska. Spradźmy jak porusza się kulka, o jakiejś energii potencjalnej i kinetycznej
-                <div class="classic-jump-tool">
-                    <button id="shoot-button">strzel</button>
-                    <input type="range" min="1" max="4" value="3" class="slider" id="classic-total-energy">
-                    <canvas id="classic-jump-chart"></canvas>
-                </div>
-            </p>
-        </main>
-        <!-- <script type="module" src="/src/ts/charts/classic-jump-chart.ts"></script> -->
-        <script type="module" src="/src/ts/charts/classic-ball.ts"></script>
-    </body>
+<body>
+    <nav class="side-menu">
+        <a href="">I<span class="chapter-name"> Dualizm korpuskularno-falowy</span></a>
+        <a href="/src/html/infinite-well.html">II<span class="chapter-name"> Nieskończona studnia potencjału</span></a>
+        <a href="">III<span class="chapter-name"> Skończona studnia potencjału</span></a>
+        <a href="/src/html/jump.html">IV<span class="chapter-name"> Próg potencjału</span></a>
+        <a href="">V<span class="chapter-name"> Bariera potencjału</span></a>
+        <a href="" class="settings"><img class="icon" href="/src/assets/icons/cogwheel-dark.png">Ustawienia</a>
+    </nav>
+    <div class="side-menu-block"></div>
+
+
+    <main class="content">
+        <div class="home-header">
+            <h1 class="title">Próg potencjału</h1>
+        </div>
+        <p>
+            Przykłady studni potencjału pokazały nam, że w kwantowym świecie zjawiska bardzo różnią się od klasycznych
+            przewidywań.
+            Roważmy teraz ruch cząstki przez zmieniający się potencjał, zwany progiem potencjału.
+
+            Na początek zobaczmy co przewiduje fizyka Newtonowska. Spradźmy jak porusza się kulka, o jakiejś energii
+            potencjalnej i kinetycznej
+        <div class="classic-jump-tool">
+            <button id="shoot-button">strzel</button>
+            <input type="range" min="3" max="7" value="4" step="0.01" class="slider" id="classic-total-energy">
+            <canvas id="classic-jump-chart"></canvas>
+        </div>
+        </p>
+    </main>
+    <script type="module" src="/src/ts/charts/classic-jump-chart/classic-ball.ts"></script>
+    <script type="module" src="/src/ts/charts/classic-jump-chart/shoot-button.ts"></script>
+    <script type="module" src="/src/ts/charts/classic-jump-chart/energy-slider.ts"></script>
+</body>
+
 </html>
