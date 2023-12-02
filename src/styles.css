@@ -155,18 +155,88 @@ body {
   border-radius: 2em;
 }
 
-.classic-jump-tool {
-  display: flex;
+.classic-ball-point {
+  width: 0px;
+  max-width: 0px;
+  height: 0px;
+  max-height: 0px;
+  position: relative;
 }
 
-.classic-jump-tool>button {}
+.classic-ball {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 20px;
+  position: relative;
+  top: 40px;
+  margin-left: 15px;
+}
 
-.classic-jump-tool>.slider {}
+.classic-jump-tool {
+  width: 70%;
+  display: grid;
+  gap: 10px;
+  grid-template:
+    "slider ballBox chart"
+    "button ballBox chart";
 
-.classic-jump-tool>#classic-jump-chart {
+  grid-template-columns: 100px 0 auto;
+  grid-template-rows: auto 40px;
+}
+
+.classic-ball-container {
+  display: none;
+  width: 0px;
+  max-width: 0px;
+  height: 0px;
+  max-height: 0px;
+  grid-area: ballBox;
+}
+
+.classic-jump-tool > button {
+  grid-area: button;
+  height: 40px;
+  grid-area: button;
+  /*appearance*/
+  font-size: 20px;
+  box-shadow: inset 0px 1px 0px 0px #cf866c;
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  background-color: #d0451b;
+  border-radius: 40px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #854629;
+}
+
+.classic-jump-tool > button:hover {
+  background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+  background-color: #bc3315;
+}
+
+.classic-jump-tool > button:active {
+  position: relative;
+  top: 1px;
+}
+
+.classic-jump-tool > .slider {
+  grid-area: slider;
+}
+
+.classic-jump-tool > #classic-jump-chart {
   /* max-width: 50%;
   margin-right: 400px;
   margin-left: auto; */
+  grid-area: chart;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  height: 100%;
 }
 
 .slider {

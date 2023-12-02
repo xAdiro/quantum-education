@@ -1,57 +1,88 @@
-import { classicJumpChart } from "./classic-jump-chart"
-
 const dt = 0.1
+const ballsContainer = document.querySelector(".classic-balls-container")
+const centerPx = 443
 
 export function shootBall() {
-  const slider = <HTMLInputElement>document.querySelector("#classic-total-energy")
+  const slider = <HTMLInputElement>(
+    document.querySelector("#classic-total-energy")
+  )
   const min = parseFloat(slider.min)
   const max = parseFloat(slider.max)
 
   const energy: number = max - Number.parseFloat(slider.value) + min
   const velocity = Math.sqrt(energy)
   const x0 = -5
-  let t = 0
 
-  const newData = {
-    label: "none",
-    fill: false,
-    borderColor: "rgb(255,20,20)",
-    tension: 0,
-    data: [{ x: x0, y: 2 }],
-    pointRadius: 10,
-    pointBorderColor: "rgb(100,20,20)",
-    pointBackgroundColor: "rgb(255,20,20)",
+  const ball = document.createElement("div")
+  ball.classList.add("classic-ball")
+
+  const ballPoint = document.createElement("div")
+  ballPoint.classList.add("classic-ball-point")
+  ballPoint.appendChild(ball)
+
+  ballsContainer?.appendChild(ballPoint)
+
+  const t1 = moveToZero(ball, x0, velocity) * 1000
+
+  if (energy > 5) {
+    const newVelocity = Math.sqrt(energy - 5)
+    setTimeout(() => moveToEnd(ball, newVelocity, ballPoint), t1)
+  } else if (energy < 5) {
+    setTimeout(() => moveToStart(ball, velocity, ballPoint), t1)
   }
-  classicJumpChart.config.options!.animation! = { duration: 0 }
-  classicJumpChart.data.datasets.push(newData)
-  classicJumpChart.update()
-  classicJumpChart.config.options!.animation! = { duration: 1000 }
+}
 
+function moveToZero(
+  ball: HTMLDivElement,
+  from: number,
+  velocity: number
+): number {
+  const time = Math.abs(from) / (velocity * 1.5)
 
-  const interval = setInterval(() => {
-    console.log(energy)
-    const newX = x0 + t * velocity
+  ball.style.transitionDuration = `${time}s`
+  ball.style.transitionTimingFunction = "linear"
+  setTimeout(() => {
+    ball.style.transform = `translate(${centerPx}px, 0px)`
+  }, 0)
 
-    if (newX > 0 && energy < 5) {
-      newData.data[0].x = -newX
-    }
-    else if (newX > 0 && energy > 0) {
-      newData.data[0].x = t * Math.sqrt(energy - 5)
-    }
-    else if (newX > 0 && energy === 5) {
-      newData.data[0].x = 0
-    }
-    else {
-      newData.data[0].x = newX
-    }
+  return time
+}
 
+function moveToEnd(
+  ball: HTMLDivElement,
+  velocity: number,
+  ballPoint: HTMLDivElement
+) {
+  const time = Math.abs(5) / (velocity * 1.5)
+  ball.style.transitionDuration = `${time}s`
 
-    classicJumpChart.update()
+  setTimeout(() => {
+    ball.style.transform = `translate(${2 * centerPx}px, 0px)`
+  }, 0)
 
+  setTimeout(() => deleteBall(ball, ballPoint), time * 1000)
+}
 
-    if (newX >= 6) {
-      clearInterval(interval)
-    }
-    else t += dt
-  }, 100)
+function moveToStart(
+  ball: HTMLDivElement,
+  velocity: number,
+  ballPoint: HTMLDivElement
+) {
+  const time = 5 / (velocity * 1.5)
+
+  ball.style.transitionDuration = `${time}s`
+  setTimeout(() => {
+    ball.style.transform = "translate(0px, 0px)"
+  }, 0)
+
+  setTimeout(() => deleteBall(ball, ballPoint), time * 1000)
+}
+
+function deleteBall(ball: HTMLDivElement, ballPoint: HTMLDivElement) {
+  // ball.style.transition = "opacity 0.5s ease-in-out"
+  // setTimeout(() => {
+  //   ball.style.opacity = "0"
+  // }, 0)
+  ball.remove()
+  ballPoint.remove()
 }
