@@ -153,10 +153,26 @@ body {
   background-color: whitesmoke;
   border-radius: 2em;
 }
-#classic-jump-chart {
-  max-width: 50%;
+
+.classic-jump-tool {
+  display: flex;
+}
+
+.classic-jump-tool > button {
+}
+
+.classic-jump-tool > .slider {
+}
+
+.classic-jump-tool > #classic-jump-chart {
+  /* max-width: 50%;
   margin-right: 400px;
-  margin-left: auto;
+  margin-left: auto; */
+}
+
+.slider {
+  appearance: slider-vertical;
+  transform: rotate(180deg);
 }
 
 @media (prefers-color-scheme: dark) {

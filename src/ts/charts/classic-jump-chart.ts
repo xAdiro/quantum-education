@@ -1,36 +1,50 @@
-import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto";
+import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
 
-(async function () {
-  const data1: { x: number; y: number }[] = [];
+export var classicJumpChart: Chart
 
-  const data2 = [
-    { x: 1, y: 65 },
-    { x: 2, y: 59 },
-    { x: 3, y: 80 },
-    { x: 7, y: 81 },
-    { x: 9, y: 56 },
-    { x: 10, y: 55 },
-    { x: 18, y: 40 },
-  ];
+;(async function () {
+  const data1: { x: number; y: number }[] = []
 
-  for (let i = 0; i < 2 * Math.PI; i += 0.05) {
-    data1.push({
-      x: i,
-      y: Math.sin(i),
-    });
-  }
+  const potential = [
+    { x: -5, y: 0 },
+    { x: 0, y: 0 },
+    { x: 0, y: 5 },
+    { x: 5, y: 5 },
+  ]
 
-  const data = {
+  const energy = [
+    { x: -5, y: 6 },
+    { x: 5, y: 6 },
+  ]
+
+  const datasets = {
     datasets: [
       {
-        label: "My First Dataset",
+        label: "Potencjał",
         fill: false,
-        borderColor: "rgb(75, 192, 192)",
+        borderColor: "rgb(255,255,255)",
         tension: 0,
-        data: data1,
+        data: potential,
+      },
+      {
+        label: "Energia całkowita",
+        fill: false,
+        borderColor: "rgb(20, 255, 20)",
+        tension: 0,
+        data: energy,
+      },
+      {
+        label: "none",
+        fill: false,
+        borderColor: "rgb(255,20,20)",
+        tension: 0,
+        data: [{ x: -1, y: 4 }],
+        pointRadius: 10,
+        pointBorderColor: "rgb(100,20,20)",
+        pointBackgroundColor: "rgb(255,20,20)",
       },
     ],
-  };
+  }
 
   const options: ChartOptions = {
     scales: {
@@ -41,17 +55,30 @@ import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto";
         radius: 0,
       },
     },
-  };
+    plugins: {
+      legend: {
+        labels: {
+          filter: (item) => item.text !== "none",
+        },
+      },
+      tooltip: {
+        enabled: false,
+      },
+    },
+    hover: {
+      mode: undefined,
+    },
+  }
 
   const config: ChartConfiguration = {
     type: "line",
-    data: data,
+    data: datasets,
     options: options,
-  };
+  }
 
   const chartElement: HTMLCanvasElement = <HTMLCanvasElement>(
     document.getElementById("classic-jump-chart")!
-  );
+  )
 
-  new Chart(chartElement, config);
-})();
+  classicJumpChart = new Chart(chartElement, config)
+})()
