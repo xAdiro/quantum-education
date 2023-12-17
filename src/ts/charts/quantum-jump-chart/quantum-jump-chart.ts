@@ -53,14 +53,14 @@ export var quantumJumpChart: Chart
     ],
   }
 
-  const totalDuration = 10000
-  const delayBetweenPoints = totalDuration / data.length
-  const previousY = (ctx: ScriptableContext<"line">) =>
-    ctx.index === 0
-      ? ctx.chart.scales.y.getPixelForValue(100)
-      : ctx.chart
-          .getDatasetMeta(ctx.datasetIndex)
-          .data[ctx.index - 1].getProps(["y"], true).y
+  // const totalDuration = 10000
+  // const delayBetweenPoints = totalDuration / data.length
+  // const previousY = (ctx: ScriptableContext<"line">) =>
+  //   ctx.index === 0
+  //     ? ctx.chart.scales.y.getPixelForValue(100)
+  //     : ctx.chart
+  //         .getDatasetMeta(ctx.datasetIndex)
+  //         .data[ctx.index - 1].getProps(["y"], true).y
 
   // const animation: <Animation> ={
   //   x: {
@@ -104,7 +104,7 @@ export var quantumJumpChart: Chart
     hover: {
       mode: undefined,
     },
-    animation,
+    // animation,
     plugins: {
       legend: {
         labels: {
