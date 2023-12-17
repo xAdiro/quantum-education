@@ -88,9 +88,17 @@ body {
   background-color: #0f0f0f;
   padding: 0.5em;
   gap: 1em;
+  /* border-right: 2px solid rgb(156, 156, 156); */
+  box-shadow: 5px 0px 15px 0px #0f0f0f;
 }
 
-.side-menu-block {
+.side-menu > a {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.side-menu .side-menu-block {
   font-size: larger;
   margin: 0;
   display: sticky;
@@ -102,6 +110,11 @@ body {
 
 .side-menu .chapter-name {
   display: none;
+  color: white;
+}
+
+.side-menu .chapter-name:hover {
+  color: var(--accent-color);
 }
 
 .side-menu:hover {
@@ -285,6 +298,10 @@ body {
   :root {
     color: #f6f6f6;
     background-color: #242424;
+  }
+
+  .home .icon {
+    content: url("assets/icons/house-light.png");
   }
 
   .settings .icon {
