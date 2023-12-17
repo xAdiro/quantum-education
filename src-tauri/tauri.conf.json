@@ -12,10 +12,25 @@
   },
   "tauri": {
     "allowlist": {
+      "path":{
+        "all": true
+      },
       "all": false,
       "shell": {
         "all": false,
-        "open": true
+        "execute": true,
+        "open": true,
+        "scope": [
+          {
+            "name": "run-python",
+            "cmd": "python3",
+            "args": true
+          }
+        ]
+      },
+      "fs":{
+        "scope": ["$RESOURCE/csv/*"],
+        "readFile": true
       }
     },
     "bundle": {
@@ -27,7 +42,10 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "resources": [
+        "csv/*"
+      ],
+      "identifier": "pl.adiro",
       "targets": "all"
     },
     "security": {

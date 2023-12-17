@@ -1,3 +1,1 @@
-window.addEventListener("DOMContentLoaded", () => {
-  
-});
+const tauriButton = document.querySelector(".tauri")
