@@ -4,8 +4,6 @@ Chart.defaults.color = "black"
 
 export var classicJumpChart: Chart
 ;(async function () {
-  const data1: { x: number; y: number }[] = []
-
   const potential = [
     { x: -5, y: 0 },
     { x: 0, y: 0 },

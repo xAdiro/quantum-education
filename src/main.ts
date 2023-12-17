@@ -1,1 +1,1 @@
-const tauriButton = document.querySelector('.tauri');
+const tauriButton = document.querySelector(".tauri")

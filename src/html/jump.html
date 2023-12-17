@@ -27,21 +27,41 @@
             przewidywań.
             Roważmy teraz ruch cząstki przez zmieniający się potencjał, zwany progiem potencjału.
 
-            Na początek zobaczmy co przewiduje fizyka Newtonowska. Spradźmy jak porusza się kulka, o określonej energii
-            potencjalnej i kinetycznej
+            Na początek zobaczmy co przewiduje fizyka Newtonowska. Przypomnijmy sobie jak klasycznie porusza się kulka, o określonej energii
+            kinetycznej i zerowej energii kinetycznej.
+        </p>
         <div class="classic-jump-tool">
             <input type="range" min="3" max="7" value="4" step="0.01" class="slider" id="classic-total-energy">
-            <button id="shoot-button">strzel</button>
+            <button id="shoot-button" class="green-button">strzel</button>
             <div class="classic-balls-container">
                 <!-- <div class="classic-ball-point"><div class="classic-ball"></div></div> -->
             </div>
-            <canvas id="classic-jump-chart"></div></canvas>
+            <canvas id="classic-jump-chart" class="chart"></div></canvas>
         </div>
+
+        <p>
+            Sytuacja jest dosyć prosta i są tylko dwa spodziewane skutki:
+            <ul>
+                <li>Energia całkowita kulki jest większa od wymaganej energii potencjalnej za progiem - wtedy kulka przechodzi, a częśc energii kinetycznej zamienia się w energie potencjalną</li>
+                <li>Energia całkowita kulki jest mniejsza od wymaganje energii potencjalnej za progiem - wtedy kulka odbija się sprężyście</li>
+            </ul>
         </p>
+        <p>
+            Sprawa ma się oczywiście inaczej w kwantowym świecie
+        </p>
+        <div class="quantum-jump-tool">
+            <input type="range" min="2" max="5" value="0" step="0.1" class="slider" id="quantum-total-energy">
+            <button id="simulate-button" class="green-button">strzel</button>
+            <canvas id="quantum-jump-chart" class="chart"></canvas>
+        </div>
+        
     </main>
     <script type="module" src="/src/ts/charts/classic-jump-chart/classic-ball.ts"></script>
     <script type="module" src="/src/ts/charts/classic-jump-chart/shoot-button.ts"></script>
     <script type="module" src="/src/ts/charts/classic-jump-chart/energy-slider.ts"></script>
+    <script type="module" src="/src/ts/charts/quantum-jump-chart/quantum-jump-chart.ts"></script>
+    <script type="module" src="/src/ts/charts/quantum-jump-chart/energy-slider.ts"></script>
+    <script type="module" src="/src/ts/charts/quantum-jump-chart/shoot-button.ts"></script>
 </body>
 
 </html>
