@@ -1,6 +1,6 @@
 const dt = 0.1
 const ballsContainer = document.querySelector(".classic-balls-container")
-const centerPx = 443
+const centerPx = 530
 
 export function shootBall() {
   const slider = <HTMLInputElement>(

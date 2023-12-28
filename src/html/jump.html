@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/src/styles.css" />
     <title>Tauri App</title>
+    <script id="MathJax-script" async src="node_modules/mathjax/es5/tex-chtml.js"></script>
 </head>
 
 <body>
@@ -73,13 +74,61 @@
             </ul>
         </p>
         <p>
-            Sprawa ma się oczywiście inaczej w kwantowym świecie
+            Żeby znaleźć funkcję falową podzielimy sobie zagadnienie na dwa obszary I o potencjale 0 i II o potencjale V<sub>0</sub>
+            więc
+            <br>
+            <br>
+            <br>
+            <br>
+            <!-- <span class="psi1-jump1"></span>
+            <br>
+            <span class="psi2-jump1"></span>
+            <br> -->
+            <br>
+            gdzie:
+            <br>
+            k<sub>1</sub>=<span class="k1-jump1"></span>
+            <br>
+            k<sub>2</sub>=<span class="k2-jump1"></span>
+            <br>
+            <br>
+            Otrzymujemy 
+            <br>
+            ψ<sub>1</sub>(x) = 
+            <br>
+            ψ<sub>2</sub>(x) = 
+            <br>
+            <br>
+            Wyznaczmy R i T z warunków brzegowych ψ<sub>1</sub> = ψ<sub>2</sub> i dψ<sub>1</sub>/dx = dψ<sub>2</sub>/dx w x = 0 i otrzymujemy układ równań:
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            Jeśli jednak E &lt; V<sub>0</sub> w obszarze II k<sub>2</sub> jest urojone i użyjemy podstawienia κ = ik<sub>2</sub>
+            więc
+            <br> 
+            ψ<sub>2</sub> = Te<sup>-κx</sup>
+            <br>
+            z warunków brzegowych:
+            <br>
+            T =
+            <br>
+            R = 
+  
+
+
+        </p>
+        <p>
+            Wykres ψ(x) możemy więc przedstawić nastepująco:
         </p>
         <div class="quantum-jump-tool">
             <input type="range" min="2" max="5" value="0" step="0.1" class="slider" id="quantum-total-energy">
             <button id="simulate-button" class="green-button">strzel</button>
             <canvas id="quantum-jump-chart" class="chart"></canvas>
         </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         
     </main>
     <script type="module" src="/src/ts/charts/classic-jump-chart/classic-ball.ts"></script>
