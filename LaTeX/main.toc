@@ -1,26 +1,26 @@
 \contentsline {chapter}{\numberline {1}Wstęp}{9}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Cel i zakres pracy}{9}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Tematyka i struktura pracy}{9}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Wykorzystane technologie}{10}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Popularne technologie webowe - HTML, CSS i TypeScript}{10}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Biblioteki Chart.js i MathJax}{10}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Język Python}{10}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Framework Tauri}{10}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Podstawy teorytyczne}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Falowa natura materii}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Równanie Schrodingera}{11}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Znajdowanie funkcji falowej}{11}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Budowa i struktura aplikacji}{12}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Struktura aplikacji}{12}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Interfejs}{12}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Typescript i manipulacja DOM}{12}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Obliczenia fizyczne w Pythonie}{12}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Interfejs pomiędzy TypeScriptem i Pythonem}{12}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Wdrożenie i dystrybucja aplikacji}{12}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Problemy, ograniczenia i opcje na rozwój}{12}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Ekran główny}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{13}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Transkrypcja}{13}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{14}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Bibliografia}{15}{chapter.7}%
+\contentsline {section}{\numberline {1.1}Cel i motywacja pracy}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Tematyka i struktura pracy}{10}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Wykorzystane technologie}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Popularne technologie webowe - HTML, CSS i TypeScript}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Biblioteki Chart.js i MathJax}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Język Python}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Framework Tauri}{11}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Podstawy teorytyczne}{12}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Falowa natura materii}{12}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Równanie Schrodingera}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Znajdowanie funkcji falowej}{12}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Budowa i struktura aplikacji}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Struktura aplikacji}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Interfejs}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Typescript i manipulacja DOM}{13}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Obliczenia fizyczne w Pythonie}{13}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Interfejs pomiędzy TypeScriptem i Pythonem}{13}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Wdrożenie i dystrybucja aplikacji}{13}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Problemy, ograniczenia i możliwości rozwoju}{13}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ekran główny}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{14}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Transkrypcja}{14}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{15}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Bibliografia}{16}{chapter.7}%
