@@ -76,19 +76,60 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	
 \chapter{Podstawy teorytyczne}
 	\section{Zagadnienia matematyki wyższej}
-	\section{Falowa natura materii}
-	\section{Równanie Schrodingera}
-	Funkcja falowa stanowi fundament zagadnień poruszanych w aplikacji. Wynika to z faktu, że jest ona niezbędna do opisu ruchu dowolnej cząstki w kwantowym \textcolor{red}{(?)}. Erwin Schrödinger zawarł funkcje falową w równaniu nazwanym od jego nazwiska równaniem Schrödingera. Jeżeli skupimy się na odizolowanych układach fizycznych tj. takich, które nie oddziaływują z otoczeniem, rozwiązać należy równanie Schrödingera niezależne od czasu o postaci:
-	<Równanie>
-	gdzie:
-	h - 
-	psi - 
-	E - 
-	V - 
-	m - 
+	liczby zespolone i urojone, jednostka urojona, ich moduł
 	
-	Sama funkcja falowa nie posiada fizycznej interpretacji, do tego potrzebny jest kwadrat jej modułu, którego wartość oznacza gęstość prawdopodobieństwa znalezienia cząstki w danym położeniu.
-	\section{Znajdowanie funkcji falowej}
+	gęstość prawdopodobieństwa
+	
+	pochodne, pochodne funkcji zespolonych
+	
+	równania różniczkowe
+	\section{Falowa natura materii}
+	Wyjaśnione przez Alberta Einsteina zjawisko fotoelektryczne ukazało, że światło zachowuje się nie tylko jak fala, ale też jak cząstką. Nośnik światła przekazywał energię porcjami -- kwantami przez co wprowadzone zostało pojęcie fotonu jako cząstki światła.
+	
+	 Jako konsekwencja tego odkrycia Louis de Broglie zapostulował, że cząstki materii, takie jak elektron, muszą podzielać falowe zachowanie fotonów. Korzystając z pracy Einsteina określił długość tych fal, zwanych falami materii, wzorem:
+	 
+	 \begin{center}
+	 $\lambda=\frac{h}{p}$
+	 \end{center}
+	 
+	 gdzie:
+	 
+	 $\lambda$ -- długość fali materii cząstki
+	 
+	 $h$ -- stała Plancka
+	 
+	 $p$ -- pęd cząstki\\
+	 
+	 Dzięki falom materii możemy wyjaśnić m.in. sposób rozchodzenia się elektronów np. przez siatkę dyfrakcyjną, co jest niemożliwe przy przyjęciu elektronów jako kul lub punktów w przestrzeni.
+	 
+	 Dokładniejszego opisu tych fal dokonał Erwin Schrödinger proponując równanie funkcji falowej $\psi$ o zespolonym zbiorze wartości. 
+	 
+	\section{Równanie Schrödingera}
+	Funkcja falowa stanowi fundament zagadnień poruszanych w aplikacji. Wynika to z faktu, że jest ona niezbędna do opisu ruchu dowolnej cząstki. Erwin Schrödinger zawarł funkcje falową w równaniu nazwanym od jego nazwiska równaniem Schrödingera.  Jeżeli skupimy się na odizolowanych układach fizycznych tj. takich, które nie oddziaływują z otoczeniem, rozwiązać należy równanie Schrödingera niezależne od czasu o postaci:
+	\begin{center}
+	{\large $-\frac{\hbar}{2m} \frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x)$}
+	\end{center}
+	gdzie:
+	
+	$\hbar$ -- zredukowana stała Plancka
+	
+	$\psi(x)$ -- fukcja falowa w położeniu $x$
+	
+	$E$ -- energia całkowita ciała
+	
+	$V(x)$ -- potencjał w położeniu $x$
+	
+	$m$ -- masa ciała\\
+	
+	Wartość funkcji falowej $\psi(x)$ nie posiada fizycznej interpretacji, do tego potrzebny jest kwadrat jej modułu, który określa gęstość prawdopodobieństwa znalezienia cząstki w położeniu $x$. 
+	\section{Znajdowanie równania funkcji falowej}
+	Warunki brzegowe:
+	\begin{itemize}
+	\item Skończona wartość $\psi$
+	\item Ciągłość $\psi$
+	\item Ciągłość pochodnej $\frac{d\psi}{dx}$ (Przy skończonych potencjałach)
+	\end{itemize}
+	
 	
 \chapter{Budowa i struktura aplikacji}
 	\section{Struktura aplikacji}
