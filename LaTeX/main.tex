@@ -1,5 +1,6 @@
 \documentclass{SGGW-thesis}
-\usepackage{xcolor}
+\usepackage{xcolor,amsfonts}
+\NewCommandCopy{\amshbar}{\hbar}
 
 \INZYNIERSKAtrue
 \WZIMtrue
@@ -76,13 +77,77 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	
 \chapter{Podstawy teorytyczne}
 	\section{Zagadnienia matematyki wyższej}
-	liczby zespolone i urojone, jednostka urojona, ich moduł
+	Niewątpliwie matematykę, a szczególnie rachunek różniczkowy, można nazwać językiem fizyki. Do opisu zawartych w pracy zagadnień fizycznych, wymagana jest pewna znajomość zadagnień matematyki wyższej.
+
+	Liczby zespolone są nadzbiorem liczb rzeczywistych, wzbogacone o jednostkę urojoną $i$ definiowaną jako: 
 	
-	gęstość prawdopodobieństwa
+	\begin{center}
+	$i^2=-1$\\
+	\end{center}
 	
-	pochodne, pochodne funkcji zespolonych
+	Dowolną liczbę zespoloną możemy więc zapisać w postaci algebraicznej, będącej sumą liczb rzeczywistej i urojonej tj. takiej będącej rzeczywistą wielokrotnością jednostki urojonej:
 	
-	równania różniczkowe
+	\begin{center}
+	$z = a+bi$
+	\end{center}
+	
+	gdzie
+	$z \in \mathbb{C}$,
+	$a \in \mathbb{R}$,
+	$b \in \mathbb{R}$\\
+	
+	Do graficznego opisu liczby zespolonej poza osią rzeczywistą, potrzebna jestg dodatkowa, pionowa oś urojona. Liczba zespolona będzie punktem o współrzędnych $a$ i $b$ w kartezjańskim układzie współrzędnym. Moduł definiowany jako odległość liczby $z$ od liczby $0$, będącej środkiem układu współrzędnych,jest więc definiowana poprzez zastosowanie twierdzenia Pitagorasa:
+	
+	\begin{center}
+	$|z| = \sqrt{a^2+b^2}$
+	\end{center}
+	
+	gdzie:
+	$ z = a + bi$
+	
+	$z \in \mathbb{C}$,
+	$a \in \mathbb{R}$,
+	$b \in \mathbb{R}$\\
+	
+	Inną postacią liczby zespolonej jest postać wykładnicza, przedstawiana jako:
+	
+	\begin{center}
+	$z = |z|e^{i\phi}$
+	\end{center}
+	
+	gdzie:
+	$z \in \mathbb{C}$
+	
+	$e$ -- podstawa logarytmu naturalnego
+	
+	$i$ -- jednostka urojona
+	
+	$\phi$ -- kąt pomiędzy osią części rzeczywistej, a ramieniem poprowadzonym ze środka układu współrzędnych do liczby $z$\\
+	
+	Szczegóły funkcji falowej $\psi$ wytłumaczone są w dalszej części pracy, jednak na szczególną uwagę zasługuje wartość kwadratu jej modułu, określająca gęstość prawdopobieństwa znalezienia cząstki w danym położeniu. Oznacza to, że prawdopobieństwo to będziemy wyznaczać jako:
+	\begin{center}
+	 	$P(X) = \int\limits_{x_2}^{x_1} |\psi(x)|^2dx$
+	\end{center}
+	
+	gdzie:
+	
+	$X$ -- zdarzenie losowe, że cząstka znajduje się w obszarze
+	
+	$x_1, x_2$ -- początek i koniec obszaru\\ 	
+	
+	Dalej omawiane Równanie Schrödingera, jest równaniem różniczkowym tj. takim zawierającym pochodne funkcji $\psi$, które należy rozwiązać, aby znaleźć równanie $\psi$. Jednak wybrany zakres zagadnień wymaga jedynie umiejętności rozwiązani dwóch rodzajów równań:
+	
+	$f(x)''+f(x)=0 \;\Longleftrightarrow\; f(x) = Acosx + Bsinx$
+	
+	$f(x)''+Kf(x)=0 \;\Longleftrightarrow f(x)\; = Acos(Kx) + Bsin(Kx)$ \\
+
+	gdzie:
+	
+	$f(x) i f(x)''$ -- funkcja i jej pochodna względem zmiennej x
+	
+	$A \in \mathbb{R}, B \in \mathbb{R}, K \in \mathbb{C}$\textcolor{red}{C?}
+
+	Warto zaznaczyć, że pomimo tego że zagadnienia te są niezbędne do pełnego zrozumienia mechaniki kwantowej, to nie są niezbędne, aby zdobyć pewną teorytyczną wiedzę na jej temat, nawet jeśli mocno nieintuicyjną.
 	\section{Falowa natura materii}
 	Wyjaśnione przez Alberta Einsteina zjawisko fotoelektryczne ukazało, że światło zachowuje się nie tylko jak fala, ale też jak cząstką. Nośnik światła przekazywał energię porcjami -- kwantami przez co wprowadzone zostało pojęcie fotonu jako cząstki światła.
 	
@@ -107,11 +172,11 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	\section{Równanie Schrödingera}
 	Funkcja falowa stanowi fundament zagadnień poruszanych w aplikacji. Wynika to z faktu, że jest ona niezbędna do opisu ruchu dowolnej cząstki. Erwin Schrödinger zawarł funkcje falową w równaniu nazwanym od jego nazwiska równaniem Schrödingera.  Jeżeli skupimy się na odizolowanych układach fizycznych tj. takich, które nie oddziaływują z otoczeniem, rozwiązać należy równanie Schrödingera niezależne od czasu o postaci:
 	\begin{center}
-	{\large $-\frac{\hbar}{2m} \frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x)$}
+	{\large $-\frac{\amshbar}{2m} \frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x)$}
 	\end{center}
 	gdzie:
 	
-	$\hbar$ -- zredukowana stała Plancka
+	$\amshbar$ -- zredukowana stała Plancka
 	
 	$\psi(x)$ -- fukcja falowa w położeniu $x$
 	
