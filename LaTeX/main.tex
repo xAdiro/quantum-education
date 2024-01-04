@@ -45,7 +45,7 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	\section{Cel i motywacja pracy}
 	Celem pracy jest stworzenie aplikacji, która ma ułatwić naukę zagadnień z zakresu mechaniki kwantowej. Zagadnienia przedstawiane są w interaktywny celem podtrzymania uwagi i zainteresowania tym nietrywialnym tematem. Osiągnięte to zostało poprzez wykorzystanie licznych symulacji, na których efekt końcowy bezpośredni wpływ ma użytkownik, jednocześnie stosując samouczek, który te efekty odpowiednio tłumaczy.
 	
-	Osobiście temat mechaniki kwantowej uważam za niesamowicie ciekawy, więc napisanie tej pracy motywowane jest chęcią poszerzenia swojej wiedzy w tym obszarze, jak i zastosowaniu nabytej wiedzy informatycznej w stworzeniu praktycznego narzędzia. Za interesujące również uważam symulację funkcji falowej w przeciwieństwie do przypatrywania się statycznym jej wykresom na papierze czy w plikach pdf. Aplikacja kierowana jest do osób chcących nauczyć się wstępnych zagadnień mechaniki kwantowej, jednak bez konieczności sięgania po profesjonalną literaturę. Do pełnego zrozumienia wszystkich zagadnień potrzebna jest znajomość matematyki wyższej, jednak nawet bez tej wiedzy użytkownik może wynieść z aplikacji dużo nowych informacji. Może ona być więc użyteczna zarówno dla osób nie będących ściśle związanych z naukami matematycznymi i fizycznymi, jak i \textcolor{red}{studentów kierunków fizycznych?}.
+	Osobiście temat mechaniki kwantowej uważam za niezwykle ciekawy, więc napisanie tej pracy motywowane jest chęcią poszerzenia swojej wiedzy w jakotym obszarze, jak i zastosowaniu nabytej wiedzy informatycznej w stworzeniu praktycznego narzędzia. Za interesujące również uważam symulację funkcji falowej w przeciwieństwie do przypatrywania się statycznym jej wykresom na papierze czy w plikach pdf. Aplikacja kierowana jest do osób chcących nauczyć się wstępnych zagadnień mechaniki kwantowej, jednak bez konieczności sięgania po profesjonalną literaturę. Do pełnego zrozumienia wszystkich zagadnień potrzebna jest znajomość matematyki wyższej, jednak nawet bez tej wiedzy użytkownik może wynieść z aplikacji dużo nowych informacji. Może ona być więc użyteczna zarówno dla osób nie będących ściśle związanych z naukami matematycznymi i fizycznymi, jak i \textcolor{red}{studentów kierunków fizycznych?}.
 	\section{Tematyka i struktura pracy}
 	Aplikacja przytacza kontekst historyczny dziedziny fizyki jaką jest mechanika kwantowa jak i tłumaczy falowo korpuskularną naturę cząstek. Główna częśc jednak skupia się na typowych rozwiązaniach równania Schrödingera niezależnego od czasu, a dokładniej:
 	\begin{itemize}
@@ -96,7 +96,7 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	$a \in \mathbb{R}$,
 	$b \in \mathbb{R}$\\
 	
-	Do graficznego opisu liczby zespolonej poza osią rzeczywistą, potrzebna jestg dodatkowa, pionowa oś urojona. Liczba zespolona będzie punktem o współrzędnych $a$ i $b$ w kartezjańskim układzie współrzędnym. Moduł definiowany jako odległość liczby $z$ od liczby $0$, będącej środkiem układu współrzędnych,jest więc definiowana poprzez zastosowanie twierdzenia Pitagorasa:
+	Do graficznego opisu liczby zespolonej poza osią rzeczywistą, potrzebna jest dodatkowa, pionowa oś urojona. Liczba zespolona będzie punktem o współrzędnych $a$ i $b$ w kartezjańskim układzie współrzędnym. Moduł definiowany jako odległość liczby $z$ od liczby $0$, będącej środkiem układu współrzędnych,jest więc definiowana poprzez zastosowanie twierdzenia Pitagorasa:
 	
 	\begin{center}
 	$|z| = \sqrt{a^2+b^2}$
@@ -124,7 +124,7 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	
 	$\phi$ -- kąt pomiędzy osią części rzeczywistej, a ramieniem poprowadzonym ze środka układu współrzędnych do liczby $z$\\
 	
-	Szczegóły funkcji falowej $\psi$ wytłumaczone są w dalszej części pracy, jednak na szczególną uwagę zasługuje wartość kwadratu jej modułu, określająca gęstość prawdopobieństwa znalezienia cząstki w danym położeniu. Oznacza to, że prawdopobieństwo to będziemy wyznaczać jako:
+	Szczegóły funkcji falowej $\psi$ wytłumaczone są w dalszej części pracy, jednak na szczególną uwagę zasługuje wartość kwadratu jej modułu, określająca gęstość prawdopobieństwa znalezienia cząstki w danym położeniu. Oznacza to, że prawdopobieństwo znalezienia cząstki w obszarze $[x_1, x_2]$ będziemy wyznaczać jako:
 	\begin{center}
 	 	$P(X) = \int\limits_{x_2}^{x_1} |\psi(x)|^2dx$
 	\end{center}
@@ -135,7 +135,7 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	
 	$x_1, x_2$ -- początek i koniec obszaru\\ 	
 	
-	Dalej omawiane Równanie Schrödingera, jest równaniem różniczkowym tj. takim zawierającym pochodne funkcji $\psi$, które należy rozwiązać, aby znaleźć równanie $\psi$. Jednak wybrany zakres zagadnień wymaga jedynie umiejętności rozwiązani dwóch rodzajów równań:
+	Równanie różniczkowe to równanie funkcyjne zawierające pochodne nieznanej funkcji. Znajdowanie rozwiązań takich równań znacząco wykracza poza wiedzę wymaganą do zrozumienia omawianych zagadnień fizycznych, więc nie będzie temu przywiązywana szczególna uwaga. Wybrany zakres zagadnień wymaga jedynie zapamiętania rozwiązań dwóch rodzajów równań:
 	
 	$f(x)''+f(x)=0 \;\Longleftrightarrow\; f(x) = Acosx + Bsinx$
 	
@@ -144,8 +144,12 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	gdzie:
 	
 	$f(x) i f(x)''$ -- funkcja i jej pochodna względem zmiennej x
+
+	$K \in \mathbb{C}$
+		
+	$A \in \mathbb{R}, B \in \mathbb{R}$ -- stałe wyznaczane z warunków początkowych albo brzegowych
 	
-	$A \in \mathbb{R}, B \in \mathbb{R}, K \in \mathbb{C}$\textcolor{red}{C?}
+	
 
 	Warto zaznaczyć, że pomimo tego że zagadnienia te są niezbędne do pełnego zrozumienia mechaniki kwantowej, to nie są niezbędne, aby zdobyć pewną teorytyczną wiedzę na jej temat, nawet jeśli mocno nieintuicyjną.
 	\section{Falowa natura materii}
@@ -203,6 +207,7 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	html + css, BEM, struktura stron
 	\section{Typescript i manipulacja DOM}
 	\section{Obliczenia fizyczne w Pythonie}
+	complex, numpy i potencjalny sympy
 	\section{Interfejs pomiędzy TypeScriptem i Pythonem}
 	\section{Wdrożenie i dystrybucja aplikacji}
 	o budowie aplikacji, pakowanych zasobach, interpreterze pythona, platformach
