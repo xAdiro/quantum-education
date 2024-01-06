@@ -3,7 +3,6 @@ import Chart, {
   ChartConfiguration,
   ChartOptions,
 } from "chart.js/auto"
-import { data } from "./data"
 import { ChartTypeRegistry, ScriptableContext } from "chart.js/dist/types"
 
 Chart.defaults.color = "black"
@@ -18,7 +17,12 @@ export var quantumJumpChart: Chart
         borderColor: "rgb(50,50,200)",
         backgroundColor: "rgb(50,50,200)",
         tension: 0,
-        data: data[29].V0,
+        data: [
+          { x: -5, y: 0 },
+          { x: 0, y: 0 },
+          { x: 0, y: 3 },
+          { x: 5, y: 3 },
+        ],
       },
       {
         label: "Energia całkowita",
@@ -26,7 +30,10 @@ export var quantumJumpChart: Chart
         borderColor: "rgb(20, 255, 20)",
         backgroundColor: "rgb(20, 255, 20)",
         tension: 0,
-        data: data[29].E,
+        data: [
+          { x: -5, y: 5 },
+          { x: 5, y: 5 },
+        ],
       },
       {
         label: "Re(psi)",

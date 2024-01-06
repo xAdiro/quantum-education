@@ -1,10 +1,10 @@
 import { quantumJumpChart } from "./quantum-jump-chart"
-import { data } from "./data"
+import { potentialJumpData } from "../../python-interface/potential-jump"
 
 const button = document.querySelector("#simulate-button")
-button?.addEventListener("click", updateChart)
+button?.addEventListener("click", await updateChart)
 
-function updateChart() {
+async function updateChart() {
   const slider = <HTMLInputElement>(
     document.querySelector("#quantum-total-energy")
   )
@@ -14,21 +14,17 @@ function updateChart() {
 
   const newEnergy = max - parseFloat(slider.value) + min
 
-  const dataIndex = energyToIndex(newEnergy)
-
-  quantumJumpChart!.data!.datasets[1]!.data = data[dataIndex].E
-  quantumJumpChart!.data!.datasets[2]!.data = data[dataIndex].re
-  quantumJumpChart!.data!.datasets[3]!.data = data[dataIndex].im
-  quantumJumpChart!.data!.datasets[4]!.data = data[dataIndex]["psi^2"]
-  quantumJumpChart.update("show")
-}
-
-function energyToIndex(energy: number): number {
-  if (energy > 4.9) {
-    energy = 4.9
-  } else if (energy < 2) {
-    energy = 2
-  }
-
-  return Math.round((energy - 2) * 10)
+  await potentialJumpData(
+    (x0, x1, re, im, psiSq) => {
+      quantumJumpChart!.data!.datasets[2]!.data = re
+      quantumJumpChart!.data!.datasets[3]!.data = im
+      quantumJumpChart!.data!.datasets[4]!.data = psiSq
+      quantumJumpChart.update("show")
+    },
+    -5,
+    5,
+    newEnergy,
+    3,
+    1
+  )
 }

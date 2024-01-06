@@ -1,5 +1,4 @@
 import { quantumJumpChart } from "./quantum-jump-chart"
-import { data } from "./data"
 
 const slider = <HTMLInputElement>document.querySelector("#quantum-total-energy")
 
@@ -11,8 +10,10 @@ slider?.addEventListener("input", () => {
 
   const dataIndex = energyToIndex(newEnergy)
 
-  console.log("eee")
-  quantumJumpChart!.data!.datasets[1]!.data = data[dataIndex].E
+  quantumJumpChart!.data!.datasets[1]!.data = [
+    { x: -5, y: newEnergy },
+    { x: 5, y: newEnergy },
+  ]
   quantumJumpChart.update()
 })
 
