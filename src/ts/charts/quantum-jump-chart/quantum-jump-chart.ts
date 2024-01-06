@@ -16,6 +16,7 @@ export var quantumJumpChart: Chart
         label: "Potencjał",
         fill: false,
         borderColor: "rgb(50,50,200)",
+        backgroundColor: "rgb(50,50,200)",
         tension: 0,
         data: data[29].V0,
       },
@@ -23,6 +24,7 @@ export var quantumJumpChart: Chart
         label: "Energia całkowita",
         fill: false,
         borderColor: "rgb(20, 255, 20)",
+        backgroundColor: "rgb(20, 255, 20)",
         tension: 0,
         data: data[29].E,
       },
@@ -30,6 +32,7 @@ export var quantumJumpChart: Chart
         label: "Re(psi)",
         fill: false,
         borderColor: "rgb(226,47,47)",
+        backgroundColor: "rgb(226,47,47)",
         tension: 0.01,
         borderWidth: 5,
         data: [],
@@ -38,6 +41,7 @@ export var quantumJumpChart: Chart
         label: "Im(psi)",
         fill: false,
         borderColor: "rgb(244,51,255)",
+        backgroundColor: "rgb(244,51,255)",
         tension: 0.01,
         borderWidth: 5,
         data: [],
@@ -46,6 +50,7 @@ export var quantumJumpChart: Chart
         label: "ψ²",
         fill: false,
         borderColor: "#FF8800",
+        backgroundColor: "#FF8800",
         tension: 0.01,
         borderWidth: 5,
         data: [],
@@ -81,11 +86,26 @@ export var quantumJumpChart: Chart
   const options: ChartOptions = {
     scales: {
       x: {
+        title: {
+          display: true,
+          text: "X",
+          color: "#FFFFFF",
+          align: "center",
+          font: {
+            size: 18,
+          },
+        },
         type: "linear",
         min: -5,
         max: 5,
         ticks: {
           display: false,
+        },
+        grid: {
+          display: false,
+        },
+        border: {
+          color: "#FFFFFF",
         },
       },
       y: {
@@ -93,6 +113,12 @@ export var quantumJumpChart: Chart
         min: -2,
         ticks: {
           display: false,
+        },
+        grid: {
+          display: false,
+        },
+        border: {
+          color: "#FFFFFF",
         },
       },
     },

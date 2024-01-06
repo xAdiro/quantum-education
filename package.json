@@ -12,7 +12,8 @@
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
     "buffer": "^6.0.3",
-    "chart.js": "^4.2.1"
+    "chart.js": "^4.2.1",
+    "mathjax": "^3.2.2"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.2.3",
