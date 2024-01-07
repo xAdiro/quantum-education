@@ -246,6 +246,7 @@ body {
 
 .quantum-jump-tool {
   margin-top: 2em;
+  margin-bottom: 4em;
   width: 70%;
   align-self: center;
   display: grid;
