@@ -1,13 +1,8 @@
-import Chart, {
-  AnimationSpec,
-  ChartConfiguration,
-  ChartOptions,
-} from "chart.js/auto"
-import { ChartTypeRegistry, ScriptableContext } from "chart.js/dist/types"
+import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
 
 Chart.defaults.color = "black"
 
-export var quantumJumpChart: Chart
+export var quantumJumpCharts: Chart[] = []
 ;(async function () {
   const datasets = {
     datasets: [
@@ -31,8 +26,8 @@ export var quantumJumpChart: Chart
         backgroundColor: "rgb(20, 255, 20)",
         tension: 0,
         data: [
-          { x: -5, y: 5 },
-          { x: 5, y: 5 },
+          // { x: -5, y: 5 },
+          // { x: 5, y: 5 },
         ],
       },
       {
@@ -64,31 +59,6 @@ export var quantumJumpChart: Chart
       },
     ],
   }
-
-  // const totalDuration = 10000
-  // const delayBetweenPoints = totalDuration / data.length
-  // const previousY = (ctx: ScriptableContext<"line">) =>
-  //   ctx.index === 0
-  //     ? ctx.chart.scales.y.getPixelForValue(100)
-  //     : ctx.chart
-  //         .getDatasetMeta(ctx.datasetIndex)
-  //         .data[ctx.index - 1].getProps(["y"], true).y
-
-  // const animation: <Animation> ={
-  //   x: {
-  //     type: "number",
-  //     easing: "linear",
-  //     duration: delayBetweenPoints,
-  //     from: NaN,
-  //     delay(ctx: ScriptableContext<ChartTypeRegistry.Line>) {
-  //       if (ctx.type !== "data" || ctx.xStarted) {
-  //         return 0
-  //       }
-  //       ctx.xStarted = true
-  //       return ctx.index * delayBetweenPoints
-  //     },
-  //   },
-  // }
 
   const options: ChartOptions = {
     scales: {
@@ -160,9 +130,25 @@ export var quantumJumpChart: Chart
     options: options,
   }
 
-  const chartElement: HTMLCanvasElement = <HTMLCanvasElement>(
-    document.getElementById("quantum-jump-chart")!
+  const chartElements: HTMLCollectionOf<HTMLCanvasElement> = <
+    HTMLCollectionOf<HTMLCanvasElement>
+  >document.getElementsByClassName("quantum-jump-chart")
+
+  const sliders = <NodeListOf<HTMLInputElement>>(
+    document.querySelectorAll(".quantum-total-energy")
   )
 
-  quantumJumpChart = new Chart(chartElement, config)
+  for (let i = 0; i < chartElements.length; i++) {
+    const min = parseFloat(sliders[i].min)
+    const max = parseFloat(sliders[i].max)
+    const newEnergy = max - parseFloat(sliders[i].value) + min
+
+    const newConfig = JSON.parse(JSON.stringify(config))
+    newConfig.data.datasets[1].data = [
+      { x: -5, y: newEnergy },
+      { x: 5, y: newEnergy },
+    ]
+
+    quantumJumpCharts.push(new Chart(chartElements[i], newConfig))
+  }
 })()
