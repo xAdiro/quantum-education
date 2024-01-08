@@ -71,6 +71,12 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	\section{Popularne technologie webowe - HTML, CSS i TypeScript}
 	\section{Biblioteki Chart.js i MathJax}
 	\section{Język Python}
+	Python pomimo, że znacząco wolniejszy od wielu innych języków programowania \cite{Python slow}, posiada bogatą kolekcję bibliotek do przetwarzania danych i obliczeń matematycznych m.in. NumPy, SciPy i SymPy. Biblioteki te najczęściej napisane w C lub Fortranie, są już z kolei bardzo znacznie szybsze od czystego Pythona\cite{Python libs}. Charakterystyczna jest też jego przejrzysta składnia, zawierająca dużo lukru składniowego\cite{Python sugar}.
+	
+	Głównymi powodami, dla których zdecydowałem się na Pythona, jest właśnie dostępność bibliotek, a szczególnie SymPy oraz wbudowana obsługa liczb zespolonych. Liczby zespolone są dostępne za pośrednictwem biblioteki Math w TypeScript'cie\cite{TS Math}, którego i tak używam w aplikacji, jednak przez składnie kod zajmuje znacznie więcej miejsca niż w Pythonie. SymPy z kolei nie został wykorzystany w żadnym miejscu w implementacji aplikacji, więc wydać się może nietypowym argumentem za wyborem języka. SymPy jest biblioteką umożliwiającą obliczenia w matematyce symbolicznej\cite{SymPy}, co najważniejsze pozwala na znajdowanie analitycznych rozwiązań dla równań różniczkowych. W mojej opinii ułatwia to rozwój aplikacji i wzbogacenie jej o bardziej zaawansowane przypadki rozłożenia potencjału w przestrzeni.
+	
+	Dostępność MatPlotLib i podobnych bibliotek umożliwia rysowanie wykresów do wizualizacji danych, wymagając do tego bardzo małej ilości kodu, co może okazać się niezwykle przydatne przy sprawdzaniu poprawności implementacji obliczeń bardziej złożonych wzorów matematycznych. Przy pisaniu pracy niejednokrotnie z takiej możliwości skorzystałem, na co najczęściej potrzebne były 3-4 linie kodu.
+	
 	\section{Framework Tauri}
 	Była opcja WebAssembly ale jest niedorpacowane(napisać szczegóły)
 	+ vite + npm
@@ -207,8 +213,25 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	html + css, BEM, struktura stron
 	\section{Typescript i manipulacja DOM}
 	\section{Obliczenia fizyczne w Pythonie}
-	complex, numpy i potencjalny sympy
+		Implementacja obliczeń zagadnień cząstki swobodnej(rysunek), nieskończonej studni potencjału(rysunek) i progu potencjału, jest trywialnym zagadnieniem i nie wymaga dłuższego tłumaczenia.
+		
+		Sytuacja jest już odmienna dla pozostałych zagadnień, zaczynając od skończonej studnii potencjału. Istnieją w niej bowiem, tak jak w studni nieskończonej, skwantowane stany energii dla cząstki związanej, jednak wyznaczenie ich nie wyraża się prostym wzorem. Wiadomo, że $\psi(x)$ wyraża się wzorem:
+		$\psi_1(x) = Ce^{\gamma x}$
+		
+		$\psi_2(x) = Asin(kx) + Bcos(kx)$
+		
+		$\psi_3(x) = De^{-\gamma x}$
+
+gdzie indeksy opisują obszar, którego dotyczy wzór funkcji.
+		Stałe $A$, $B$, $C$ i $D$ wyznaczane są z warunków brzegowych, jednak do obliczenia $\gamma$ potrzebna jest wartość $k$.
+		
+		Ze względu na szybkość początkowo chciałe zastosować metodą Newtona, jednak eksperymentalnie stwierdziłem, że przez charakter funkcji, znalezienie miejsca zerowego tą metodą jest bardzo wolne. Znacznie lepsze efekty przyniosła metoda bisekcji i ona wykorzystywana jest w ostatecznej implementacji.
+		
+		
 	\section{Interfejs pomiędzy TypeScriptem i Pythonem}
+		Języki programowania tak odmienne jak TypeScript i Python uruchamiane są w zupełnie innych środowiskach. Framework Tauri daje tutaj wyjątkową możliwość obsługując TypeScriptu przy użyciu WebView\cite{tauri webview} i Pythona wykorzystująć lokalnie zainstalowany interpreter\cite{tauri shell}.
+		
+		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w TypeScript'cie. Wyniki obliczeń fizycznych są więc serializowane(rysunek), wysyłane jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w TypeScript'cie(rysunek).  
 	\section{Wdrożenie i dystrybucja aplikacji}
 	o budowie aplikacji, pakowanych zasobach, interpreterze pythona, platformach
 	\section{Problemy, ograniczenia i możliwości rozwoju}
@@ -231,6 +254,18 @@ Stworzenie teorii mechaniki kwantowej w 1925 r.[przypis?] okazało się podstaw�
 	David Flanagan, 
 	\textit{JavaScript: The Definitive Guide. Master the World's Most-Used Programming Language. 7th Edition}, 
 	O'Reilly Media, 2020
+	
+	\bibitem{Python slow}
+	Wes McKinney
+	\textit{Python for Data Analysis, str. 3}
+	
+	\bibitem{Python libs}
+	Wes McKinney
+	\textit{Python for Data Analysis, str. 2}
+	
+	\bibitem{Python sugar}
+	Wes McKinney
+	\textit{Python for Data Analysis, str. 418}
 	
 	
 \end{thebibliography}
