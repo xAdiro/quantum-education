@@ -1,8 +1,8 @@
 \contentsline {chapter}{\numberline {1}Wstęp}{9}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Cel i motywacja pracy}{9}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Tematyka i struktura pracy}{10}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Tematyka i struktura pracy}{9}{section.1.2}%
 \contentsline {chapter}{\numberline {2}Wykorzystane technologie}{11}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Popularne technologie webowe - HTML, CSS i TypeScript}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.1}Popularne technologie webowe -- HTML, CSS i TypeScript}{11}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Biblioteki Chart.js i MathJax}{11}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Język Python}{11}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Framework Tauri}{12}{section.2.4}%
@@ -11,17 +11,17 @@
 \contentsline {section}{\numberline {3.2}Falowa natura materii}{15}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Równanie Schrödingera}{15}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Znajdowanie równania funkcji falowej}{16}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Budowa i struktura aplikacji}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Struktura aplikacji}{17}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Interfejs}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Typescript i manipulacja DOM}{17}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Obliczenia fizyczne w Pythonie}{17}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Interfejs pomiędzy TypeScriptem i Pythonem}{18}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Wdrożenie i dystrybucja aplikacji}{18}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Problemy, ograniczenia i możliwości rozwoju}{18}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Ekran główny}{19}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{19}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Transkrypcja}{19}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{20}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Bibliografia}{21}{chapter.7}%
+\contentsline {chapter}{\numberline {4}Budowa i struktura aplikacji}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Struktura aplikacji}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Interfejs}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Typescript i manipulacja DOM}{19}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Obliczenia fizyczne w Pythonie}{19}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Interfejs pomiędzy TypeScriptem i Pythonem}{20}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Wdrożenie i dystrybucja aplikacji}{20}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Problemy, ograniczenia i możliwości rozwoju}{20}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ekran główny}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{21}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Transkrypcja}{21}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{22}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Bibliografia}{23}{chapter.7}%
