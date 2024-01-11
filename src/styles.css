@@ -269,6 +269,32 @@ body {
   grid-area: chart;
 }
 
+.quantum-inf-well-tool {
+  margin-top: 2em;
+  margin-bottom: 4em;
+  width: 70%;
+  align-self: center;
+  display: grid;
+  grid-template:
+    "slider chart"
+    "info chart";
+  grid-template-columns: 100px auto;
+  grid-template-rows: auto 40px;
+  gap: 10px 30px;
+}
+
+.quantum-inf-well-tool .n-info {
+  grid-area: info;
+  text-align: center;
+}
+.quantum-inf-well-tool .quantum-inf-well-chart {
+  grid-area: chart;
+}
+
+.quantum-inf-well-tool .chart {
+  grid-area: chart;
+}
+
 .chart {
   background: #333333;
   border-radius: 10px;

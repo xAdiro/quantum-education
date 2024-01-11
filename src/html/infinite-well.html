@@ -47,19 +47,44 @@
     <div class="side-menu-block"></div>
 
     <main class="content">
-      <h1>Nieskończona studnia</h1>
+      <div class="home-header">
+        <h1 class="title">Nieskończona studnia</h1>
+      </div>
+
+      <p>
+        Rozważmy przypadek, w którym cząstka porusza się między dwoma ścianami o
+        nieskończonym potencjale. W równaniu Schrodingera
+        $$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V(x)\psi(x)=E\psi(x)$$ dla
+        obszarów 1 i 3, mamy zatem \(V\), co dla \(\psi\ne0\) daje wniosek, że
+        \(\frac{d^2\psi}{dx^2} \) jest nieskończone, co nie ma fizycznego sensu.
+        Zatem: $$\psi_1=\psi_3=0$$ Z kolei dla obszaru drugiego równanie ma
+        postać: $$\frac{d^2\psi}{dx^2} + k^2\psi(x) = 0$$ gdzie:
+        $$k=\frac{1}{\hbar}\sqrt{2mE}$$ Ogólne rozwiązanie tego równania
+        zapisujemy jako: $$\psi = Asin(kx) + Bcos(kx)$$ Wymagamy, aby \(\psi\)
+        było ciągłe pomiędzy obszarami, więc oczekujemy że \(a\) musi być
+        całkowitą wielokrotnością połowy długości fali co możemy wyrazić jako:
+      </p>
+
       <div class="quantum-inf-well-tool">
         <input
           type="range"
           min="1"
           max="10"
-          value="1"
+          value="10"
           step="1"
           class="quantum-total-energy slider"
         />
-        <button class="simulate-button green-button">strzel</button>
+        <div class="info">n = <span class="n-value">1</span></div>
         <canvas class="quantum-inf-well-chart" class="chart"></canvas>
       </div>
     </main>
+    <script
+      type="module"
+      src="/src/ts/charts/quantum-inf-well/chart.ts"
+    ></script>
+    <script
+      type="module"
+      src="/src/ts/charts/quantum-inf-well/n-slider.ts"
+    ></script>
   </body>
 </html>

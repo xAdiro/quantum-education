@@ -11,14 +11,14 @@ def infinite_well(x0, x1, a, n, dx=0.01):
     x = arange(x0, x1, dx)
 
     if n % 2 == 0:
-        psi = [C*sin(k*xp) for xp in x]
+        psi = [C*sin(k*xp) if -a/2 < xp < a/2 else 0 for xp in x]
         return to_json(
             x.tolist(),
             re=psi,
             psi_sq=[y**2 for y in psi]
         )
     else:
-        psi = [C*cos(k*xp) for xp in x]
+        psi = [C*cos(k*xp) if -a/2 < xp < a/2 else 0 for xp in x]
         return to_json(
             x.tolist(),
             re=psi,
