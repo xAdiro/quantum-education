@@ -1,0 +1,68 @@
+import { quantumInfWellCharts } from "../charts/quantum-inf-well/n-slider"
+
+let box_i = 0
+let max_i: number
+const chart = quantumInfWellCharts[0]
+
+document.body.onload = () => {
+  document
+    .querySelector(".narrator-box__step")
+    ?.classList.add("narrator-box__step--active")
+
+  const prevButton = document.querySelector(".narrator-box__back-button")
+  const forwardButton = document.querySelector(".narrator-box__forward-button")
+  max_i = document.querySelectorAll(".narrator-box__step").length - 1
+
+  prevButton?.addEventListener("click", () => {
+    if (box_i > 0) box_i--
+
+    updateNarrator(box_i)
+  })
+
+  forwardButton?.addEventListener("click", () => {
+    if (box_i < max_i) box_i++
+
+    updateNarrator(box_i)
+  })
+}
+
+function updateNarrator(step_i: number) {
+  const oldActive = document.querySelector(".narrator-box__step--active")
+  oldActive?.classList.remove("narrator-box__step--active")
+
+  const newActive = document.querySelectorAll(".narrator-box__step")[box_i]
+  newActive.classList.add("narrator-box__step--active")
+
+  updateCharts[step_i]()
+}
+
+const updateCharts = [
+  () => {
+    showDatasets(0)
+  },
+  () => {
+    showDatasets(0)
+  },
+  () => {
+    showDatasets(0)
+  },
+  () => {
+    showDatasets(0)
+  },
+  () => {
+    showDatasets(0)
+  },
+  () => {
+    showDatasets(0)
+  },
+  () => {
+    showDatasets(0, 2)
+  },
+]
+
+function showDatasets(...indexes: number[]) {
+  for (let i = 0; i < chart.data.datasets.length; i++) {
+    chart.getDatasetMeta(i).hidden = !indexes.includes(i)
+  }
+  chart.update()
+}

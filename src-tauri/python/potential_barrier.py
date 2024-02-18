@@ -64,6 +64,7 @@ def potential_barrier_test():
         # [k2*e**(1j*k2*a), -k2*e**(-1j*k2*a), -k3*e**(1j*k3*a)],
         [e**(1j*k2*a)*(k3-k2), e**(-1j*k2*a)]
     ], dtype=complex)
+    print(f"A: {A}")
 
     B = array([k1, 0], dtype=complex)
 
@@ -72,17 +73,18 @@ def potential_barrier_test():
     T = C*e**(1j*k2*a) - D*e**(-1j*k2*a)
 
     ##
-    C = k1*(k2+k3)/((k1-k2)*(k3-k2))-k1
-    D = ((k1+k2)*C+2*k1)/(k2+k1)
-    R = C + D - 1
-    T = C*e**(1j*a*(k2) + D*e**(-1j*a*(k2)))/k3
+    # C = k1*(k2+k3)/((k1-k2)*(k3-k2))-k1
+    # D = ((k1+k2)*C+2*k1)/(k2+k1)
+    # R = C + D - 1
+    # T = C*e**(1j*a*(k2)) + D*e**(-1j*a*(k2))/k3
     ##
 
-    print(abs(1+R-C-D))
-    print(abs(k1-k1*R-k2*C+k2*D))
-    print(abs(C*e**(1j*k2*a)+D*e**(-1j*k2*a)-T*e**(1j*k3*a)))
-    print(abs(k2*C*e**(1j*k2*a)-k2*D*e**(-1j*k2*a) - k3*T*e**(1j*k3*a)))
-    print(T, R, C, D)
+    print(C, D, R, T)
+    # print(abs(1+R-C-D))
+    # print(abs(k1-k1*R-k2*C+k2*D))
+    # print(abs(C*e**(1j*k2*a)+D*e**(-1j*k2*a)-T*e**(1j*k3*a)))
+    # print(abs(k2*C*e**(1j*k2*a)-k2*D*e**(-1j*k2*a) - k3*T*e**(1j*k3*a)))
+    # print(T, R, C, D)
 
     y = [_psi(x0, a, T, D, C, R, k1, k2, k3) for x0 in x]
 

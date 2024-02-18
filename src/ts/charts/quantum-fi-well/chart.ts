@@ -1,5 +1,5 @@
 import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
-import { infWellData } from "../../python-interface/inf-well"
+import { fiWellData } from "../../python-interface/fi-well"
 
 Chart.defaults.color = "black"
 
@@ -22,7 +22,6 @@ export var quantumInfWellCharts: Chart[] = []
       },
       {
         label: "Energia całkowita",
-        hidden: true,
         fill: false,
         borderColor: "rgb(20, 255, 20)",
         backgroundColor: "rgb(20, 255, 20)",
@@ -31,7 +30,6 @@ export var quantumInfWellCharts: Chart[] = []
       },
       {
         label: "Re(psi)",
-        hidden: true,
         fill: false,
         borderColor: "rgb(226,47,47)",
         backgroundColor: "rgb(226,47,47)",
@@ -41,7 +39,6 @@ export var quantumInfWellCharts: Chart[] = []
       },
       {
         label: "ψ²",
-        hidden: true,
         fill: false,
         borderColor: "#FF8800",
         backgroundColor: "#FF8800",
@@ -67,9 +64,6 @@ export var quantumInfWellCharts: Chart[] = []
         type: "linear",
         min: -5,
         max: 5,
-        // afterUpdate: (axis) => {
-        //   axis.ticks = []
-        // },
         ticks: {
           color: "#FFFFFF",
           display: false,
@@ -128,7 +122,7 @@ export var quantumInfWellCharts: Chart[] = []
 
   const chartElements: HTMLCollectionOf<HTMLCanvasElement> = <
     HTMLCollectionOf<HTMLCanvasElement>
-  >document.getElementsByClassName("quantum-inf-well-chart")
+  >document.getElementsByClassName("quantum-fi-well-chart")
 
   const sliders = <NodeListOf<HTMLInputElement>>(
     document.querySelectorAll(".quantum-total-energy")
@@ -154,7 +148,7 @@ export var quantumInfWellCharts: Chart[] = []
 
 async function update() {
   for (let i = 0; i < quantumInfWellCharts.length; i++) {
-    await infWellData(
+    await fiWellData(
       (x0, x1, re, psiSq, E) => {
         quantumInfWellCharts[i].data!.datasets[1]!.data = E
         quantumInfWellCharts[i].data!.datasets[2]!.data = re

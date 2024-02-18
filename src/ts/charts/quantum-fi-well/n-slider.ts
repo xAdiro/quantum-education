@@ -1,8 +1,6 @@
 import { quantumInfWellCharts } from "./chart"
 import { infWellData } from "../../python-interface/inf-well"
 
-export { quantumInfWellCharts } from "./chart"
-
 const sliders = <NodeListOf<HTMLInputElement>>(
   document.querySelectorAll(".quantum-total-energy")
 )

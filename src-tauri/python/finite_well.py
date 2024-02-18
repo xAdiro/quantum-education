@@ -9,17 +9,22 @@ def finite_well(x0, x1, a, V0, m, h_, dx=0.01):
     C = a/h_ * sqrt(2*m*V0)
     x = arange(x0, x1, dx)
     y = {}
+    E = {}
+    psi_sq = {}
 
     for i, k in enumerate(_possible_k(a, C)):
-        y[f"n{i}"] = [_psi(xn, k, a, V0, m, h_, (i+1) % 2 == 0) for xn in x]
-
+        y[f"n{i}"] = [_psi(xn, k, a, (i+1) % 2 == 0) for xn in x]
+        E[f"n{i}"] = [(k*h_)**2/(2*m)+V0],
+        psi_sq[f"n{i}"] = [abs(y0)**2 for y0 in y]
     return to_json(
         x.tolist(),
-        **y
+        **y,
+        **E,
+        **psi_sq
     )
 
 
-def _psi(x, k, a, V0, m, h_, even, dx=0.01):
+def _psi(x, k, a, even, dx=0.01):
     A = B = 1
 
     if even:

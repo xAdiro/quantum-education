@@ -44,6 +44,7 @@ a:hover {
 
 body {
   margin: 0;
+  display: flex;
 }
 
 .icon {
@@ -52,60 +53,35 @@ body {
   transition: 0.25s;
 }
 
-.container {
-  display: flex;
-  align-items: stretch;
+#wrapper {
+  margin: 0;
+  padding: 0;
   height: 100vh;
-}
-
-.content {
-  padding: 5em;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 24px;
-}
-
-.content > ul {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.title {
-  align-items: center;
+  flex-direction: row;
+  /* align-items: stretch; */
 }
 
 .side-menu {
+  --side-menu-width: 2em;
   font-size: larger;
   position: fixed;
   margin: 0;
   display: flex;
   flex-direction: column;
-  width: 2em;
   height: calc(100vh - 1em);
   background-color: #0f0f0f;
   padding: 0.5em;
   gap: 1em;
   /* border-right: 2px solid rgb(156, 156, 156); */
   box-shadow: 5px 0px 15px 0px #0f0f0f;
-}
-
-.side-menu > a {
-  display: flex;
-  gap: 0.5em;
-  align-items: center;
-}
-
-.side-menu .side-menu-block {
+  z-index: 1;
   font-size: larger;
   margin: 0;
-  display: sticky;
   width: 2em;
   height: calc(100vh - 1em);
   padding: 0.5em;
-  display: inline;
 }
 
 .side-menu .chapter-name {
@@ -115,6 +91,33 @@ body {
 
 .side-menu .chapter-name:hover {
   color: var(--accent-color);
+}
+
+.content {
+  margin-left: 58px;
+  padding: 0 2em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  width: 80%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.content > ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.side-menu > a {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
 }
 
 .side-menu:hover {
@@ -150,14 +153,9 @@ body {
 }
 
 .home-header {
-  margin-left: -10em;
-  margin-right: -10em;
-  margin-top: -3em;
-  width: calc(100% + 20em);
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #1a1a1a; */
   border-radius: 2em;
 }
 
@@ -170,6 +168,55 @@ body {
   height: 3px;
   background-color: whitesmoke;
   border-radius: 2em;
+}
+
+.narrator-box {
+  display: flex;
+  align-items: center;
+  height: 6em;
+  border: 2px solid rgb(100, 100, 100);
+  background-color: #181818;
+  text-align: center;
+  bottom: 2em;
+  width: 90vw;
+  padding: 1em 1em 1em 1em;
+}
+
+.nav-button {
+  border: 2px solid var(--accent-color);
+  border-radius: 40px;
+  width: 2em;
+  height: 2em;
+  font-size: inherit;
+  background-color: inherit;
+  color: inherit;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-button:hover {
+  background-color: var(--accent-color);
+  color: rgb(17, 17, 17);
+}
+
+.nav-button:active {
+  background-color: rgb(101, 255, 183);
+  border-color: rgb(101, 255, 183);
+}
+
+.narrator-box__back-button {
+}
+
+.narrator-box__step {
+  display: none;
+  width: auto;
+  flex-grow: 1;
+}
+.narrator-box__step--active {
+  display: block;
+}
+
+.narrator-box__forward-button {
 }
 
 .classic-ball-point {
@@ -247,7 +294,6 @@ body {
 .quantum-jump-tool {
   margin-top: 2em;
   margin-bottom: 4em;
-  width: 70%;
   align-self: center;
   display: grid;
   grid-template:
@@ -270,10 +316,7 @@ body {
 }
 
 .quantum-inf-well-tool {
-  margin-top: 2em;
-  margin-bottom: 4em;
-  width: 70%;
-  align-self: center;
+  flex-grow: 1;
   display: grid;
   grid-template:
     "slider chart"
