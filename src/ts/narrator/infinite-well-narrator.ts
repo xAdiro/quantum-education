@@ -38,31 +38,58 @@ function updateNarrator(step_i: number) {
 
 const updateCharts = [
   () => {
-    showDatasets(0)
+    showDatasets(false, 0)
+    displaySlider(false)
   },
   () => {
-    showDatasets(0)
+    showDatasets(false, 0)
+    displaySlider(false)
   },
   () => {
-    showDatasets(0)
+    showDatasets(false, 0)
+    displaySlider(false)
   },
   () => {
-    showDatasets(0)
+    showDatasets(false, 0)
+    displaySlider(false)
   },
   () => {
-    showDatasets(0)
+    showDatasets(false, 0)
+    displaySlider(false)
   },
   () => {
-    showDatasets(0)
+    showDatasets(false, 0)
+    displaySlider()
   },
   () => {
-    showDatasets(0, 2)
+    showDatasets(true, 0, 2)
+    displaySlider()
+  },
+  () => {
+    showDatasets(true, 0, 3)
+    displaySlider()
+  },
+  () => {
+    showDatasets(true, 0, 1)
+    displaySlider()
   },
 ]
 
-function showDatasets(...indexes: number[]) {
+updateCharts[0]()
+
+function showDatasets(animate: boolean, ...indexes: number[]) {
   for (let i = 0; i < chart.data.datasets.length; i++) {
     chart.getDatasetMeta(i).hidden = !indexes.includes(i)
   }
-  chart.update()
+
+  if (animate) chart.update("show")
+  else chart.update()
+}
+
+function displaySlider(display = true) {
+  const slider = <HTMLElement>document.querySelector(".quantum-total-energy")
+  const info = <HTMLElement>document.querySelector(".info")
+
+  slider!.style.opacity = display ? "1" : "0"
+  info!.style.opacity = display ? "1" : "0"
 }

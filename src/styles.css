@@ -171,14 +171,16 @@ body {
 }
 
 .narrator-box {
+  flex-grow: 2;
   display: flex;
   align-items: center;
-  height: 6em;
+  max-height: 6em;
   border: 2px solid rgb(100, 100, 100);
   background-color: #181818;
   text-align: center;
   bottom: 2em;
   width: 90vw;
+  max-width: 90vw;
   padding: 1em 1em 1em 1em;
 }
 
@@ -209,8 +211,8 @@ body {
 
 .narrator-box__step {
   display: none;
-  width: auto;
   flex-grow: 1;
+  transition: 1s;
 }
 .narrator-box__step--active {
   display: block;
@@ -316,7 +318,6 @@ body {
 }
 
 .quantum-inf-well-tool {
-  flex-grow: 1;
   display: grid;
   grid-template:
     "slider chart"
@@ -347,6 +348,7 @@ body {
 .slider {
   appearance: slider-vertical;
   transform: rotate(180deg);
+  transition-duration: 500ms;
 }
 
 .green-button {

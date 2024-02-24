@@ -30,7 +30,7 @@ export var quantumInfWellCharts: Chart[] = []
         data: [],
       },
       {
-        label: "Re(psi)",
+        label: "Re(ψ)",
         hidden: true,
         fill: false,
         borderColor: "rgb(226,47,47)",
@@ -40,7 +40,7 @@ export var quantumInfWellCharts: Chart[] = []
         data: [],
       },
       {
-        label: "ψ²",
+        label: "|ψ|²",
         hidden: true,
         fill: false,
         borderColor: "#FF8800",
