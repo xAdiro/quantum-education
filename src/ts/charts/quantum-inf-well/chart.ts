@@ -1,5 +1,6 @@
 import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
 import { infWellData } from "../../python-interface/inf-well"
+import { callback } from "chart.js/dist/helpers/helpers.core"
 
 Chart.defaults.color = "black"
 
@@ -67,12 +68,14 @@ export var quantumInfWellCharts: Chart[] = []
         type: "linear",
         min: -5,
         max: 5,
-        // afterUpdate: (axis) => {
-        //   axis.ticks = []
-        // },
         ticks: {
           color: "#FFFFFF",
-          display: false,
+          display: true,
+          callback: (val, indexes) => {
+            if (val === -2) return "-a"
+            if (val === 2) return "a"
+            return ""
+          },
         },
         grid: {
           display: false,
@@ -118,6 +121,8 @@ export var quantumInfWellCharts: Chart[] = []
         enabled: false,
       },
     },
+    responsive: true,
+    maintainAspectRatio: false,
   }
 
   const config: ChartConfiguration = {
@@ -139,13 +144,12 @@ export var quantumInfWellCharts: Chart[] = []
     const max = parseFloat(sliders[i].max)
     const newEnergy = max - parseFloat(sliders[i].value) + min
 
-    const newConfig = JSON.parse(JSON.stringify(config))
-    newConfig.data.datasets[1].data = [
+    config.data.datasets[1].data = [
       { x: -5, y: newEnergy },
       { x: 5, y: newEnergy },
     ]
 
-    const newChart = new Chart(chartElements[i], newConfig)
+    const newChart = new Chart(chartElements[i], config)
     quantumInfWellCharts.push(newChart)
   }
 
