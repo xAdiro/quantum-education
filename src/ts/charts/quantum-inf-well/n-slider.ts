@@ -1,7 +1,7 @@
-import { quantumInfWellCharts } from "./chart"
+import { quantumInfWellChart } from "./chart"
 import { infWellData } from "../../python-interface/inf-well"
 
-export { quantumInfWellCharts } from "./chart"
+export { quantumInfWellChart } from "./chart"
 
 const sliders = <NodeListOf<HTMLInputElement>>(
   document.querySelectorAll(".quantum-total-energy")
@@ -18,10 +18,10 @@ for (let i = 0; i < sliders.length; i++) {
 
     await infWellData(
       (x0, x1, re, psiSq, E) => {
-        quantumInfWellCharts[i].data!.datasets[1]!.data = E
-        quantumInfWellCharts[i].data!.datasets[2]!.data = re
-        quantumInfWellCharts[i].data!.datasets[3]!.data = psiSq
-        quantumInfWellCharts[i].update("show")
+        quantumInfWellChart.data!.datasets[1]!.data = E
+        quantumInfWellChart.data!.datasets[2]!.data = re
+        quantumInfWellChart.data!.datasets[3]!.data = psiSq
+        quantumInfWellChart.update("show")
       },
       -5,
       5,

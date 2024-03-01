@@ -1,8 +1,8 @@
-import { quantumInfWellCharts } from "../charts/quantum-inf-well/n-slider"
+import { quantumInfWellChart } from "../charts/quantum-inf-well/n-slider"
 
 let box_i = 0
 let max_i: number
-const chart = quantumInfWellCharts[0]
+const chart = quantumInfWellChart
 
 document.body.onload = () => {
   document

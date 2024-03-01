@@ -1,10 +1,9 @@
 import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
 import { infWellData } from "../../python-interface/inf-well"
-import { callback } from "chart.js/dist/helpers/helpers.core"
 
 Chart.defaults.color = "black"
 
-export var quantumInfWellCharts: Chart[] = []
+export var quantumInfWellChart: Chart
 ;(async function () {
   const datasets = {
     datasets: [
@@ -150,25 +149,23 @@ export var quantumInfWellCharts: Chart[] = []
     ]
 
     const newChart = new Chart(chartElements[i], config)
-    quantumInfWellCharts.push(newChart)
+    quantumInfWellChart = newChart
   }
 
   await update()
 })()
 
 async function update() {
-  for (let i = 0; i < quantumInfWellCharts.length; i++) {
-    await infWellData(
-      (x0, x1, re, psiSq, E) => {
-        quantumInfWellCharts[i].data!.datasets[1]!.data = E
-        quantumInfWellCharts[i].data!.datasets[2]!.data = re
-        quantumInfWellCharts[i].data!.datasets[3]!.data = psiSq
-        quantumInfWellCharts[i].update("show")
-      },
-      -5,
-      5,
-      4,
-      1
-    )
-  }
+  await infWellData(
+    (x0, x1, re, psiSq, E) => {
+      quantumInfWellChart.data!.datasets[1]!.data = E
+      quantumInfWellChart.data!.datasets[2]!.data = re
+      quantumInfWellChart.data!.datasets[3]!.data = psiSq
+      quantumInfWellChart.update("show")
+    },
+    -5,
+    5,
+    4,
+    1
+  )
 }
