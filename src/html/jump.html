@@ -49,67 +49,9 @@
 
   <main class="content">
       <div class="home-header">
-          <h1 class="title">Próg potencjału</h1>
+          <h2 class="title">Próg potencjału</h1>
       </div>
       <h3>Interpretacja klasyczna</h3>
-      <p>
-          Przykłady studni potencjału pokazały nam, że w kwantowym świecie zjawiska bardzo różnią się od klasycznych
-          przewidywań.
-          Roważmy teraz ruch cząstki przez zmieniający się potencjał, zwany progiem potencjału.
-
-          Na początek zobaczmy co przewiduje fizyka Newtonowska. Przypomnijmy sobie jak klasycznie porusza się kulka, o określonej energii
-          kinetycznej i zerowej energii potencjalnej.
-      </p>
-      <div class="classic-jump-tool">
-          <input type="range" min="3" max="7" value="4" step="0.01" class="slider" id="classic-total-energy">
-          <button id="shoot-button" class="green-button">strzel</button>
-          <div class="classic-balls-container">
-              <!-- <div class="classic-ball-point"><div class="classic-ball"></div></div> -->
-          </div>
-          <canvas id="classic-jump-chart" class="chart"></canvas>
-      </div>
-
-      <p>
-          Sytuacja jest dosyć prosta i są tylko dwa spodziewane skutki:
-          <ul>
-              <li>Energia całkowita kulki jest większa od wymaganej energii potencjalnej za progiem - wtedy kulka przechodzi, a częśc energii kinetycznej zamienia się w energie potencjalną</li>
-              <li>Energia całkowita kulki jest mniejsza od wymaganje energii potencjalnej za progiem - wtedy kulka odbija się sprężyście</li>
-          </ul>
-      </p>
-
-      <h3>Interpretacja kwantowa</h3>
-      <p>
-          Żeby znaleźć funkcję falową podzielimy sobie zagadnienie na dwa obszary pierwszy o potencjale <i>0</i> i drugi o potencjale \(V_0\)
-          więc
-          $$\frac{d^2\psi_1}{dx^2} + k_1^2\psi_1=0$$
-          $$\frac{d^2\psi_2}{dx^2} + k_2^2\psi_2=0$$
-          gdzie:
-          $$k_1=\frac{1}{\hbar} \sqrt{2mE}$$
-          $$k_2=\frac{1}{\hbar} \sqrt{2m(E-V_0)}$$
-          Jeśli \(E \gt V_0\)Otrzymujemy:
-          $$\psi_1(x) = e^{ik_1x} + Re^{-ik_1x}$$
-          $$\psi_2(x) = Te^{ik_2x}$$
-          Wyznaczmy <i>R</i> i <i>T</i> z warunków brzegowych \(\psi_1 = \psi_2\) i \(\frac{d\psi_1}{dx} = \frac{d\psi_2}{dx}\) w \(x = 0\) i otrzymujemy układ równań:
-          $$T = \frac{2k_1}{k_1+k_2}$$
-          $$R = \frac{k_1-k_2}{k_1+k_2}$$
-      </p>
-      <div class="quantum-jump-tool">
-        <input type="range" min="3.1" max="5" value="4" step="0.1" class="quantum-total-energy slider">
-        <button class="simulate-button green-button">strzel</button>
-        <canvas class="quantum-jump-chart" class="chart"></canvas>
-      </div>
-      <p>
-        Cząstka przechodzi przez próg, jednak wcale nie ze 100% pewnością, istnieje również prawdopobieństwo odbicia się jej. 
-      </p>
-
-
-      <p>
-          Jeśli jednak \( E \lt V_0\) w obszarze drugim, \(k_2\) jest urojone i użyjemy podstawienia \(\kappa = ik_2\)
-          $$\psi_2(x)=Te^{-\kappa x}$$
-          \(\psi(x)\) jest więc funkcję wykładniczą zbiegająca do zera, a z warunków brzegowych:
-          $$ T=\frac{2k_1}{k_1+i\kappa}$$
-          $$ R = \frac{k_1-i\kappa}{k_2-i\kappa}$$
-      </p>
 
       <div class="quantum-jump-tool">
         <input type="range" min="0.5" max="2.9" value="1" step="0.1" class="quantum-total-energy slider">
