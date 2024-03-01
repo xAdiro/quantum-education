@@ -2,7 +2,7 @@ import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
 
 Chart.defaults.color = "black"
 
-export var quantumJumpCharts: Chart[] = []
+export var quantumJumpChart: Chart
 ;(async function () {
   const datasets = {
     datasets: [
@@ -25,10 +25,7 @@ export var quantumJumpCharts: Chart[] = []
         borderColor: "rgb(20, 255, 20)",
         backgroundColor: "rgb(20, 255, 20)",
         tension: 0,
-        data: [
-          // { x: -5, y: 5 },
-          // { x: 5, y: 5 },
-        ],
+        data: [],
       },
       {
         label: "Re(psi)",
@@ -76,7 +73,12 @@ export var quantumJumpCharts: Chart[] = []
         min: -5,
         max: 5,
         ticks: {
-          display: false,
+          color: "#FFFFFF",
+          display: true,
+          callback: (val, indexes) => {
+            if (val === 0) return "0"
+            return ""
+          },
         },
         grid: {
           display: false,
@@ -122,6 +124,8 @@ export var quantumJumpCharts: Chart[] = []
         enabled: false,
       },
     },
+    responsive: true,
+    maintainAspectRatio: false,
   }
 
   const config: ChartConfiguration = {
@@ -130,25 +134,22 @@ export var quantumJumpCharts: Chart[] = []
     options: options,
   }
 
-  const chartElements: HTMLCollectionOf<HTMLCanvasElement> = <
-    HTMLCollectionOf<HTMLCanvasElement>
-  >document.getElementsByClassName("quantum-jump-chart")
-
-  const sliders = <NodeListOf<HTMLInputElement>>(
-    document.querySelectorAll(".quantum-total-energy")
+  const chartElement: HTMLCanvasElement = <HTMLCanvasElement>(
+    document.getElementsByClassName("quantum-jump-chart")[0]
   )
 
-  for (let i = 0; i < chartElements.length; i++) {
-    const min = parseFloat(sliders[i].min)
-    const max = parseFloat(sliders[i].max)
-    const newEnergy = max - parseFloat(sliders[i].value) + min
+  const slider = <HTMLInputElement>(
+    document.querySelector(".quantum-total-energy")
+  )
 
-    const newConfig = JSON.parse(JSON.stringify(config))
-    newConfig.data.datasets[1].data = [
-      { x: -5, y: newEnergy },
-      { x: 5, y: newEnergy },
-    ]
+  const min = parseFloat(slider.min)
+  const max = parseFloat(slider.max)
+  const newEnergy = max - parseFloat(slider.value) + min
 
-    quantumJumpCharts.push(new Chart(chartElements[i], newConfig))
-  }
+  config.data.datasets[1].data = [
+    { x: -5, y: newEnergy },
+    { x: 5, y: newEnergy },
+  ]
+
+  quantumJumpChart = new Chart(chartElement, config)
 })()
