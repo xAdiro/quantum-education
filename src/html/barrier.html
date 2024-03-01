@@ -10,74 +10,64 @@
     ></script>
   </head>
   <body>
-    <nav class="side-menu">
-      <a class="home" href="/index.html">
-        <img class="icon" src="/src/assets/icons/house-dark.png" />
-        <span class="chapter-name"> Ekran powitalny</span>
-      </a>
-      <a href="/src/html/dualism.html">
-        <img class="icon" src="/src/assets/icons/duality-light.png" />
-        <span class="chapter-name"> Dualizm korpuskularno-falowy</span>
-      </a>
-      <a href="/src/html/free-particle.html">
-        <img class="icon" src="/src/assets/icons/wave-arrow-light.png" />
-        <span class="chapter-name"> Cząstka swobodna</span>
-      </a>
-      <a href="/src/html/infinite-well.html">
-        <img class="icon" src="/src/assets/icons/infinite-well-light.png" />
-        <span class="chapter-name"> Nieskończona studnia potencjału</span>
-      </a>
-      <a href="/src/html/finite-well.html">
-        <img class="icon" src="/src/assets/icons/finite-well-light.png" />
-        <span class="chapter-name"> Skończona studnia potencjału</span>
-      </a>
-      <a href="/src/html/jump.html">
-        <img class="icon" src="/src/assets/icons/potential-jump.png" />
-        <span class="chapter-name"> Próg potencjału</span>
-      </a>
-      <a href="/src/html/barrier.html">
-        <img class="icon" src="/src/assets/icons/potential-barrier.png" />
-        <span class="chapter-name"> Bariera potencjału</span>
-      </a>
-      <a href="/src/html/settings.html" class="settings">
-        <img class="icon" href="/src/assets/icons/cogwheel-dark.png" />
-        <span class="chapter-name"> Ustawienia</span>
-      </a>
-    </nav>
-    <div class="side-menu-block"></div>
-    <main class="content">
-      <p>
-        Dowiedzieliśmy się już, że cząstki mogą niejako wnikać w miejsca, o
-        potencjale przewyższającym ich całkowita energie. Rozważmy więc
-        sytuację, w której zaraz po miejscu o podwyższonym potencjale znajdziemy
-        spowrotem jego spadek. Całość nazywana jest barierą potencjału.
-      </p>
+    <div id="wrapper">
+      <nav class="side-menu">
+        <a class="home" href="/index.html">
+          <img class="icon" src="/src/assets/icons/house-dark.png" />
+          <span class="chapter-name"> Ekran powitalny</span>
+        </a>
+        <a href="/src/html/dualism.html">
+          <img class="icon" src="/src/assets/icons/duality-light.png" />
+          <span class="chapter-name"> Dualizm korpuskularno-falowy</span>
+        </a>
+        <a href="/src/html/free-particle.html">
+          <img class="icon" src="/src/assets/icons/wave-arrow-light.png" />
+          <span class="chapter-name"> Cząstka swobodna</span>
+        </a>
+        <a href="/src/html/infinite-well.html">
+          <img class="icon" src="/src/assets/icons/infinite-well-light.png" />
+          <span class="chapter-name"> Nieskończona studnia potencjału</span>
+        </a>
+        <a href="/src/html/finite-well.html">
+          <img class="icon" src="/src/assets/icons/finite-well-light.png" />
+          <span class="chapter-name"> Skończona studnia potencjału</span>
+        </a>
+        <a href="/src/html/jump.html">
+          <img class="icon" src="/src/assets/icons/potential-jump.png" />
+          <span class="chapter-name"> Próg potencjału</span>
+        </a>
+        <a href="/src/html/barrier.html">
+          <img class="icon" src="/src/assets/icons/potential-barrier.png" />
+          <span class="chapter-name"> Bariera potencjału</span>
+        </a>
+        <a href="/src/html/settings.html" class="settings">
+          <img class="icon" href="/src/assets/icons/cogwheel-dark.png" />
+          <span class="chapter-name"> Ustawienia</span>
+        </a>
+      </nav>
+      <div class="side-menu-block"></div>
+      <main class="content">
+        <h3>Bariera potencjału</h3>
 
-      <div class="quantum-barrier-tool">
-        <input
-          type="range"
-          min="3.1"
-          max="5"
-          value="1"
-          step="0.1"
-          class="quantum-total-energy slider"
-        />
-        <button class="simulate-button green-button">strzel</button>
-        <canvas class="quantum-barrier-chart" class="chart"></canvas>
-      </div>
+        <div class="quantum-barrier-tool">
+          <input
+            type="range"
+            min="3.1"
+            max="5"
+            value="1"
+            step="0.1"
+            class="quantum-total-energy slider"
+          />
+          <button class="simulate-button green-button">strzel</button>
+          <canvas class="quantum-barrier-chart" class="chart"></canvas>
 
-      <div class="quantum-barrier-tool">
-        <input
-          type="range"
-          min="0.5"
-          max="2.9"
-          value="1"
-          step="0.1"
-          class="quantum-total-energy slider"
-        />
-        <button class="simulate-button green-button">strzel</button>
-        <canvas class="quantum-barrier-chart" class="chart"></canvas>
-      </div>
-    </main>
+          <div class="narrator-box">
+            <button class="narrator-box__back-button nav-button">&lt;</button>
+            <p class="narrator-box__step">Hellooooooooooo</p>
+            <button class="narrator-box__forward-button nav-button">&gt;</buttom>
+          </div>
+        </div>
+      </main>
+    <div id="wrapper"></div>
   </body>
 </html>
