@@ -1,0 +1,22 @@
+.quantum-jump-tool {
+  flex-grow: 1;
+  display: grid;
+  grid-template:
+    "slider chart"
+    "button chart";
+  grid-template-columns: 100px auto;
+  grid-template-rows: auto 40px;
+  gap: 10px 30px;
+}
+
+.quantum-jump-tool input {
+  grid-area: slider;
+  text-align: center;
+}
+.quantum-jump-tool button {
+  grid-area: button;
+}
+
+.quantum-jump-tool .quantum-jump-chart {
+  grid-area: chart;
+}
