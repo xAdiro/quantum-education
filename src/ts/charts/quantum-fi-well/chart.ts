@@ -1,9 +1,14 @@
 import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
 import { fiWellData } from "../../python-interface/fi-well"
+import { E } from "@tauri-apps/api/shell-efff51a2"
+import { n } from "@tauri-apps/api/fs-9d7de754"
 
 Chart.defaults.color = "black"
+var En: { x: number; y: number }[][] = []
+var Ren: { x: number; y: number }[][] = []
+var Psi_sqn: { x: number; y: number }[][] = []
 
-export var quantumInfWellCharts: Chart[] = []
+export var quantumFiWellChart: Chart
 ;(async function () {
   const datasets = {
     datasets: [
@@ -38,7 +43,7 @@ export var quantumInfWellCharts: Chart[] = []
         data: [],
       },
       {
-        label: "ψ²",
+        label: "|ψ|²",
         fill: false,
         borderColor: "#FF8800",
         backgroundColor: "#FF8800",
@@ -120,45 +125,63 @@ export var quantumInfWellCharts: Chart[] = []
     options: options,
   }
 
-  const chartElements: HTMLCollectionOf<HTMLCanvasElement> = <
-    HTMLCollectionOf<HTMLCanvasElement>
-  >document.getElementsByClassName("quantum-fi-well-chart")
-
-  const sliders = <NodeListOf<HTMLInputElement>>(
-    document.querySelectorAll(".quantum-total-energy")
+  const chartElement: HTMLCanvasElement = <HTMLCanvasElement>(
+    document.getElementsByClassName("quantum-fi-well-chart")[0]
   )
 
-  for (let i = 0; i < chartElements.length; i++) {
-    const min = parseFloat(sliders[i].min)
-    const max = parseFloat(sliders[i].max)
-    const newEnergy = max - parseFloat(sliders[i].value) + min
+  const newEnergy = getSliderVal()
+  config.data.datasets[1].data = [
+    { x: -5, y: newEnergy },
+    { x: 5, y: newEnergy },
+  ]
 
-    const newConfig = JSON.parse(JSON.stringify(config))
-    newConfig.data.datasets[1].data = [
-      { x: -5, y: newEnergy },
-      { x: 5, y: newEnergy },
-    ]
+  const newChart = new Chart(chartElement, config)
+  quantumFiWellChart = newChart
 
-    const newChart = new Chart(chartElements[i], newConfig)
-    quantumInfWellCharts.push(newChart)
-  }
-
-  await update()
+  await calcData().then(() => console.log(En))
+  setSlider()
+  updateChart()
 })()
 
-async function update() {
-  for (let i = 0; i < quantumInfWellCharts.length; i++) {
-    await fiWellData(
-      (x0, x1, re, psiSq, E) => {
-        quantumInfWellCharts[i].data!.datasets[1]!.data = E
-        quantumInfWellCharts[i].data!.datasets[2]!.data = re
-        quantumInfWellCharts[i].data!.datasets[3]!.data = psiSq
-        quantumInfWellCharts[i].update("show")
-      },
-      -5,
-      5,
-      4,
-      1
-    )
-  }
+async function calcData() {
+  await fiWellData(
+    (x0, x1, re, psiSq, E) => {
+      En = E
+      Ren = re
+      Psi_sqn = psiSq
+      quantumFiWellChart.update("show")
+    },
+    -5,
+    5,
+    4,
+    1000
+  )
+}
+
+function updateChart() {
+  const i = getSliderVal() - 1
+  quantumFiWellChart.data!.datasets[1]!.data = En[i]
+  quantumFiWellChart.data!.datasets[2]!.data = Ren[i]
+  quantumFiWellChart.data!.datasets[3]!.data = Psi_sqn[i]
+  quantumFiWellChart.update("show")
+}
+
+function setSlider() {
+  const slider = <HTMLInputElement>(
+    document.querySelector(".quantum-total-energy")
+  )
+  slider.max = String(En.length)
+  slider.min = String("0")
+}
+
+function getSliderVal(): number {
+  const slider = <HTMLInputElement>(
+    document.querySelector(".quantum-total-energy")
+  )
+
+  const min = parseFloat(slider.min)
+  const max = parseFloat(slider.max)
+  const val = max - parseFloat(slider.value) + min
+
+  return val
 }

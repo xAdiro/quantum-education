@@ -1,4 +1,4 @@
-import { quantumInfWellCharts } from "./chart"
+import { quantumFiWellChart } from "./chart"
 import { infWellData } from "../../python-interface/inf-well"
 
 const sliders = <NodeListOf<HTMLInputElement>>(
@@ -16,10 +16,10 @@ for (let i = 0; i < sliders.length; i++) {
 
     await infWellData(
       (x0, x1, re, psiSq, E) => {
-        quantumInfWellCharts[i].data!.datasets[1]!.data = E
-        quantumInfWellCharts[i].data!.datasets[2]!.data = re
-        quantumInfWellCharts[i].data!.datasets[3]!.data = psiSq
-        quantumInfWellCharts[i].update("show")
+        quantumFiWellChart[i].data!.datasets[1]!.data = E
+        quantumFiWellChart[i].data!.datasets[2]!.data = re
+        quantumFiWellChart[i].data!.datasets[3]!.data = psiSq
+        quantumFiWellChart[i].update("show")
       },
       -5,
       5,

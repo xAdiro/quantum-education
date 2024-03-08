@@ -4,9 +4,9 @@ export async function fiWellData(
   draw: (
     x0: number,
     x1: number,
-    re: Array<{ x: number; y: number }>,
-    psiSq: Array<{ x: number; y: number }>,
-    E: Array<{ x: number; y: number }>
+    re: { x: number; y: number }[][],
+    psiSq: { x: number; y: number }[][],
+    E: { x: number; y: number }[][]
   ) => void,
   x0: number,
   x1: number,
@@ -22,15 +22,15 @@ export async function fiWellData(
   ])
 
   command.stdout.on("data", (text) => {
-    const data: Record<string, Array<{ x: number; y: number }>> = JSON.parse(
-      text
-    )
+    const data: Record<string, { x: number; y: number }[][]> = JSON.parse(text)
 
-    const energyData = [
-      { x: x0, y: data["E"]["n1"][0] },
-      { x: x1, y: data["E"]["n1"][0] },
-    ]
-    draw(x0, x1, data["re"], data["psi_sq"], energyData)
+    let energyData: { x: number; y: number }[] = []
+
+    for (let i = 0; i < data["E"].length; i++) {
+      energyData.push({ x: x0, y: data["E"][i][0].y })
+    }
+
+    draw(x0, x1, data["re"], data["psi_sq"], data["E"])
   })
 
   await command.spawn()

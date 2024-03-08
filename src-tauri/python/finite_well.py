@@ -1,7 +1,6 @@
-import matplotlib.pyplot as plt
-from numpy import arange
+from numpy import arange, zeros
 from math import sqrt, pi, tan, sin, cos, e
-from json_export import to_json
+from json_export import to_json_bulk
 from sys import argv
 
 
@@ -12,19 +11,24 @@ def finite_well(x0, x1, a, V0, m, h_, dx=0.01):
     E = {}
     psi_sq = {}
 
-    for i, k in enumerate(_possible_k(a, C)):
-        y[f"n{i}"] = [_psi(xn, k, a, (i+1) % 2 == 0) for xn in x]
-        E[f"n{i}"] = [(k*h_)**2/(2*m)+V0],
-        psi_sq[f"n{i}"] = [abs(y0)**2 for y0 in y]
-    return to_json(
+    ks = _possible_k(a, C)
+    y = zeros(len(ks))
+    E = zeros(len(ks))
+
+    y = [[_psi(xn, k, a, (i+1) % 2 == 0) for xn in x]
+         for i, k in enumerate(ks)]
+    E = [(k*h_)**2/(2*m)+V0 for k in ks]
+    psi_sq = [[abs(y0)**2 for y0 in yn] for yn in y]
+
+    return to_json_bulk(
         x.tolist(),
-        **y,
-        **E,
-        **psi_sq
+        E,
+        re=y,
+        psi_sq=psi_sq
     )
 
 
-def _psi(x, k, a, even, dx=0.01):
+def _psi(x, k, a, even, dx=0.01) -> float:
     A = B = 1
 
     if even:
@@ -97,4 +101,4 @@ def _zero(x1, x2, C, a, eps=0.01):
 
 
 print(finite_well(float(argv[1]), float(argv[2]), float(
-    argv[3]), float(argv[4]), float(argv[5]), float(argv[6])))
+    argv[3]), float(argv[4]), 1, 1))
