@@ -1,12 +1,13 @@
 import { Command } from "@tauri-apps/api/shell"
+import { Point } from "chart.js"
 
 export async function fiWellData(
   draw: (
     x0: number,
     x1: number,
-    re: { x: number; y: number }[][],
-    psiSq: { x: number; y: number }[][],
-    E: { x: number; y: number }[][]
+    re: Point[][],
+    psiSq: Point[][],
+    E: Point[][]
   ) => void,
   x0: number,
   x1: number,
@@ -22,9 +23,9 @@ export async function fiWellData(
   ])
 
   command.stdout.on("data", (text) => {
-    const data: Record<string, { x: number; y: number }[][]> = JSON.parse(text)
+    const data: Record<string, Point[][]> = JSON.parse(text)
 
-    let energyData: { x: number; y: number }[] = []
+    let energyData: Point[] = []
 
     for (let i = 0; i < data["E"].length; i++) {
       energyData.push({ x: x0, y: data["E"][i][0].y })

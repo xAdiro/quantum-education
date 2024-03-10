@@ -1,12 +1,13 @@
 import { Command } from "@tauri-apps/api/shell"
+import { Point } from "chart.js"
 
 export async function infWellData(
   draw: (
     x0: number,
     x1: number,
-    re: Array<{ x: number; y: number }>,
-    psiSq: Array<{ x: number; y: number }>,
-    E: Array<{ x: number; y: number }>
+    re: Point[],
+    psiSq: Point[],
+    E: Point[]
   ) => void,
   x0: number,
   x1: number,
@@ -22,9 +23,7 @@ export async function infWellData(
   ])
 
   command.stdout.on("data", (text) => {
-    const data: Record<string, Array<{ x: number; y: number }>> = JSON.parse(
-      text
-    )
+    const data: Record<string, Point[]> = JSON.parse(text)
 
     const newEnergy = (Math.pow(Math.PI / a, 2) * Math.pow(n, 2)) / 10
     const energyData = [

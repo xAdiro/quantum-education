@@ -1,127 +1,21 @@
-import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
+import Chart, { ChartConfiguration } from "chart.js/auto"
 import { fiWellData } from "../../python-interface/fi-well"
-import { E } from "@tauri-apps/api/shell-efff51a2"
-import { n } from "@tauri-apps/api/fs-9d7de754"
+import { data } from "./data"
+import { options } from "./options"
+import { vValue, setRange } from "../../slider-utility"
+import { Point } from "chart.js"
 
+const sliderName = ".quantum-total-energy"
 Chart.defaults.color = "black"
-var En: { x: number; y: number }[][] = []
-var Ren: { x: number; y: number }[][] = []
-var Psi_sqn: { x: number; y: number }[][] = []
+var En: Point[][] = []
+var Ren: Point[][] = []
+var Psi_sqn: Point[][] = []
 
 export var quantumFiWellChart: Chart
 ;(async function () {
-  const datasets = {
-    datasets: [
-      {
-        label: "Potencjał",
-        fill: false,
-        borderColor: "rgb(50,50,200)",
-        backgroundColor: "rgb(50,50,200)",
-        tension: 0,
-        data: [
-          { x: -2, y: 2 },
-          { x: -2, y: 0 },
-          { x: 2, y: 0 },
-          { x: 2, y: 2 },
-        ],
-      },
-      {
-        label: "Energia całkowita",
-        fill: false,
-        borderColor: "rgb(20, 255, 20)",
-        backgroundColor: "rgb(20, 255, 20)",
-        tension: 0,
-        data: [],
-      },
-      {
-        label: "Re(psi)",
-        fill: false,
-        borderColor: "rgb(226,47,47)",
-        backgroundColor: "rgb(226,47,47)",
-        tension: 0.01,
-        borderWidth: 5,
-        data: [],
-      },
-      {
-        label: "|ψ|²",
-        fill: false,
-        borderColor: "#FF8800",
-        backgroundColor: "#FF8800",
-        tension: 0.01,
-        borderWidth: 5,
-        data: [],
-      },
-    ],
-  }
-
-  const options: ChartOptions = {
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "X",
-          color: "#FFFFFF",
-          align: "center",
-          font: {
-            size: 18,
-          },
-        },
-        type: "linear",
-        min: -5,
-        max: 5,
-        ticks: {
-          color: "#FFFFFF",
-          display: false,
-        },
-        grid: {
-          display: false,
-        },
-        border: {
-          color: "#FFFFFF",
-        },
-      },
-      y: {
-        max: 2,
-        min: -1,
-        ticks: {
-          display: false,
-        },
-        grid: {
-          display: false,
-        },
-        border: {
-          color: "#FFFFFF",
-        },
-      },
-    },
-    elements: {
-      point: {
-        radius: 0,
-      },
-    },
-    hover: {
-      mode: undefined,
-    },
-    // animation,
-    plugins: {
-      legend: {
-        labels: {
-          filter: (item) => item.text !== "none",
-          color: "white",
-          font: {
-            size: 18,
-          },
-        },
-      },
-      tooltip: {
-        enabled: false,
-      },
-    },
-  }
-
   const config: ChartConfiguration = {
     type: "line",
-    data: datasets,
+    data: data,
     options: options,
   }
 
@@ -129,59 +23,51 @@ export var quantumFiWellChart: Chart
     document.getElementsByClassName("quantum-fi-well-chart")[0]
   )
 
-  const newEnergy = getSliderVal()
+  const newEnergy = vValue(sliderName)
   config.data.datasets[1].data = [
     { x: -5, y: newEnergy },
     { x: 5, y: newEnergy },
   ]
 
-  const newChart = new Chart(chartElement, config)
-  quantumFiWellChart = newChart
+  quantumFiWellChart = new Chart(chartElement, config)
 
-  await calcData().then(() => console.log(En))
-  setSlider()
-  updateChart()
+  await calcData()
 })()
 
 async function calcData() {
   await fiWellData(
     (x0, x1, re, psiSq, E) => {
       En = E
+      scaleDown(En, 20)
       Ren = re
       Psi_sqn = psiSq
-      quantumFiWellChart.update("show")
+      setRange(".quantum-total-energ", 0, En.length - 1)
+      updateChart()
     },
     -5,
     5,
     4,
-    1000
+    30
   )
 }
 
 function updateChart() {
-  const i = getSliderVal() - 1
+  const i = vValue(sliderName)
+  console.log(En[i][0].y)
   quantumFiWellChart.data!.datasets[1]!.data = En[i]
   quantumFiWellChart.data!.datasets[2]!.data = Ren[i]
   quantumFiWellChart.data!.datasets[3]!.data = Psi_sqn[i]
   quantumFiWellChart.update("show")
 }
 
-function setSlider() {
-  const slider = <HTMLInputElement>(
-    document.querySelector(".quantum-total-energy")
-  )
-  slider.max = String(En.length)
-  slider.min = String("0")
+function scaleDown(data: Point[][], factor: number) {
+  for (let i = 0; i < data.length; i++) {
+    for (let j = 0; j < data[i].length; j++) {
+      data[i][j].y /= factor
+    }
+  }
 }
 
-function getSliderVal(): number {
-  const slider = <HTMLInputElement>(
-    document.querySelector(".quantum-total-energy")
-  )
-
-  const min = parseFloat(slider.min)
-  const max = parseFloat(slider.max)
-  const val = max - parseFloat(slider.value) + min
-
-  return val
-}
+document
+  .querySelector(".quantum-total-energy")
+  ?.addEventListener("input", updateChart)

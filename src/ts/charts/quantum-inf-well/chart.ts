@@ -71,8 +71,8 @@ export var quantumInfWellChart: Chart
           color: "#FFFFFF",
           display: true,
           callback: (val, indexes) => {
-            if (val === -2) return "-a"
-            if (val === 2) return "a"
+            if (val === -2) return "-a/2"
+            if (val === 2) return "a/2"
             return ""
           },
         },
