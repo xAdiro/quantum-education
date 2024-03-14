@@ -41,7 +41,7 @@ async function calcData() {
       scaleDown(En, 20)
       Ren = re
       Psi_sqn = psiSq
-      setRange(".quantum-total-energ", 0, En.length - 1)
+      setRange(".quantum-total-energy", 0, En.length - 1)
       updateChart()
     },
     -5,

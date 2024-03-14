@@ -1,156 +1,39 @@
-import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
 import { infWellData } from "../../python-interface/inf-well"
+import { data } from "./data"
+import { options } from "./options"
+import { Chart, ChartConfiguration } from "chart.js"
+import { bindSliderToChart } from "./n-slider"
 
 Chart.defaults.color = "black"
 
 export var quantumInfWellChart: Chart
 ;(async function () {
-  const datasets = {
-    datasets: [
-      {
-        label: "Potencjał",
-        fill: false,
-        borderColor: "rgb(50,50,200)",
-        backgroundColor: "rgb(50,50,200)",
-        tension: 0,
-        data: [
-          { x: -2, y: 2 },
-          { x: -2, y: 0 },
-          { x: 2, y: 0 },
-          { x: 2, y: 2 },
-        ],
-      },
-      {
-        label: "Energia całkowita",
-        hidden: true,
-        fill: false,
-        borderColor: "rgb(20, 255, 20)",
-        backgroundColor: "rgb(20, 255, 20)",
-        tension: 0,
-        data: [],
-      },
-      {
-        label: "Re(ψ)",
-        hidden: true,
-        fill: false,
-        borderColor: "rgb(226,47,47)",
-        backgroundColor: "rgb(226,47,47)",
-        tension: 0.01,
-        borderWidth: 5,
-        data: [],
-      },
-      {
-        label: "|ψ|²",
-        hidden: true,
-        fill: false,
-        borderColor: "#FF8800",
-        backgroundColor: "#FF8800",
-        tension: 0.01,
-        borderWidth: 5,
-        data: [],
-      },
-    ],
-  }
-
-  const options: ChartOptions = {
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "X",
-          color: "#FFFFFF",
-          align: "center",
-          font: {
-            size: 18,
-          },
-        },
-        type: "linear",
-        min: -5,
-        max: 5,
-        ticks: {
-          color: "#FFFFFF",
-          display: true,
-          callback: (val, indexes) => {
-            if (val === -2) return "-a/2"
-            if (val === 2) return "a/2"
-            return ""
-          },
-        },
-        grid: {
-          display: false,
-        },
-        border: {
-          color: "#FFFFFF",
-        },
-      },
-      y: {
-        max: 2,
-        min: -1,
-        ticks: {
-          display: false,
-        },
-        grid: {
-          display: false,
-        },
-        border: {
-          color: "#FFFFFF",
-        },
-      },
-    },
-    elements: {
-      point: {
-        radius: 0,
-      },
-    },
-    hover: {
-      mode: undefined,
-    },
-    // animation,
-    plugins: {
-      legend: {
-        labels: {
-          filter: (item) => item.text !== "none",
-          color: "white",
-          font: {
-            size: 18,
-          },
-        },
-      },
-      tooltip: {
-        enabled: false,
-      },
-    },
-    responsive: true,
-    maintainAspectRatio: false,
-  }
-
   const config: ChartConfiguration = {
     type: "line",
-    data: datasets,
+    data: data,
     options: options,
   }
 
-  const chartElements: HTMLCollectionOf<HTMLCanvasElement> = <
-    HTMLCollectionOf<HTMLCanvasElement>
-  >document.getElementsByClassName("quantum-inf-well-chart")
-
-  const sliders = <NodeListOf<HTMLInputElement>>(
-    document.querySelectorAll(".quantum-total-energy")
+  const chartElement = <HTMLCanvasElement>(
+    document.getElementsByClassName("quantum-inf-well-chart")[0]
   )
 
-  for (let i = 0; i < chartElements.length; i++) {
-    const min = parseFloat(sliders[i].min)
-    const max = parseFloat(sliders[i].max)
-    const newEnergy = max - parseFloat(sliders[i].value) + min
+  const slider = <HTMLInputElement>(
+    document.querySelector(".quantum-total-energy")
+  )
 
-    config.data.datasets[1].data = [
-      { x: -5, y: newEnergy },
-      { x: 5, y: newEnergy },
-    ]
+  const min = parseFloat(slider.min)
+  const max = parseFloat(slider.max)
+  const newEnergy = max - parseFloat(slider.value) + min
 
-    const newChart = new Chart(chartElements[i], config)
-    quantumInfWellChart = newChart
-  }
+  config.data.datasets[1].data = [
+    { x: -5, y: newEnergy },
+    { x: 5, y: newEnergy },
+  ]
+
+  quantumInfWellChart = new Chart(chartElement, config)
+
+  bindSliderToChart(quantumInfWellChart)
 
   await update()
 })()

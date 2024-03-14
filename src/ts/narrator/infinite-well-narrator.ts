@@ -1,4 +1,4 @@
-import { quantumInfWellChart } from "../charts/quantum-inf-well/n-slider"
+import { quantumInfWellChart } from "../charts/quantum-inf-well/chart"
 
 let box_i = 0
 let max_i: number

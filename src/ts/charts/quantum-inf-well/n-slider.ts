@@ -1,27 +1,24 @@
-import { quantumInfWellChart } from "./chart"
 import { infWellData } from "../../python-interface/inf-well"
+import { vValue } from "../../slider-utility"
+import { Chart } from "chart.js"
 
-export { quantumInfWellChart } from "./chart"
+export function bindSliderToChart(chart: Chart) {
+  const slider = <HTMLInputElement>(
+    document.querySelector(".quantum-total-energy")
+  )
 
-const sliders = <NodeListOf<HTMLInputElement>>(
-  document.querySelectorAll(".quantum-total-energy")
-)
+  const info = document.querySelector(".n-value")
 
-const infos = document.querySelectorAll(".n-value")
-
-for (let i = 0; i < sliders.length; i++) {
-  sliders[i]?.addEventListener("input", async () => {
-    const min = parseFloat(sliders[i].min)
-    const max = parseFloat(sliders[i].max)
-
-    const newN = max - parseFloat(sliders[i].value) + min
+  slider.addEventListener("input", async () => {
+    const newN = vValue(".quantum-total-energy")
+    console.log(newN)
 
     await infWellData(
       (x0, x1, re, psiSq, E) => {
-        quantumInfWellChart.data!.datasets[1]!.data = E
-        quantumInfWellChart.data!.datasets[2]!.data = re
-        quantumInfWellChart.data!.datasets[3]!.data = psiSq
-        quantumInfWellChart.update("show")
+        chart.data!.datasets[1]!.data = E
+        chart.data!.datasets[2]!.data = re
+        chart.data!.datasets[3]!.data = psiSq
+        chart.update("show")
       },
       -5,
       5,
@@ -29,6 +26,6 @@ for (let i = 0; i < sliders.length; i++) {
       newN
     )
 
-    infos[i].innerHTML = newN.toString()
+    info!.innerHTML = newN.toString()
   })
 }
