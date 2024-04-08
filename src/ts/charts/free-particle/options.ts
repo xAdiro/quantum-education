@@ -1,4 +1,18 @@
-import { ChartOptions } from "chart.js/auto"
+import {
+  Chart,
+  ChartOptions,
+  Legend,
+  LineController,
+  LineElement,
+  LinearScale,
+  PointElement,
+} from "chart.js"
+
+Chart.register(LinearScale)
+Chart.register(LineController)
+Chart.register(PointElement)
+Chart.register(LineElement)
+Chart.register(Legend)
 
 export const options: ChartOptions = {
   scales: {
@@ -13,15 +27,13 @@ export const options: ChartOptions = {
         },
       },
       type: "linear",
-      min: -5,
-      max: 5,
+      min: -10e-12,
+      max: 10e-12,
       ticks: {
         color: "#FFFFFF",
         display: true,
         callback: (val, _) => {
-          if (val === -2) return "-a"
-          if (val === 2) return "a"
-          return ""
+          return `${<number>val * 1e12}pm`
         },
       },
       grid: {
@@ -32,13 +44,12 @@ export const options: ChartOptions = {
       },
     },
     y: {
-      max: 2,
-      min: -1,
+      max: 250000,
+      min: -250000,
       ticks: {
         color: "#FFFFFF",
         display: true,
         callback: (val, _) => {
-          if (val === 0) return "0"
           return ""
         },
       },
@@ -58,7 +69,6 @@ export const options: ChartOptions = {
   hover: {
     mode: undefined,
   },
-  // animation,
   plugins: {
     legend: {
       labels: {

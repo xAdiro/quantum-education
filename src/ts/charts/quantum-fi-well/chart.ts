@@ -11,7 +11,7 @@ var En: Point[][] = []
 var Ren: Point[][] = []
 var Psi_sqn: Point[][] = []
 
-export var quantumFiWellChart: Chart
+var quantumFiWellChart: Chart
 ;(async function () {
   const config: ChartConfiguration = {
     type: "line",
@@ -30,7 +30,6 @@ export var quantumFiWellChart: Chart
   ]
 
   quantumFiWellChart = new Chart(chartElement, config)
-
   await calcData()
 })()
 
@@ -47,13 +46,12 @@ async function calcData() {
     -5,
     5,
     4,
-    30
+    5
   )
 }
 
 function updateChart() {
   const i = vValue(sliderName)
-  console.log(En[i][0].y)
   quantumFiWellChart.data!.datasets[1]!.data = En[i]
   quantumFiWellChart.data!.datasets[2]!.data = Ren[i]
   quantumFiWellChart.data!.datasets[3]!.data = Psi_sqn[i]

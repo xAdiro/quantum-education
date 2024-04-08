@@ -11,7 +11,6 @@ export function bindSliderToChart(chart: Chart) {
 
   slider.addEventListener("input", async () => {
     const newN = vValue(".quantum-total-energy")
-    console.log(newN)
 
     await infWellData(
       (x0, x1, re, psiSq, E) => {

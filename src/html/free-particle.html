@@ -2,6 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/styles/quantum-free-tool.css">
     <title>Quantum learning</title>
     <!-- <script id="MathJax-script" async src="node_modules/mathjax/es5/tex-chtml.js"></script> -->
     <script
@@ -52,14 +53,14 @@
         <div class="free-particle-tool">
           <input
             type="range"
-            min="1"
-            max="7"
-            value="4"
-            step="0.01"
+            min="20000000"
+            max="250000000"
+            value="125000000"
             class="particle-total-energy slider"
           />
+          <div class="info"><span class="info__val">125</span> Mm/s</div>
           <button class="shoot-button green-button">strzel</button>
-          <canvas class="quantum-free-particle chart"></canvas>
+          <canvas class="quantum-free-particle"></canvas>
         </div>
         <div class="narrator-box">
           <button class="narrator-box__back-button nav-button">&lt;</button>
@@ -68,5 +69,6 @@
         </div>
       </main>
     </div>
+    <script type="module" src="/src/ts/charts/free-particle/chart.ts"></script> 
   </body>
 </html>

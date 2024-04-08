@@ -101,4 +101,4 @@ def _zero(x1, x2, C, a, eps=0.01):
 
 
 print(finite_well(float(argv[1]), float(argv[2]), float(
-    argv[3]), float(argv[4]), 1, 1))
+    argv[3]), float(argv[4]), 9109, 6.26))

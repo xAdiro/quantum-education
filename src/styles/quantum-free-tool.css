@@ -1,0 +1,26 @@
+.free-particle-tool {
+  flex-grow: 1;
+  display: grid;
+  grid-template:
+    "slider chart"
+    "info chart"
+    "button chart";
+  grid-template-columns: 5em auto;
+  grid-template-rows: auto 1em 40px;
+  gap: 10px 30px;
+}
+
+.free-particle-tool input {
+  grid-area: slider;
+  text-align: center;
+}
+.free-particle-tool button {
+  grid-area: button;
+}
+
+.free-particle-tool .quantum-free-particle {
+  grid-area: chart;
+}
+.free-particle-tool .info {
+  grid-area: info;
+}
