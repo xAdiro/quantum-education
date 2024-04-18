@@ -9,7 +9,7 @@
   gap: 10px 30px;
 }
 
-.quantum-fi-well-tool .n-info {
+.quantum-fi-well-tool .info {
   grid-area: info;
   text-align: center;
 }

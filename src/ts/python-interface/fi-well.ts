@@ -1,5 +1,6 @@
 import { Command } from "@tauri-apps/api/shell"
 import { Point } from "chart.js"
+import { diracConstant, electronMass } from "../physics-constants"
 
 export async function fiWellData(
   draw: (
@@ -20,6 +21,8 @@ export async function fiWellData(
     String(x1),
     String(a),
     String(V0),
+    String(electronMass.kg),
+    String(diracConstant.Js),
   ])
 
   command.stdout.on("data", (text) => {
@@ -32,6 +35,10 @@ export async function fiWellData(
     }
 
     draw(x0, x1, data["re"], data["psi_sq"], data["E"])
+  })
+
+  command.stderr.on("data", (text) => {
+    console.log(text)
   })
 
   await command.spawn()

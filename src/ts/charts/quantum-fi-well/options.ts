@@ -9,18 +9,21 @@ export const options: ChartOptions = {
         color: "#FFFFFF",
         align: "center",
         font: {
-          size: 18,
+          size: 24,
         },
       },
       type: "linear",
-      min: -5,
-      max: 5,
+      min: -3e-9,
+      max: 3e-9,
       ticks: {
         color: "#FFFFFF",
+        font: {
+          size: 18,
+        },
         display: true,
         callback: (val, _) => {
-          if (val === -2) return "-a"
-          if (val === 2) return "a"
+          if (val === -1e-9) return "-a/2"
+          if (val === 1e-9) return "a/2"
           return ""
         },
       },
@@ -32,13 +35,25 @@ export const options: ChartOptions = {
       },
     },
     y: {
-      max: 2,
-      min: -1,
+      title: {
+        display: true,
+        text: "E",
+        color: "#FFFFFF",
+        align: "center",
+        font: {
+          size: 24,
+        },
+      },
+      max: 1.5,
+      min: -1.5,
       ticks: {
         color: "#FFFFFF",
+        font: {
+          size: 18,
+        },
         display: true,
         callback: (val, _) => {
-          if (val === 0) return "0"
+          if (val === -1) return "-V₀"
           return ""
         },
       },

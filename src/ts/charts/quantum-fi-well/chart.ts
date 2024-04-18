@@ -37,16 +37,17 @@ async function calcData() {
   await fiWellData(
     (x0, x1, re, psiSq, E) => {
       En = E
-      scaleDown(En, 20)
+      scaleDown(En, 1.6e-19)
+      console.log(En)
       Ren = re
       Psi_sqn = psiSq
       setRange(".quantum-total-energy", 0, En.length - 1)
       updateChart()
     },
-    -5,
-    5,
-    4,
-    5
+    -3e-9,
+    3e-9,
+    2e-9, //4
+    1.6e-19
   )
 }
 
@@ -66,6 +67,13 @@ function scaleDown(data: Point[][], factor: number) {
   }
 }
 
-document
-  .querySelector(".quantum-total-energy")
-  ?.addEventListener("input", updateChart)
+const energySlider = <HTMLInputElement>(
+  document.querySelector(".quantum-total-energy")
+)
+
+const info = document.querySelector(".info__val")
+
+energySlider.addEventListener("input", () => {
+  updateChart()
+  info!.innerHTML = String(vValue(sliderName) + 1)
+})

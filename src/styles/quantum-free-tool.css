@@ -6,7 +6,7 @@
     "info chart"
     "button chart";
   grid-template-columns: 5em auto;
-  grid-template-rows: auto 1em 40px;
+  grid-template-rows: auto 1em 4em;
   gap: 10px 30px;
 }
 
@@ -16,6 +16,7 @@
 }
 .free-particle-tool button {
   grid-area: button;
+  margin: 1em 0 1em 0;
 }
 
 .free-particle-tool .quantum-free-particle {
