@@ -1,28 +1,23 @@
-.free-particle-tool {
+.quantum-barrier-tool {
   flex-grow: 1;
   display: grid;
   grid-template:
     "slider chart"
-    "info chart"
     "button chart";
   grid-template-columns: 5em auto;
-  grid-template-rows: auto 1em 4em;
+  grid-template-rows: auto 4em;
   gap: 10px 30px;
 }
 
-.free-particle-tool input {
+.quantum-barrier-tool input {
   grid-area: slider;
   text-align: center;
 }
-.free-particle-tool button {
+.quantum-barrier-tool button {
   grid-area: button;
   margin: 1em 0 1em 0;
 }
 
-.free-particle-tool .quantum-free-particle {
+.quantum-barrier-tool .quantum-barrier-chart {
   grid-area: chart;
-}
-
-.free-particle-tool .info {
-  grid-area: info;
 }

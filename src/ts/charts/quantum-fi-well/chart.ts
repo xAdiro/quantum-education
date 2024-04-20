@@ -38,7 +38,6 @@ async function calcData() {
     (x0, x1, re, psiSq, E) => {
       En = E
       scaleDown(En, 1.6e-19)
-      console.log(En)
       Ren = re
       Psi_sqn = psiSq
       setRange(".quantum-total-energy", 0, En.length - 1)
