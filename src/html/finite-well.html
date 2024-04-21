@@ -1,57 +1,57 @@
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/src/styles.css" />
-    <link rel="stylesheet" href="/src/styles/quantum-fi-well-tool.css" />
-    <title>Quantum learning</title>
-    <!-- <script id="MathJax-script" async src="node_modules/mathjax/es5/tex-chtml.js"></script> -->
-    <script
-      type="text/javascript"
-      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-    ></script>
-  </head>
-  <body>
-    <div id="wrapper">
-      <nav class="side-menu">
-        <a class="home" href="/index.html">
-          <img class="icon" src="/src/assets/icons/house-dark.png" />
-          <span class="chapter-name"> Ekran powitalny</span>
-        </a>
-        <a href="/src/html/dualism.html">
-          <img class="icon" src="/src/assets/icons/duality-light.png" />
-          <span class="chapter-name"> Dualizm korpuskularno-falowy</span>
-        </a>
-        <a href="/src/html/free-particle.html">
-          <img class="icon" src="/src/assets/icons/wave-arrow-light.png" />
-          <span class="chapter-name"> Cząstka swobodna</span>
-        </a>
-        <a href="/src/html/infinite-well.html">
-          <img class="icon" src="/src/assets/icons/infinite-well-light.png" />
-          <span class="chapter-name"> Nieskończona studnia potencjału</span>
-        </a>
-        <a href="/src/html/finite-well.html">
-          <img class="icon" src="/src/assets/icons/finite-well-light.png" />
-          <span class="chapter-name"> Skończona studnia potencjału</span>
-        </a>
-        <a href="/src/html/jump.html">
-          <img class="icon" src="/src/assets/icons/potential-jump.png" />
-          <span class="chapter-name"> Próg potencjału</span>
-        </a>
-        <a href="/src/html/barrier.html">
-          <img class="icon" src="/src/assets/icons/potential-barrier.png" />
-          <span class="chapter-name"> Bariera potencjału</span>
-        </a>
-        <a href="/src/html/settings.html" class="settings">
-          <img class="icon" href="/src/assets/icons/cogwheel-dark.png" />
-          <span class="chapter-name"> Ustawienia</span>
-        </a>
-      </nav>
-      <div class="side-menu-block"></div>
 
-      <main class="content">
-        <h3>Skończona studnia potencjału</h3>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <link rel="stylesheet" href="/src/styles/quantum-fi-well-tool.css" />
+  <title>Quantum learning</title>
+  <!-- <script id="MathJax-script" async src="node_modules/mathjax/es5/tex-chtml.js"></script> -->
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
 
-        <!-- <p>
+<body>
+  <div id="wrapper">
+    <nav class="side-menu">
+      <a class="home" href="/index.html">
+        <img class="icon" src="/src/assets/icons/house-dark.png" />
+        <span class="chapter-name"> Ekran powitalny</span>
+      </a>
+      <a href="/src/html/dualism.html">
+        <img class="icon" src="/src/assets/icons/duality-light.png" />
+        <span class="chapter-name"> Dualizm korpuskularno-falowy</span>
+      </a>
+      <a href="/src/html/free-particle.html">
+        <img class="icon" src="/src/assets/icons/wave-arrow-light.png" />
+        <span class="chapter-name"> Cząstka swobodna</span>
+      </a>
+      <a href="/src/html/infinite-well.html">
+        <img class="icon" src="/src/assets/icons/infinite-well-light.png" />
+        <span class="chapter-name"> Nieskończona studnia potencjału</span>
+      </a>
+      <a href="/src/html/finite-well.html">
+        <img class="icon" src="/src/assets/icons/finite-well-light.png" />
+        <span class="chapter-name"> Skończona studnia potencjału</span>
+      </a>
+      <a href="/src/html/jump.html">
+        <img class="icon" src="/src/assets/icons/potential-jump.png" />
+        <span class="chapter-name"> Próg potencjału</span>
+      </a>
+      <a href="/src/html/barrier.html">
+        <img class="icon" src="/src/assets/icons/potential-barrier.png" />
+        <span class="chapter-name"> Bariera potencjału</span>
+      </a>
+      <a href="/src/html/settings.html" class="settings">
+        <img class="icon" href="/src/assets/icons/cogwheel-dark.png" />
+        <span class="chapter-name"> Ustawienia</span>
+      </a>
+    </nav>
+    <div class="side-menu-block"></div>
+
+    <main class="content">
+      <h3>Skończona studnia potencjału</h3>
+
+      <!-- <p>
           Rozważmy przypadek, w którym cząstka porusza się między dwoma ścianami o
           nieskończonym potencjale. W równaniu Schrodingera
           $$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V(x)\psi(x)=E\psi(x)$$ dla
@@ -65,29 +65,23 @@
           całkowitą wielokrotnością połowy długości fali co możemy wyrazić jako:
         </p> -->
 
-        <div class="quantum-fi-well-tool">
-          <input
-            type="range"
-            min="1"
-            max="10"
-            value="10"
-            step="1"
-            class="quantum-total-energy slider"
-          />
-          <div class="info">n = <span class="info__val">1</span></div>
-          <canvas class="quantum-fi-well-chart" class="chart"></canvas>
-        </div>
+      <div class="quantum-fi-well-tool">
+        <input type="range" min="1" max="10" value="10" step="1"
+          class="quantum-total-energy slider" />
+        <div class="info">n = <span class="info__val">1</span></div>
+        <canvas class="quantum-fi-well-chart" class="chart"></canvas>
+      </div>
 
-        <div class="narrator-box">
-          <button class="narrator-box__back-button nav-button">&lt;</button>
-          <p class="narrator-box__step">Hellooooooooooo</p>
-          <button class="narrator-box__forward-button nav-button">&gt;</button>
-        </div>
-        <script
-          type="module"
-          src="/src/ts/charts/quantum-fi-well/chart.ts"
-        ></script>
-      </main>
-    </div>
-  </body>
+      <div class="narrator-box">
+        <button class="narrator-box__back-button nav-button">&lt;</button>
+        <p class="narrator-box__step narrator-box__step--active">Hellooooooooooo</p>
+        <p class="narrator-box__step">Hellooooooooooo2</p>
+
+        <button class="narrator-box__forward-button nav-button">&gt;</button>
+      </div>
+      <script type="module" src="/src/ts/narrator/implementations/finite-well.ts"></script>
+    </main>
+  </div>
+</body>
+
 </html>
