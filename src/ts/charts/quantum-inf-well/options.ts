@@ -49,7 +49,12 @@ export const options: ChartOptions = {
       max: 2,
       min: -1,
       ticks: {
-        display: false,
+        color: "#FFFFFF",
+        display: true,
+        callback: (val, _) => {
+          if (val === 0) return "0"
+          return ""
+        },
       },
       grid: {
         display: false,

@@ -8,7 +8,7 @@ import { electronMass, diracConstant } from "../../physics-constants"
 const sliderName = ".particle-total-energy"
 const buttonName = ".shoot-button"
 
-var quantumBarrierChart: Chart
+export var quantumBarrierChart: Chart
 ;(async function () {
   const config: ChartConfiguration = {
     type: "line",

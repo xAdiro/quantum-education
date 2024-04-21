@@ -11,7 +11,7 @@ var En: Point[][] = []
 var Ren: Point[][] = []
 var Psi_sqn: Point[][] = []
 
-var quantumFiWellChart: Chart
+export var quantumFiWellChart: Chart
 ;(async function () {
   const config: ChartConfiguration = {
     type: "line",
