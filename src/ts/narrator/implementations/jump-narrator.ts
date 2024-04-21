@@ -12,3 +12,5 @@ const updateCharts = [
     displaySlider(slider, sliderInfo, false)
   },
 ]
+
+new Narrator(updateCharts)

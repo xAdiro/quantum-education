@@ -3,7 +3,13 @@ import { Narrator } from "../narrator"
 import { showDatasets, displaySlider } from "../elements-utility"
 
 const chart = quantumFiWellChart
-const slider = <HTMLInputElement>document.querySelector("")
-const sliderInfo = <HTMLElement>document.querySelector("")
+const slider = <HTMLInputElement>document.querySelector(".quantum-total-energy")
+const sliderInfo = <HTMLElement>document.querySelector(".info")
 
-const updateCharts = [() => {}]
+const updateCharts = [
+  () => {
+    console.log("a")
+  },
+]
+
+new Narrator(updateCharts)

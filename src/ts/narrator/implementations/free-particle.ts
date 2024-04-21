@@ -7,3 +7,5 @@ const slider = <HTMLInputElement>document.querySelector("")
 const sliderInfo = <HTMLElement>document.querySelector("")
 
 const updateCharts = [() => {}]
+
+new Narrator(updateCharts)
