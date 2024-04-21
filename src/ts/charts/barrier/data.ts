@@ -21,7 +21,12 @@ export const data = {
       borderColor: "rgb(20, 255, 20)",
       backgroundColor: "rgb(20, 255, 20)",
       tension: 0,
-      data: [],
+      data: [
+        { x: -5e-9, y: 0 },
+        { x: -5e-9, y: 2.4 },
+        { x: 5e-9, y: 2.4 },
+        { x: 5e-9, y: 0 },
+      ],
     },
     {
       label: "Re(psi)",
