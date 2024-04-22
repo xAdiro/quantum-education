@@ -1,6 +1,11 @@
 import Chart, { ChartConfiguration, ChartOptions } from "chart.js/auto"
+import { potentialJumpData } from "../../python-interface/potential-jump"
+import { vValue } from "../../slider-utility"
 
 Chart.defaults.color = "black"
+
+const sliderName = ".quantum-total-energy"
+const slider = <HTMLInputElement>document.querySelector(sliderName)
 
 export var quantumJumpChart: Chart
 ;(async function () {
@@ -138,9 +143,7 @@ export var quantumJumpChart: Chart
     document.getElementsByClassName("quantum-jump-chart")[0]
   )
 
-  const slider = <HTMLInputElement>(
-    document.querySelector(".quantum-total-energy")
-  )
+  const slider = <HTMLInputElement>document.querySelector(".quantum-total-energy")
 
   const min = parseFloat(slider.min)
   const max = parseFloat(slider.max)
@@ -153,3 +156,41 @@ export var quantumJumpChart: Chart
 
   quantumJumpChart = new Chart(chartElement, config)
 })()
+
+async function updateChart() {
+  const min = parseFloat(slider.min)
+  const max = parseFloat(slider.max)
+
+  const newEnergy = vValue(sliderName)
+
+  await potentialJumpData(
+    (x0, x1, re, im, psiSq) => {
+      quantumJumpChart.data!.datasets[2]!.data = re
+      quantumJumpChart.data!.datasets[3]!.data = im
+      quantumJumpChart.data!.datasets[4]!.data = psiSq
+      quantumJumpChart.update("show")
+    },
+    -5,
+    5,
+    newEnergy,
+    3,
+    1
+  )
+}
+
+const button = document.querySelector(".simulate-button")
+
+button?.addEventListener("click", async () => await updateChart())
+
+slider?.addEventListener("input", () => {
+  const min = parseFloat(slider.min)
+  const max = parseFloat(slider.max)
+
+  const newEnergy = vValue(sliderName)
+
+  quantumJumpChart.data!.datasets[1]!.data = [
+    { x: -5, y: newEnergy },
+    { x: 5, y: newEnergy },
+  ]
+  quantumJumpChart.update()
+})

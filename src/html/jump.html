@@ -62,17 +62,50 @@
 
       <div class="narrator-box">
         <button class="narrator-box__back-button nav-button">&lt;</button>
-        <p class="narrator-box__step">1ooooooooooo</p>
-        <p class="narrator-box__step">2ooooooooooooooo</p>
-        <p class="narrator-box__step">3ooooooooooooooo</p>
-        <p class="narrator-box__step">4ooooooooooooooooooooooo</p>
+        <p class="narrator-box__step">Rozważmy przykład prostokątnego progu potencjału, sytuacji w
+          której w miejscu \(x=0\) wartość energii potencjalnej zmienia się z 0 na \(V_0\). Obszar
+          przed progiem oznaczymy numerem 1, a za liczbą 2.</p>
+        <p class="narrator-box__step">
+          Więc wartości \(k\) w tych obszarach to:<br><br>
+          \(k_1=\frac{1}{\hbar}\sqrt{2mE}\)&emsp; i &emsp;\(k_2=\frac{1}{\hbar}\sqrt{2m(E-V_0)}\)
+        </p>
+        <p class="narrator-box__step">
+          Przyjmijmy, że w stronę progu porusza się strumień cząstek opisanych równaniem:
+          $$\psi=e^{ik_1x}$$
+        </p>
+
+        <p class="narrator-box__step">Aby dało się spełnić równanie Schrodingera, musimy założyć, że
+          część cząstek odbije się w miejscu progu, czyli zacznie poruszac się w lewo w obszarze 1.
+          W obszarze 2 cząstki poruszają się już tylko w prawo. Po
+          uwzględnieniu tych spostrzeżeń:
+          $$\psi_1=e^{ik_1x}+Re^{-ik_1x}$$
+          $$\psi_2=e^{ik_2x}$$
+        </p>
+        <p class="narrator-box__step">
+          Z konieczności ciągłości funkcji falowej i jej pochodnej w
+          punkcie \(x=0\), otrzymujemy liniowy układ równań o rozwiązaniu:
+          $$T=\frac{2k_1}{k_1+k_2}$$
+          $$R=\frac{k_1-k_2}{k_1+k_2}$$
+        </p>
+        <p class="narrator-box__step">
+          W przypadku, gdy \(E&lt;V_0\) również otrzymamy rozwiązanie, tym razem z urojonym \(k_2\).
+          Drugie równanie przyjmuje więc postać funkcji rzeczywistej
+          $$Ce^{-\kappa x},$$
+          gdzie &emsp;\(\kappa=ik_1\)
+        </p>
+        <p class="narrator-box__step">
+          Widzimy, że dla \(E&lt;V_0\) pojawia się pewne niezerowe prawdopobieństwo, że znajdziemy
+          cząstkę za progiem potencjału pomimo, że ma ona energię niepozwalającą na
+          przekroczenie go w fizyce klasycznej.
+        </p>
+
+
+
         <button class="narrator-box__forward-button nav-button">&gt;</button>
       </div>
     </main>
     <!-- <script type="module" src="/src/ts/charts/quantum-jump-chart/quantum-jump-chart.ts"></script> -->
-    <script type="module" src="/src/ts/charts/quantum-jump-chart/energy-slider.ts"></script>
-    <script type="module" src="/src/ts/charts/quantum-jump-chart/shoot-button.ts"></script>
-    <script type="module" src="/src/ts/narrator/jump-narrator.ts"></script>
+    <script type="module" src="/src/ts/narrator/implementations/jump.ts"></script>
   </div>
 </body>
 

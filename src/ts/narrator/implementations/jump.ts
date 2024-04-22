@@ -3,13 +3,13 @@ import { Narrator } from "../narrator"
 import { showDatasets, displaySlider } from "../elements-utility"
 
 const chart = quantumJumpChart
-const slider = <HTMLInputElement>document.querySelector("")
-const sliderInfo = <HTMLElement>document.querySelector("")
+const slider = <HTMLInputElement>document.querySelector(".quantum-total-energy")
+const sliderInfo = <HTMLElement>document.querySelector(".simulate-button")
 
 const updateCharts = [
   () => {
     showDatasets(chart, false, 0)
-    displaySlider(slider, sliderInfo, false)
+    // displaySlider(slider, sliderInfo, false)
   },
 ]
 
