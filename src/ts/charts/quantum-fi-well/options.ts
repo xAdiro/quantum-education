@@ -54,6 +54,7 @@ export const options: ChartOptions = {
         display: true,
         callback: (val, _) => {
           if (val === -1) return "-V₀"
+          if (val === 0) return "0"
           return ""
         },
       },

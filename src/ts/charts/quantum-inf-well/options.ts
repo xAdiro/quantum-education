@@ -31,6 +31,9 @@ export const options: ChartOptions = {
       max: 5,
       ticks: {
         color: "#FFFFFF",
+        font: {
+          size: 20,
+        },
         display: true,
         callback: (val, _) => {
           if (val === -2) return "-a/2"
@@ -50,6 +53,9 @@ export const options: ChartOptions = {
       min: -1,
       ticks: {
         color: "#FFFFFF",
+        font: {
+          size: 20,
+        },
         display: true,
         callback: (val, _) => {
           if (val === 0) return "0"

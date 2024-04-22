@@ -31,6 +31,9 @@ export const options: ChartOptions = {
       max: 10e-12,
       ticks: {
         color: "#FFFFFF",
+        font: {
+          size: 20,
+        },
         display: true,
         callback: (val, _) => {
           return `${<number>val * 1e12}pm`
@@ -48,8 +51,13 @@ export const options: ChartOptions = {
       min: -250000,
       ticks: {
         color: "#FFFFFF",
+        font: {
+          size: 20,
+        },
         display: true,
         callback: (val, _) => {
+          if (val === 0) return "0"
+
           return ""
         },
       },

@@ -79,6 +79,9 @@ export var quantumJumpChart: Chart
         max: 5,
         ticks: {
           color: "#FFFFFF",
+          font: {
+            size: 20,
+          },
           display: true,
           callback: (val, indexes) => {
             if (val === 0) return "0"
@@ -96,7 +99,16 @@ export var quantumJumpChart: Chart
         max: 5,
         min: -2,
         ticks: {
-          display: false,
+          color: "#FFFFFF",
+          font: {
+            size: 20,
+          },
+          display: true,
+          callback: (val, indexes) => {
+            if (val === 0) return "0"
+            if (val === 3) return "V₀"
+            return ""
+          },
         },
         grid: {
           display: false,
