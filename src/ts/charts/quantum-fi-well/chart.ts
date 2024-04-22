@@ -23,12 +23,6 @@ export var quantumFiWellChart: Chart
     document.getElementsByClassName("quantum-fi-well-chart")[0]
   )
 
-  const newEnergy = vValue(sliderName)
-  config.data.datasets[1].data = [
-    { x: -5, y: newEnergy },
-    { x: 5, y: newEnergy },
-  ]
-
   quantumFiWellChart = new Chart(chartElement, config)
   await calcData()
 })()
@@ -66,9 +60,7 @@ function scaleDown(data: Point[][], factor: number) {
   }
 }
 
-const energySlider = <HTMLInputElement>(
-  document.querySelector(".quantum-total-energy")
-)
+const energySlider = <HTMLInputElement>document.querySelector(".quantum-total-energy")
 
 const info = document.querySelector(".info__val")
 
