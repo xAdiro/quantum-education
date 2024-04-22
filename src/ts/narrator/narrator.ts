@@ -9,7 +9,7 @@ export class Narrator {
     this.max_i = document.querySelectorAll(".narrator-box__step").length - 1
 
     if (updateCharts.length - 1 != this.max_i)
-      throw TypeError(
+      console.warn(
         `updateCharts must have the same number of elements(${
           updateCharts.length
         }) as there are .narrator-box__step elements(${this.max_i + 1})`
