@@ -59,12 +59,43 @@
       </div>
       <div class="narrator-box">
         <button class="narrator-box__back-button nav-button">&lt;</button>
-        <p class="narrator-box__step">Hellooooooooooo</p>
+        <p class="narrator-box__step narrator-box__step--active">Rozważmy przypadek cząstki
+          swobodnej. W równaniu Schrodingera pominiemy więc element z energią potencjalną otrzymując
+          $$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}=E\psi(x)$$
+        </p>
+        <p class="narrator-box__step">
+          Po podstawieniu otrzymujemy:<br><br>
+          \(\frac{d^2\psi}{dx^2}+k^2\psi = 0\) &emsp; gdzie &emsp;
+          \(k=\frac{1}{\hbar}\sqrt{2mE}\)
+        </p>
+        <p class="narrator-box__step">
+          Ogólne rozwiązanie przyjmuje postać
+          $$\psi=Ae^{ikx} + Be^{-ikx}$$
+          Chcemy opisać falę rozchodzącą się w prawo, więc odrzucamy drugi element, opisujący falę
+          rozchodzącą się w lewo
+          $$ \psi=Ae^{ikx} $$
+        </p>
+        <p class="narrator-box__step">
+          Jak widać gęstośc prawdopobieństwa \(|\psi|^2=A^2\) dla całego obszaru. Do wyznaczenia
+          stałej \(A\) należy przyjąć jakiś warunek normalizacji, tutaj użyty został po prostu
+          \(A=1\)
+        </p>
+        <p class="narrator-box__step">
+          Jeśli chcielibyśmy naszkicować sama funkcję falową najwygodniej będzie rozpisać równanie
+          na postać trygonometryczną
+          $$A\cos(kx) + i\sin(kx).$$
+          Należy jednak pamiętać, że wartośc funkcji falowej nie ma interpretacji fizycznej.
+        </p>
+        <p class="narrator-box__step">
+          Na tym i kolejnych szkicach można zmieniać niektóre parametry. Tutaj przedstawiony jest
+          wystrzelony elektron, można jednak wystrzelić kolejny, tym razem z inną prędkością
+          poczatkową
+        </p>
         <button class="narrator-box__forward-button nav-button">&gt;</button>
       </div>
     </main>
   </div>
-  <script type="module" src="/src/ts/charts/free-particle/chart.ts"></script>
+  <script type="module" src="/src/ts/narrator/implementations/free-particle.ts"></script>
 </body>
 
 </html>
