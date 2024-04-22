@@ -32,6 +32,8 @@ export class Narrator {
 
       this.updateNarrator()
     })
+
+    this.updateNarrator()
   }
 
   private updateNarrator() {
@@ -40,6 +42,9 @@ export class Narrator {
 
     const newActive = document.querySelectorAll(".narrator-box__step")[this.box_i]
     newActive.classList.add("narrator-box__step--active")
+
+    this.prevButton.style.visibility = this.box_i == 0 ? "hidden" : "visible"
+    this.forwardButton.style.visibility = this.box_i == this.max_i ? "hidden" : "visible"
 
     this.updateCharts[this.box_i]()
   }

@@ -45,5 +45,4 @@ const updateCharts = [
   },
 ]
 
-updateCharts[0]()
 new Narrator(updateCharts)
