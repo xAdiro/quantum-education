@@ -1,0 +1,10 @@
+.narrator-box {
+  max-height: 100% !important;
+  flex-grow: 1;
+  flex-direction: column !important;
+}
+
+.narrator-box__step {
+  text-align: left;
+  line-height: 1.5em !important;
+}
