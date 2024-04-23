@@ -8,8 +8,28 @@ const sliderInfo = <HTMLElement>document.querySelector(".simulate-button")
 
 const updateCharts = [
   () => {
-    showDatasets(chart, false, 0)
-    // displaySlider(slider, sliderInfo, false)
+    showDatasets(chart, true, 0)
+    displaySlider(slider, sliderInfo, false)
+  },
+
+  () => {
+    showDatasets(chart, false, 0, 1)
+  },
+  () => {
+    showDatasets(chart, false, 0, 1)
+  },
+
+  () => {
+    chart.data.datasets[2].label! = "Re(ψ)"
+    chart.data.datasets[3].label! = "Im(ψ)"
+    chart.data.datasets[4].label! = "|ψ|²"
+    showDatasets(chart, true, 0, 1, 2, 3, 4)
+  },
+  () => {
+    displaySlider(slider, sliderInfo, false)
+  },
+  () => {
+    displaySlider(slider, sliderInfo)
   },
 ]
 

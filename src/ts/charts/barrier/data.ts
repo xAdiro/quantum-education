@@ -1,7 +1,7 @@
 export const data = {
   datasets: [
     {
-      label: "Potencjał",
+      label: "Energia potencjalna",
       fill: false,
       borderColor: "rgb(50,50,200)",
       backgroundColor: "rgb(50,50,200)",
@@ -23,8 +23,8 @@ export const data = {
       tension: 0,
       data: [
         { x: -5e-9, y: 0 },
-        { x: -5e-9, y: 2.4 },
-        { x: 5e-9, y: 2.4 },
+        { x: -5e-9, y: 5.7 },
+        { x: 5e-9, y: 5.7 },
         { x: 5e-9, y: 0 },
       ],
     },

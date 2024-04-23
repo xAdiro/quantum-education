@@ -1,7 +1,7 @@
 export const data = {
   datasets: [
     {
-      label: "Potencjał",
+      label: "Energia potencjalna",
       fill: false,
       borderColor: "rgb(50,50,200)",
       backgroundColor: "rgb(50,50,200)",
