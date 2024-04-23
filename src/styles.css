@@ -180,6 +180,7 @@ body {
   width: 90vw;
   max-width: 90vw;
   padding: 1em 1em 1em 1em;
+  gap: 1em;
 }
 
 .nav-button {
