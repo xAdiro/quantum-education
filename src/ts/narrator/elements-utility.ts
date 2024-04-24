@@ -17,9 +17,10 @@ export function showDatasets(chart: Chart, animate: boolean, ...indexes: number[
 
 export function displaySlider(slider: HTMLInputElement, sliderInfo: HTMLElement, display = true) {
   slider.style.opacity = display ? "1" : "0"
-  sliderInfo.style.opacity = display ? "1" : "0"
+  slider.style.visibility = display ? "visible" : "hidden"
+  sliderInfo.style.visibility = display ? "visible" : "hidden"
 }
 
 export function displayElement(element: HTMLElement, display = true) {
-  element.style.opacity = display ? "1" : "0"
+  element.style.visibility = display ? "visible" : "hidden"
 }
