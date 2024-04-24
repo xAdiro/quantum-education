@@ -148,6 +148,7 @@ body {
 .side-menu a:last-of-type {
   margin-top: auto;
   margin-bottom: 1em;
+  display: none;
 }
 
 .home-header {
@@ -218,78 +219,6 @@ body {
 }
 
 .narrator-box__forward-button {
-}
-
-.classic-ball-point {
-  width: 0px;
-  max-width: 0px;
-  height: 0px;
-  max-height: 0px;
-  position: relative;
-}
-
-.classic-ball {
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  border-radius: 20px;
-  position: relative;
-  top: 40px;
-  margin-left: 15px;
-}
-
-.classic-jump-tool {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  align-self: center;
-
-  width: 70%;
-  display: grid;
-  gap: 10px;
-  grid-template:
-    "slider ballBox chart"
-    "button ballBox chart";
-
-  grid-template-columns: 100px 0 auto;
-  grid-template-rows: auto 40px;
-}
-
-.classic-ball-container {
-  display: none;
-  width: 0px;
-  max-width: 0px;
-  height: 0px;
-  max-height: 0px;
-  grid-area: ballBox;
-}
-
-.classic-jump-tool > button {
-  grid-area: button;
-  height: 40px;
-  grid-area: button;
-}
-
-.classic-jump-tool > button:hover {
-  background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-  background-color: #5cbf2a;
-}
-
-.classic-jump-tool > button:active {
-  position: relative;
-  top: 1px;
-}
-
-.classic-jump-tool > .slider {
-  grid-area: slider;
-}
-
-.classic-jump-tool > #classic-jump-chart {
-  /* max-width: 50%;
-  margin-right: 400px;
-  margin-left: auto; */
-  grid-area: chart;
-  border-radius: 10px;
-  height: 100%;
 }
 
 .chart {
