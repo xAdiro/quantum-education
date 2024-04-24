@@ -12,9 +12,6 @@
   },
   "tauri": {
     "allowlist": {
-      "path":{
-        "all": true
-      },
       "all": false,
       "shell": {
         "all": false,
@@ -27,10 +24,6 @@
             "args": true
           }
         ]
-      },
-      "fs":{
-        "scope": ["$RESOURCE/csv/*"],
-        "readFile": true
       }
     },
     "bundle": {
@@ -41,9 +34,6 @@
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
-      ],
-      "resources": [
-        "csv/*"
       ],
       "identifier": "pl.adiro",
       "targets": "all"
