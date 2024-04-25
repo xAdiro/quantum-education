@@ -20,4 +20,5 @@
 
 .quantum-jump-tool .quantum-jump-chart {
   grid-area: chart;
+  max-width: 100%;
 }
