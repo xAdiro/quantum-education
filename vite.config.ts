@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vite"
+import { resolve } from "path"
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
@@ -20,5 +21,17 @@ export default defineConfig(async () => ({
     minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, "index.html"),
+        dualism: resolve(__dirname, "src/html/dualism.html"),
+        barrier: resolve(__dirname, "src/html/barrier.html"),
+        finiteWell: resolve(__dirname, "src/html/finite-well.html"),
+        freeParticle: resolve(__dirname, "src/html/free-particle.html"),
+        infiniteWell: resolve(__dirname, "src/html/infinite-well.html"),
+        jump: resolve(__dirname, "src/html/jump.html"),
+        settings: resolve(__dirname, "src/html/settings.html"),
+      },
+    },
   },
-}));
+}))
