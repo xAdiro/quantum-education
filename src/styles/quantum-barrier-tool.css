@@ -20,4 +20,5 @@
 
 .quantum-barrier-tool .quantum-barrier-chart {
   grid-area: chart;
+  max-width: 100%;
 }

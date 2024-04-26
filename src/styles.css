@@ -16,6 +16,7 @@
 }
 
 :root {
+  color-scheme: dark;
   --accent-color: rgb(1, 196, 138);
 
   font-family: Akatab;

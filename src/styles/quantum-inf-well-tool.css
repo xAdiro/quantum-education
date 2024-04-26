@@ -15,4 +15,5 @@
 }
 .quantum-inf-well-tool .quantum-inf-well-chart {
   grid-area: chart;
+  max-width: 100%;
 }

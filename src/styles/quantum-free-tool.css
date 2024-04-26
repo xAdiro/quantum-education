@@ -21,6 +21,7 @@
 
 .free-particle-tool .quantum-free-particle {
   grid-area: chart;
+  max-width: 100%;
 }
 
 .free-particle-tool .info {

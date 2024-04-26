@@ -15,4 +15,5 @@
 }
 .quantum-fi-well-tool .quantum-fi-well-chart {
   grid-area: chart;
+  max-width: 100%;
 }
