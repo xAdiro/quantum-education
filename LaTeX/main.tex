@@ -39,10 +39,10 @@
 \startchapterfromoddpage % niezależnie od długości spisu treści pierwszy rozdział zacznie się na nieparzystej stronie
 
 \chapter{Wstęp}
-Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej cywilizacji. Zawdzięczamy jej m.in. tranzystory, mikroskopy tunelowe o niebywałej precyzji oraz reaktory jądrowe, bez których ciężko wyobrazić sobie dzisiejszą energetykę\cite{ene jadrowa}. Mimo to jest to bardzo nieintuicyjny i przez większość ludzi niezrozumiały dział fizyki\cite{kwantowa trudna}. Na temat ten napisane zostały liczne publikacje\cite{kwant publikacje}, jednak profesjonalny język i matematyka wyższa mogą sprawić dużo trudności w zrozumieniu nawet podstawowych konceptów tej teorii.
+Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej cywilizacji. Zawdzięczamy jej m.in. tranzystory oraz reaktory jądrowe, bez których ciężko wyobrazić sobie dzisiejszą energetykę\cite{ene jadrowa}. Mimo to jest to bardzo nieintuicyjny i przez większość ludzi niezrozumiały dział fizyki\cite{kwantowa trudna}. Na temat ten napisane zostały liczne publikacje\cite{kwant publikacje}, jednak profesjonalny język i matematyka wyższa mogą sprawić dużo trudności w zrozumieniu nawet podstawowych konceptów tej teorii.
 
 	\section{Cel i motywacja pracy}
-	Celem pracy jest stworzenie aplikacji, która ma ułatwić naukę zagadnień z zakresu mechaniki kwantowej. Zagadnienia przedstawiane są w interaktywny sposób celem podtrzymania uwagi i zainteresowania tym nietrywialnym tematem. Osiągnięte to zostało poprzez wykorzystanie licznych symulacji, na których efekt końcowy bezpośredni wpływ ma użytkownik, jednocześnie stosując samouczek, który te efekty odpowiednio tłumaczy.
+	Celem pracy jest stworzenie aplikacji, która ma ułatwić naukę zagadnień z zakresu mechaniki kwantowej. Zagadnienia przedstawiane są w interaktywny sposób celem podtrzymania uwagi i zainteresowania tym nietrywialnym tematem. Osiągnięte to zostało poprzez wykorzystanie szeregu prezentacji wizualnych, na których efekt końcowy bezpośredni wpływ ma użytkownik, jednocześnie stosując samouczek, który te efekty odpowiednio tłumaczy.
 	
 	Osobiście temat mechaniki kwantowej uważam za niezwykle ciekawy, więc napisanie tej pracy motywowane jest chęcią poszerzenia swojej wiedzy w tym obszarze, jak i zastosowaniu nabytej wiedzy informatycznej w stworzeniu praktycznego narzędzia. Za interesujące również uważam symulację funkcji falowej w przeciwieństwie do przypatrywania się statycznym jej wykresom na papierze czy w plikach pdf. Aplikacja kierowana jest do osób chcących nauczyć się wstępnych zagadnień mechaniki kwantowej, jednak bez konieczności sięgania po profesjonalną literaturę. Do pełnego zrozumienia wszystkich zagadnień potrzebna jest znajomość podstaw matematyki wyższej, jednak nawet bez tej wiedzy użytkownik może wynieść z aplikacji dużo nowych informacji. Może ona być więc użyteczna nie tylko dla studentów fizyki, ale też osób ciekawiących się tym tematem.
 	\section{Tematyka i struktura pracy}
@@ -55,7 +55,7 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	\item bariery potencjału.
 	\end{itemize}
 	
-	Wytłumaczone są też zjawiska tunelowe i skwantowanych stanów energetycznych jako konsekwencja dotychczas przyswojonych zagadnień. Jest to często stosowana kolejność wprowadzania do tych zagadnień\cite{kolejnosc nauki}, ponieważ każdy kolejny przypadek bazuje na poprzednim, wprowadzając jednak stopniowo coraz to nowsze elementy.
+	Wytłumaczone są też zjawiska tunelowe i skwantowanych stanów energetycznych jako konsekwencja dotychczas przyswojonych zagadnień. Są to często omawiane zagadnienia w podręcznikach wprowadzających do mechaniki kwantowej\cite{kolejnosc nauki}, ponieważ przypadki te dobrze obrazują istotę funkcji falowej.
 	
 	W rozdziale drugim opisane zostały zastosowane technologie, charakterystyka ich działania oraz wytłumaczone zostało czym motywowany był wybór akurat ich do stworzenia aplikacji.
 	
@@ -65,18 +65,23 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 	W rozdziale piątym zaprezentowane są zrzuty ekranu z działania aplikacji, wytłumaczona zostaje budowa i działanie interfejsu oraz jak spełnione zostało wstępne wymaganie aplikacji, czyli ułatwianie nauki.
 	
+	Pracę kończy rozdział zawierający podsumowanie i wnioski.
+	
 	
 \chapter{Wykorzystane technologie}
 	\section{Popularne technologie webowe -- HTML, CSS i TypeScript}
 	\section{Biblioteki Chart.js i MathJax}
 	\section{Język Python}
-	Python pomimo, że znacząco wolniejszy od wielu innych języków programowania \cite{Python slow}, posiada bogatą kolekcję bibliotek do przetwarzania danych i obliczeń matematycznych m.in. NumPy, SciPy i SymPy. Biblioteki te najczęściej napisane w C lub Fortranie, są już z kolei znacznie szybsze od czystego Pythona\cite{Python libs}. Charakterystyczna jest też jego przejrzysta składnia, zawierająca dużo lukru składniowego\cite{Python sugar}.
+	Python pomimo, że znacząco wolniejszy od wielu innych języków programowania \cite{Python slow}, posiada bogatą kolekcję bibliotek do przetwarzania danych i obliczeń matematycznych m.in. NumPy, SciPy i SymPy. Biblioteki te najczęściej napisane w C lub Fortranie, są już z kolei znacznie szybsze od czystego Pythona (str. 2 w \cite{Python libs}). Charakterystyczna jest też jego przejrzysta składnia, zawierająca dużo lukru składniowego\cite{Python sugar}.
 	
-	Głównymi powodami, dla których zdecydowałem się na Pythona, jest właśnie dostępność bibliotek, a szczególnie SymPy oraz wbudowana obsługa liczb zespolonych. Co prawda liczby zespolone są dostępne za pośrednictwem biblioteki Math w TypeScript'cie\cite{TS Math}, którego i tak używam w aplikacji, jednak przez składnie kod zajmuje znacznie więcej miejsca niż w Pythonie. SymPy z kolei nie został wykorzystany w żadnym miejscu w implementacji aplikacji, więc może się wydać nietypowym argumentem za wyborem języka. SymPy jest biblioteką umożliwiającą obliczenia w matematyce symbolicznej\cite{SymPy}, co najważniejsze pozwala na znajdowanie analitycznych rozwiązań dla równań różniczkowych. W mojej opinii umożliwia to łatwiejszy rozwój aplikacji i wzbogacenie jej o bardziej zaawansowane przypadki ruchu cząstki w przestrzeni.
+	Głównymi powodami, dla których użyłem języka Pythona, jest właśnie dostępność bibliotek, a szczególnie SymPy oraz wbudowana obsługa liczb zespolonych. Co prawda do rachunku na liczbach zespolonych nie musiałem sięgać po drugi, zaraz po języku TypeScript, język programowania, jednak składnia Pythona jest w tym zastosowaniu znacznie bardziej zwięzła. Biblioteka SymPy z kolei nie została wykorzystana w żadnym miejscu w implementacji aplikacji, więc może się wydać nietypowym argumentem za wyborem języka, jednak tłumaczę ten wybór dokładniej w kolejnym akapicie. 
+	
+	SymPy jest biblioteką umożliwiającą obliczenia w matematyce symbolicznej\cite{SymPy}, co najważniejsze pozwala na znajdowanie analitycznych rozwiązań dla równań różniczkowych. W mojej opinii umożliwia to łatwiejszy rozwój aplikacji i wzbogacenie jej o bardziej zaawansowane przypadki ruchu cząstki w przestrzeni.
 	
 	Dostępność Matplotlib i podobnych bibliotek szkicujących umożliwia rysowanie wykresów do wizualizacji danych, wymagając przy tym bardzo małej ilości kodu, co może okazać się niezwykle przydatne przy sprawdzaniu poprawności implementacji obliczeń bardziej złożonych wzorów matematycznych. Przy pisaniu pracy niejednokrotnie z takiej możliwości skorzystałem, na co najczęściej potrzebne były 3-4 linie kodu.
 	
 	\section{Framework Tauri}
+	Standardowe aplikacje webowe w przeglądarce również umożliwiają wykonywanie skryptów Pythona, za pomocą interpretera skompilowanego do WebAssembly\cite{WebAssembly Python}, drugiego po JavaScript'cie języka programowania obsługiwanego przez popularne przeglądarki\cite{browser langs}. Jest to niestety rozwiązanie stosunkowo nowe i we wczesnej fazie rozwoju\cite{wasm beta}, co też zauważyłem 
 	Była opcja WebAssembly ale jest niedopracowane(napisać szczegóły)
 	+ vite + npm
 	
@@ -130,48 +135,48 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 	$\phi$ -- kąt pomiędzy osią części rzeczywistej, a ramieniem poprowadzonym ze środka układu współrzędnych do liczby $z$.\\
 	
-	Szczegóły funkcji falowej $\psi$ wytłumaczone są w dalszej części pracy, jednak na szczególną uwagę zasługuje wartość kwadratu jej modułu, określająca gęstość prawdopodobieństwa znalezienia cząstki w danym położeniu. Oznacza to, że prawdopodobieństwo znalezienia cząstki w obszarze $[x_1, x_2]$ będziemy wyznaczać jako:
+	Szczegóły funkcji falowej $\psi$ wytłumaczone są w dalszej części pracy, jednak na szczególną uwagę zasługuje wartość kwadratu jej modułu, określająca gęstość prawdopodobieństwa znalezienia cząstki w danym położeniu. Oznacza to, że prawdopodobieństwo znalezienia cząstki w jednowymiarowym obszarze $[x_1, x_2]$ będziemy wyznaczać jako:
 	\begin{center}
-	 	$P(X) = \int\limits_{x_2}^{x_1} |\psi(x)|^2dx$
+	 	$P(X) = \int\limits_{x_2}^{x_1} |\psi(x)|^2dx$,
 	\end{center}
 	
 	gdzie:
 	
-	$X$ -- zdarzenie losowe, że cząstka znajduje się w obszarze
+	$X$ -- zdarzenie losowe, że cząstka znajduje się w obszarze,
 	
-	$x_1, x_2$ -- początek i koniec obszaru\\ 	
+	$x_1, x_2$ -- początek i koniec obszaru.\\ 	
 	
 	Równanie różniczkowe to równanie funkcyjne zawierające pochodne nieznanej funkcji. Znajdowanie rozwiązań takich równań znacząco wykracza poza wiedzę wymaganą do zrozumienia omawianych zagadnień fizycznych, więc nie będzie do tego przywiązywana szczególna uwaga. Wybrany zakres zagadnień wymaga jedynie zapamiętania rozwiązania jednego rodzaju równań:
 	
-	$f(x)''+K^2f(x)=0 \;\Longleftrightarrow f(x)\; = Acos(Kx) + Bsin(Kx)$ \\
+	$f''(x)+K^2f(x)=0 \;\Longleftrightarrow f(x)\; = Acos(Kx) + Bsin(Kx)$ \\
 
 	gdzie:
 	
-	$f(x) \; i \; f(x)''$ -- funkcja i jej pochodna względem zmiennej x,
+	$f(x) \; i \; f''(x)$ -- funkcja i jej pochodna względem zmiennej x,
 
 	$K \in \mathbb{C}$,
 		
-	$A \in \mathbb{C}, B \in \mathbb{C}$ -- stałe wyznaczane z warunków początkowych albo brzegowych
+	$A \in \mathbb{C}, B \in \mathbb{C}$ -- stałe wyznaczane z warunków brzegowych.
 	
 	
 
-	Warto zaznaczyć, że pomimo tego że zagadnienia te są niezbędne do pełnego zrozumienia mechaniki kwantowej, to nie są wymagane do zdobycia pewnej teoretycznej wiedzy na jej temat, nawet jeśli mocno nieintuicyjnej.
+	Warto zaznaczyć, że pomimo tego, że zagadnienia te są niezbędne do pełnego zrozumienia mechaniki kwantowej, nawet bez tej wiedzy użytkownik aplikacji jest w stanie zdobyć wiedzę na temat nieintuicyjnego zachowania cząstek.
 	\section{Falowa natura materii}
-	Wyjaśnione przez Alberta Einsteina zjawisko fotoelektryczne ukazało, że światło zachowuje się nie tylko jak fala, ale też jak cząstką. Nośnik światła przekazywał energię porcjami -- kwantami przez co wprowadzone zostało pojęcie fotonu jako cząstki światła.
+	Wyjaśnione przez Alberta Einsteina zjawisko fotoelektryczne ukazało, że światło zachowuje się nie tylko jak fala, ale też jak cząstką\cite{photo-ele}. Nośnik światła przekazywał energię porcjami -- kwantami przez co wprowadzone zostało pojęcie fotonu jako cząstki światła.
 	
-	 Jako konsekwencja tego odkrycia Louis de Broglie zapostulował, że cząstki materii, takie jak elektron, muszą podzielać falowe zachowanie fotonów. Korzystając z pracy Einsteina określił długość tych fal, zwanych falami materii, wzorem:
+	 Jako konsekwencja tego odkrycia Louis de Broglie zapostulował, że cząstki materii, takie jak elektron, muszą podzielać falowe zachowanie fotonów. Korzystając z pracy Einsteina określił długość tych fal\cite{matter-wave}, zwanych falami materii, wzorem:
 	 
 	 \begin{center}
-	 $\lambda=\frac{h}{p}$
+	 $\lambda=\frac{h}{p}$,
 	 \end{center}
 	 
 	 gdzie:
 	 
-	 $\lambda$ -- długość fali materii cząstki
+	 $\lambda$ -- długość fali materii cząstki,
 	 
-	 $h$ -- stała Plancka
+	 $h$ -- stała Plancka,
 	 
-	 $p$ -- pęd cząstki\\
+	 $p$ -- pęd cząstki.\\
 	 
 	 Dzięki falom materii możemy wyjaśnić m.in. sposób rozchodzenia się elektronów np. przez siatkę dyfrakcyjną, co jest niemożliwe przy przyjęciu elektronów jako kul lub punktów w przestrzeni.
 	 
@@ -180,23 +185,25 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	\section{Równanie Schrödingera}
 	Funkcja falowa stanowi fundament zagadnień poruszanych w aplikacji. Wynika to z faktu, że jest ona niezbędna do opisu ruchu dowolnej cząstki. Erwin Schrödinger zawarł funkcje falową w równaniu nazwanym od jego nazwiska równaniem Schrödingera.  Jeżeli skupimy się na odizolowanych układach fizycznych tj. takich, które nie oddziaływują z otoczeniem, rozwiązać należy równanie Schrödingera niezależne od czasu o postaci:
 	\begin{center}
-	{\large $-\frac{\amshbar}{2m} \frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x)$}
+	\begin{equation}
+		-\frac{\amshbar}{2m} \frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x),
+	\end{equation}
 	\end{center}
 	gdzie:
 	
-	$\amshbar$ -- zredukowana stała Plancka
+	$\amshbar$ -- zredukowana stała Plancka,
 	
-	$\psi(x)$ -- fukcja falowa w położeniu $x$
+	$\psi(x)$ -- fukcja falowa w położeniu $x$,
 	
-	$E$ -- energia całkowita ciała
+	$E$ -- energia całkowita ciała,
 	
-	$V(x)$ -- potencjał w położeniu $x$
+	$V(x)$ -- potencjał w położeniu, $x$
 	
 	$m$ -- masa ciała\\
 	
 	Wartość funkcji falowej $\psi(x)$ nie posiada fizycznej interpretacji, do tego potrzebny jest kwadrat jej modułu, który określa gęstość prawdopodobieństwa znalezienia cząstki w położeniu $x$. 
 	\section{Znajdowanie równania funkcji falowej}
-	Określenie położenia cząstki wymaga od nas rozwiązania równań Schrödingera, w których będziemy mieli określoną funkcję $V(x)$, jednak w celu ułatwienia obliczeń będziemy dzielić zagadnienia na obszary o stałym potencjale. W ten sposób będziemy mieli do rozwiązania kilka równań różniczkowych, z których otrzymamy odpowiednie rozwiązania ogólne. Rozwiązania szczegółowe tych równań spełniać muszą warunki początkowe, mogące wynikać m.in. z normowania gęstości prawdopodobieństwa. Poza warunkami początkowymi, konieczne będzie też spełnienie warunków brzegowych tj. ciągłości $\psi(x)$ oraz, w zagadnieniach bez nieskończonego potencjału, ciągłości jej pochodnej. Ważne jest również, że tylko skończone wartości $\psi(x)$ mają fizyczny sens.
+	Określenie położenia cząstki wymaga od nas rozwiązania równania Schrödingera, w którym będziemy mieli określoną funkcję $V(x)$, jednak w celu ułatwienia obliczeń będziemy dzielić zagadnienia na obszary o stałym potencjale. W ten sposób będziemy mieli do rozwiązania kilka równań różniczkowych, z których otrzymamy odpowiednie rozwiązania ogólne. Rozwiązania szczegółowe tych równań spełniać muszą warunki początkowe, mogące wynikać m.in. z normowania gęstości prawdopodobieństwa. Poza warunkami początkowymi, konieczne będzie też spełnienie warunków brzegowych tj. ciągłości $\psi(x)$ oraz, w zagadnieniach bez nieskończonego potencjału, ciągłości jej pochodnej. Ważne jest również, że tylko skończone wartości $\psi(x)$ mają fizyczny sens.
 	
 	Zanim jednak zajmiemy się bardziej złożonymi przykładami, sprawdźmy jaką postać przyjmuje $\psi$ dla cząstki swobodnej tj. takiej o zerowej energii potencjalnej. Otrzymujemy równanie 
 \begin{center}
@@ -298,7 +305,7 @@ Jako ostatni omawiany jest przypadek bariery potencjału...
 gdzie indeksy opisują obszar, którego dotyczy wzór funkcji.
 		Stałe $A$, $B$, $C$ i $D$ wyznaczane są z warunków brzegowych, jednak do obliczenia $\gamma$ potrzebna jest wartość $k$.
 		
-		Ze względu na szybkość początkowo chciałe zastosować metodą Newtona, jednak eksperymentalnie stwierdziłem, że przez charakter funkcji, znalezienie miejsca zerowego tą metodą jest bardzo wolne. Znacznie lepsze efekty przyniosła metoda bisekcji i ona wykorzystywana jest w ostatecznej implementacji.
+		Ze względu na szybkość początkowo pomyślałem o zastosowaniu metody Newtona, jednak eksperymentalnie stwierdziłem, że przez charakter funkcji, znalezienie miejsca zerowego tą metodą jest bardzo wolne. Znacznie lepsze efekty przyniosła metoda bisekcji i ona wykorzystywana została w ostatecznej implementacji.
 		
 		
 	\section{Interfejs pomiędzy TypeScriptem i Pythonem}
@@ -306,8 +313,23 @@ gdzie indeksy opisują obszar, którego dotyczy wzór funkcji.
 		
 		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w TypeScript'cie. Wyniki obliczeń fizycznych są więc serializowane(rysunek), wysyłane jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w TypeScript'cie(rysunek).  
 	\section{Wdrożenie i dystrybucja aplikacji}
-	o budowie aplikacji, pakowanych zasobach, interpreterze pythona, platformach
+	Aplikacja została stworzona przy użyciu frameworka Tauri, który umożliwia kompilację do formatów .msi i .exe na system Windows, .deb i .AppImage na system GNU/Linux. Możliwa jest też kompilacja na system macOS na architekturę procesora x86 i ARM, jednak nie sprawdzałem tych opcji ponieważ nie mam dostępu do takich urządzeń.
+	
+	Udostępnione przeze mnie zostały formaty .msi, który w przeciwieństwie do .exe jest dedykowany dla instalatorów programów na system Windows oraz .deb ponieważ jest to format wspierany przez największe dystrybucje systemu GNU/Linux, czyli Debian i Ubuntu. Dodatkowo format .AppImage powodował problem szerzej opisany w kolejnym rozdziale. 
+	
+	Framework Tauri sam kopiuje do wersji skompilowanej niezbędne pliki .html, .css .ts oraz wszelkie obrazy i fonty użyte w plikach .css, jednak użyte skrypty .py muszą być specjalnie oznaczone jako zasób aplikacji w pliku konfiguracyjnym tauri.conf.json. Ponieważ twórcy frameworka Tauri stworzyli go z myślą o bezpieczeństwie \cite{tauri-security}, w pliku konfiguracyjnym zadeklarować, żeby aplikacja miała możliwość wykonywania poleceń systemowych, do uruchomienia interpretera Pythona oraz możliwość odczytu plików, do użycia plików ze skryptami Pythona.
+	
+	Ponieważ obliczenia matematyczne wykonywane są przy użyciu języka Python, niezbędny do działania aplikacji jest zainstalowany interpreter Pythona 3.11 lub nowszy z zainstalowanym modułem NumPy. Zdecydowałem się nie dołączać interpretera do instalatora mojej aplikacji, ponieważ znacząco zwiększyłoby to rozmiar finalnego pliku. 
 	\section{Problemy, ograniczenia i możliwości rozwoju}
+	Appimage
+	Weryfikacja wersji pythona i modułu numpy
+	projektowanie narratora/przedstawiania treści
+	python-typescript wolny
+	bardziej zaawansowane wizualizacje w przyszłości
+	analityczne rozwiązania
+	tauri to świeży framework, mało pomocy i literatury
+	dystrybucja aplikacji desktopowych jest mało wygodna w porównaniu do web, ale web nie ma pythona (na razie)
+	
 
 \chapter{Interfejs aplikacji}
 	\section{Ekran główny}

@@ -18,10 +18,10 @@
 \contentsline {section}{\numberline {4.4}Obliczenia fizyczne w Pythonie}{19}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Interfejs pomiędzy TypeScriptem i Pythonem}{20}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Wdrożenie i dystrybucja aplikacji}{20}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Problemy, ograniczenia i możliwości rozwoju}{20}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Ekran główny}{21}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{21}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Transkrypcja}{21}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{22}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Bibliografia}{23}{chapter.7}%
+\contentsline {section}{\numberline {4.7}Problemy, ograniczenia i możliwości rozwoju}{21}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{22}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ekran główny}{22}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{22}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Transkrypcja}{22}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{23}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Bibliografia}{24}{chapter.7}%
