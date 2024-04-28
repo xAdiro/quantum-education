@@ -30,7 +30,7 @@ const updateCharts = [
     showDatasets(chart, true, 0, 1)
   },
   () => {
-    chart.data.datasets[2].label! = "Re(ψ)"
+    chart.data.datasets[2].label! = "ψ"
     chart.data.datasets[3].label! = "|ψ|²"
 
     showDatasets(chart, true, 0, 1, 2, 3)

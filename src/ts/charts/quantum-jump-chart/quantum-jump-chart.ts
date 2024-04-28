@@ -51,7 +51,7 @@ export var quantumJumpChart: Chart
         data: [],
       },
       {
-        label: "ψ²",
+        label: "|ψ|²",
         fill: false,
         borderColor: "#FF8800",
         backgroundColor: "#FF8800",

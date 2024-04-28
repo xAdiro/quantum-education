@@ -23,7 +23,7 @@ const updateCharts = [
     displaySlider(slider, sliderInfo)
   },
   () => {
-    chart.data.datasets[2].label! = "Re(ψ)"
+    chart.data.datasets[2].label! = "ψ"
     showDatasets(chart, true, 0, 2)
     displaySlider(slider, sliderInfo)
   },
