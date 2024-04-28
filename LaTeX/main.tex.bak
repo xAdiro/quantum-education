@@ -317,10 +317,22 @@ gdzie indeksy opisują obszar, którego dotyczy wzór funkcji.
 	
 	Udostępnione przeze mnie zostały formaty .msi, który w przeciwieństwie do .exe jest dedykowany dla instalatorów programów na system Windows oraz .deb ponieważ jest to format wspierany przez największe dystrybucje systemu GNU/Linux, czyli Debian i Ubuntu. Dodatkowo format .AppImage powodował problem szerzej opisany w kolejnym rozdziale. 
 	
-	Framework Tauri sam kopiuje do wersji skompilowanej niezbędne pliki .html, .css .ts oraz wszelkie obrazy i fonty użyte w plikach .css, jednak użyte skrypty .py muszą być specjalnie oznaczone jako zasób aplikacji w pliku konfiguracyjnym tauri.conf.json. Ponieważ twórcy frameworka Tauri stworzyli go z myślą o bezpieczeństwie \cite{tauri-security}, w pliku konfiguracyjnym 
-	o budowie aplikacji, pakowanych zasobach, interpreterze pythona, platformach
+	Framework Tauri sam kopiuje do wersji skompilowanej niezbędne pliki .html, .css .ts oraz wszelkie obrazy i fonty użyte w plikach .css, jednak użyte skrypty .py muszą być specjalnie oznaczone jako zasób aplikacji w pliku konfiguracyjnym tauri.conf.json. Ponieważ twórcy frameworka Tauri stworzyli go z myślą o bezpieczeństwie \cite{tauri-security}, w pliku konfiguracyjnym zadeklarować, żeby aplikacja miała możliwość wykonywania poleceń systemowych, do uruchomienia interpretera Pythona oraz możliwość odczytu plików, do użycia plików ze skryptami Pythona.
+	
+	Ponieważ obliczenia matematyczne wykonywane są przy użyciu języka Python, niezbędny do działania aplikacji jest zainstalowany interpreter Pythona 3.11 lub nowszy z zainstalowanym modułem NumPy. Zdecydowałem się nie dołączać interpretera do instalatora mojej aplikacji, ponieważ znacząco zwiększyłoby to rozmiar finalnego pliku. 
 	\section{Problemy, ograniczenia i możliwości rozwoju}
-	Appimage
+	Jedno z ważniejszych ograniczenie mojej aplikacji leży w interfejsie pomiędzy językiem TypeScript i Pythonem. O ile wykonanie samych obliczeń fizycznych w Pythonie liczyć można w milisekundach to proces zserialozwania danych, przekazania ich do odczytu i deserializacji w języku TypeScript wydłuża ten proces do kilkuset milisekund, zwykle co najmniej 200. Jest to czas niezauważalny jeżeli potrzebne jest wykonanie obliczeń raz lub stosunkowo rzadko, co ma miejsce w aplikacji, jednak częste odświeżanie wyświetlanych danych byłoby po prostu niemożliwe do zrealizowania, przy zastosowanym rozwiązaniu. Należy jednocześnie zwrócić uwagę, że przy bardziej rozbudowanych scenariuszach fizycznych czas przekazywania danych może okazać się nieznaczący, jeśli samo wykonywanie obliczeń fizycznych trwać znacznie dłużej. Dokładnie takie przypadki miałem na względzie decydując o zastosowaniu Pythona w projekcie i jest to kierunek, w którym aplikacja mogłaby zostać w przyszłości rozwinięta.
+	Kolejną rzeczą, która ogranicza aplikację jest forma dystrybucji. Na przestrzeni lat aplikacje desktopowe ustępowały popularnością aplikacjom webowym. W wyniku takich zmian użytkownicy przyzwyczajeni do korzystania z przeglądarki internetowej mogą 
+	Z pozoru największym problemem jaki napotkałem był fakt, że aplikacja po skompilowaniu do formatu .AppImage nie była w stanie poprawnie wywoływać skryptów Pythona. Jak jednak powiedziałem, problem tylko z pozoru wydał się krytyczny, a to przez fakt, że formaty .deb i .msi nie sprawiały żadnych problemów. Wciąż zaintrygowany tym nieoczekiwanym zachowaniem, zgłosiłem się przez komunikator Discord o pomoc do zespołu wsparcia frameworka Tauri. Okazało się, że nie jest to spodziewane zachowanie i najprawdopodobniej napotkałem błąd w samym frameworku. Za prośbą zespołu wsparcia zamieściłem repozytorium z minimalnym kodem niezbędnym do odtworzenia tego błędu\cite{app-error-repo}.
+	Ważnym aspektem, który niekiedy spowalniał tworzenie pracy, jest fakt że framework Tauri, wydany w 2022 roku\cite{tauri-release}, jest stosunkowo nową technologią. Pomimo że dostępną jest dokumentacja, to potrafi ona zawierać braki lub niedopowiedzenia, a szukanie szczegółowych odpowiedzi może stanowić wyzwanie, ponieważ nie istnieje na ten temat znacząca ilość literatury.
+	Rzeczą którą niewątpliwie można poprawić, jednak nie jest ona moim zdaniem kluczowa, jest weryfikacja instalacji interpretera języka Python. Aktualnie aplikacja nie weryfikuje czy interpreter ten jest rzeczywiście zainstalowany oraz czy zainstalowany jest moduł NumPy. Dodanie takiej funkcjonalności w przyszłości niewątpliwie pomogłoby, w szukaniu problemów w razie nieprawidłowego działania aplikacji.
+	
+	
+	
+	projektowanie narratora/przedstawiania treści
+	python-typescript wolny
+	dystrybucja aplikacji desktopowych jest mało wygodna w porównaniu do web, ale web nie ma pythona (na razie)
+	
 
 \chapter{Interfejs aplikacji}
 	\section{Ekran główny}

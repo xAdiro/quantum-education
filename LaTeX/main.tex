@@ -321,14 +321,15 @@ gdzie indeksy opisują obszar, którego dotyczy wzór funkcji.
 	
 	Ponieważ obliczenia matematyczne wykonywane są przy użyciu języka Python, niezbędny do działania aplikacji jest zainstalowany interpreter Pythona 3.11 lub nowszy z zainstalowanym modułem NumPy. Zdecydowałem się nie dołączać interpretera do instalatora mojej aplikacji, ponieważ znacząco zwiększyłoby to rozmiar finalnego pliku. 
 	\section{Problemy, ograniczenia i możliwości rozwoju}
-	Appimage
-	Weryfikacja wersji pythona i modułu numpy
-	projektowanie narratora/przedstawiania treści
-	python-typescript wolny
-	bardziej zaawansowane wizualizacje w przyszłości
-	analityczne rozwiązania
-	tauri to świeży framework, mało pomocy i literatury
-	dystrybucja aplikacji desktopowych jest mało wygodna w porównaniu do web, ale web nie ma pythona (na razie)
+	Jedno z ważniejszych ograniczenie mojej aplikacji leży w interfejsie pomiędzy językiem TypeScript i Pythonem. O ile wykonanie samych obliczeń fizycznych w Pythonie liczyć można w milisekundach to proces zserialozwania danych, przekazania ich do odczytu i deserializacji w języku TypeScript wydłuża ten proces do kilkuset milisekund, zwykle co najmniej 200. Jest to czas niezauważalny jeżeli potrzebne jest wykonanie obliczeń raz lub stosunkowo rzadko, co ma miejsce w aplikacji, jednak częste odświeżanie wyświetlanych danych byłoby po prostu niemożliwe do zrealizowania, przy zastosowanym rozwiązaniu. Należy jednocześnie zwrócić uwagę, że przy bardziej rozbudowanych scenariuszach fizycznych czas przekazywania danych może okazać się nieznaczący, jeśli samo wykonywanie obliczeń fizycznych trwać znacznie dłużej. Dokładnie takie przypadki miałem na względzie decydując o zastosowaniu Pythona w projekcie i jest to kierunek, w którym aplikacja mogłaby zostać w przyszłości rozwinięta.
+	
+	Kolejną rzeczą, która ogranicza aplikację jest forma dystrybucji. Na przestrzeni lat aplikacje desktopowe ustępowały popularnością aplikacjom webowym\cite{web-vs-desktop}. W wyniku takich zmian użytkownicy przyzwyczajeni do korzystania z przeglądarki internetowej mogą nie chcieć poświęcić czasu na pobranie i zainstalowanie mojej aplikacji. Niestety jednak, pomimo że jest to już możliwe, wykonywanie skryptów Pythona w przeglądarce jest dalej w fazie rozwoju\cite{python-webassembly} co wymusza taką formę aplikacji.
+	
+	Z pozoru największym problemem jaki napotkałem był fakt, że aplikacja po skompilowaniu do formatu .AppImage nie była w stanie poprawnie wywoływać skryptów Pythona. Jak jednak powiedziałem, problem tylko z pozoru wydał się krytyczny, a to przez fakt, że formaty .deb i .msi nie sprawiały żadnych problemów. Wciąż zaintrygowany tym nieoczekiwanym zachowaniem, zgłosiłem się przez komunikator Discord o pomoc do zespołu wsparcia frameworka Tauri. Okazało się, że nie jest to spodziewane zachowanie i najprawdopodobniej napotkałem błąd w samym frameworku. Za prośbą zespołu wsparcia zamieściłem repozytorium z minimalnym kodem niezbędnym do odtworzenia tego błędu\cite{app-error-repo}.
+	
+	Ważnym aspektem, który niekiedy spowalniał tworzenie pracy, jest fakt że framework Tauri, wydany w 2022 roku\cite{tauri-release}, jest stosunkowo nową technologią. Pomimo że dostępną jest dokumentacja, to potrafi ona zawierać braki lub niedopowiedzenia, a szukanie szczegółowych odpowiedzi może stanowić wyzwanie, ponieważ nie istnieje na ten temat znacząca ilość literatury.
+	
+	Rzeczą którą niewątpliwie można poprawić, jednak nie jest ona moim zdaniem kluczowa, jest weryfikacja instalacji interpretera języka Python. Aktualnie aplikacja nie weryfikuje czy interpreter ten jest rzeczywiście zainstalowany oraz czy zainstalowany jest moduł NumPy. Dodanie takiej funkcjonalności w przyszłości niewątpliwie pomogłoby, w szukaniu problemów w razie nieprawidłowego działania aplikacji.
 	
 
 \chapter{Interfejs aplikacji}
