@@ -23,7 +23,7 @@ export const data = {
       data: [],
     },
     {
-      label: "Re(ψ)",
+      label: "ψ",
       hidden: true,
       fill: false,
       borderColor: "rgb(226,47,47)",

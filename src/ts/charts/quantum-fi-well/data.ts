@@ -24,7 +24,7 @@ export const data = {
       data: [],
     },
     {
-      label: "Re(psi)",
+      label: "ψ",
       fill: false,
       borderColor: "rgb(226,47,47)",
       backgroundColor: "rgb(226,47,47)",

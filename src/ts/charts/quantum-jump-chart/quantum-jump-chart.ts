@@ -33,7 +33,7 @@ export var quantumJumpChart: Chart
         data: [],
       },
       {
-        label: "Re(psi)",
+        label: "Re(ψ)",
         fill: false,
         borderColor: "rgb(226,47,47)",
         backgroundColor: "rgb(226,47,47)",
@@ -42,7 +42,7 @@ export var quantumJumpChart: Chart
         data: [],
       },
       {
-        label: "Im(psi)",
+        label: "Im(ψ)",
         fill: false,
         borderColor: "rgb(244,51,255)",
         backgroundColor: "rgb(244,51,255)",
