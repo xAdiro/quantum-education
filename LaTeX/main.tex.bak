@@ -16,6 +16,8 @@
 \pworkplace{Instytut Informatyki Technicznej\\Katedra Sztucznej Inteligencji}
 
 \usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{float}
 
 \begin{document}
 \maketitle
@@ -39,7 +41,7 @@
 \startchapterfromoddpage % niezależnie od długości spisu treści pierwszy rozdział zacznie się na nieparzystej stronie
 
 \chapter{Wstęp}
-Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej cywilizacji. Zawdzięczamy jej m.in. tranzystory oraz reaktory jądrowe, bez których ciężko wyobrazić sobie dzisiejszą energetykę\cite{ene jadrowa}. Mimo to jest to bardzo nieintuicyjny i przez większość ludzi niezrozumiały dział fizyki\cite{kwantowa trudna}. Na temat ten napisane zostały liczne publikacje\cite{kwant publikacje}, jednak profesjonalny język i matematyka wyższa mogą sprawić dużo trudności w zrozumieniu nawet podstawowych konceptów tej teorii.
+Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej cywilizacji. Zawdzięczamy jej m.in. tranzystory oraz reaktory jądrowe, bez których ciężko wyobrazić sobie dzisiejszą energetykę\cite{nuclear-stats}. Mimo to jest to bardzo nieintuicyjny i przez większość ludzi niezrozumiały dział fizyki\cite{fiz atom}. Na temat ten napisane zostały liczne publikacje\cite{fiz atom}\cite{mechanika kwant}\cite{fiz kwant}, jednak profesjonalny język i matematyka wyższa mogą sprawić dużo trudności w zrozumieniu nawet podstawowych konceptów tej teorii.
 
 	\section{Cel i motywacja pracy}
 	Celem pracy jest stworzenie aplikacji, która ma ułatwić naukę zagadnień z zakresu mechaniki kwantowej. Zagadnienia przedstawiane są w interaktywny sposób celem podtrzymania uwagi i zainteresowania tym nietrywialnym tematem. Osiągnięte to zostało poprzez wykorzystanie szeregu prezentacji wizualnych, na których efekt końcowy bezpośredni wpływ ma użytkownik, jednocześnie stosując samouczek, który te efekty odpowiednio tłumaczy.
@@ -55,7 +57,7 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	\item bariery potencjału.
 	\end{itemize}
 	
-	Wytłumaczone są też zjawiska tunelowe i skwantowanych stanów energetycznych jako konsekwencja dotychczas przyswojonych zagadnień. Są to często omawiane zagadnienia w podręcznikach wprowadzających do mechaniki kwantowej\cite{kolejnosc nauki}, ponieważ przypadki te dobrze obrazują istotę funkcji falowej.
+	Wytłumaczone są też zjawiska tunelowe i skwantowanych stanów energetycznych jako konsekwencja dotychczas przyswojonych zagadnień. Są to często omawiane zagadnienia w podręcznikach wprowadzających do mechaniki kwantowej\cite{fiz atom}\cite{mechanika kwant}\cite{fiz kwant}, ponieważ przypadki te dobrze obrazują istotę funkcji falowej.
 	
 	W rozdziale drugim opisane zostały zastosowane technologie, charakterystyka ich działania oraz wytłumaczone zostało czym motywowany był wybór akurat ich do stworzenia aplikacji.
 	
@@ -70,19 +72,21 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 \chapter{Wykorzystane technologie}
 	\section{Popularne technologie webowe -- HTML, CSS i TypeScript}
+	
 	\section{Biblioteki Chart.js i MathJax}
 	\section{Język Python}
-	Python pomimo, że znacząco wolniejszy od wielu innych języków programowania \cite{Python slow}, posiada bogatą kolekcję bibliotek do przetwarzania danych i obliczeń matematycznych m.in. NumPy, SciPy i SymPy. Biblioteki te najczęściej napisane w C lub Fortranie, są już z kolei znacznie szybsze od czystego Pythona (str. 2 w \cite{Python libs}). Charakterystyczna jest też jego przejrzysta składnia, zawierająca dużo lukru składniowego\cite{Python sugar}.
+	Python pomimo, że znacząco wolniejszy od wielu innych języków programowania (str. 2 w \cite{Python}), posiada bogatą kolekcję bibliotek do przetwarzania danych i obliczeń matematycznych m.in. NumPy, SciPy i SymPy. Biblioteki te najczęściej napisane w C lub Fortranie, są już z kolei znacznie szybsze od czystego Pythona (str. 2 w \cite{Python}). Charakterystyczna jest też jego przejrzysta składnia, zawierająca dużo lukru składniowego(str. 418 w \cite{Python}).
 	
 	Głównymi powodami, dla których użyłem języka Pythona, jest właśnie dostępność bibliotek, a szczególnie SymPy oraz wbudowana obsługa liczb zespolonych. Co prawda do rachunku na liczbach zespolonych nie musiałem sięgać po drugi, zaraz po języku TypeScript, język programowania, jednak składnia Pythona jest w tym zastosowaniu znacznie bardziej zwięzła. Biblioteka SymPy z kolei nie została wykorzystana w żadnym miejscu w implementacji aplikacji, więc może się wydać nietypowym argumentem za wyborem języka, jednak tłumaczę ten wybór dokładniej w kolejnym akapicie. 
 	
-	SymPy jest biblioteką umożliwiającą obliczenia w matematyce symbolicznej\cite{SymPy}, co najważniejsze pozwala na znajdowanie analitycznych rozwiązań dla równań różniczkowych. W mojej opinii umożliwia to łatwiejszy rozwój aplikacji i wzbogacenie jej o bardziej zaawansowane przypadki ruchu cząstki w przestrzeni.
+	SymPy jest biblioteką umożliwiającą obliczenia w matematyce symbolicznej\cite{sympy}, co najważniejsze pozwala na znajdowanie analitycznych rozwiązań dla równań różniczkowych. W mojej opinii umożliwia to łatwiejszy rozwój aplikacji i wzbogacenie jej o bardziej zaawansowane przypadki ruchu cząstki w przestrzeni.
 	
 	Dostępność Matplotlib i podobnych bibliotek szkicujących umożliwia rysowanie wykresów do wizualizacji danych, wymagając przy tym bardzo małej ilości kodu, co może okazać się niezwykle przydatne przy sprawdzaniu poprawności implementacji obliczeń bardziej złożonych wzorów matematycznych. Przy pisaniu pracy niejednokrotnie z takiej możliwości skorzystałem, na co najczęściej potrzebne były 3-4 linie kodu.
 	
 	\section{Framework Tauri}
-	Standardowe aplikacje webowe w przeglądarce również umożliwiają wykonywanie skryptów Pythona, za pomocą interpretera skompilowanego do WebAssembly\cite{WebAssembly Python}, drugiego po JavaScript'cie języka programowania obsługiwanego przez popularne przeglądarki\cite{browser langs}. Jest to niestety rozwiązanie stosunkowo nowe i we wczesnej fazie rozwoju\cite{wasm beta}, co też zauważyłem 
-	Była opcja WebAssembly ale jest niedopracowane(napisać szczegóły)
+	Za pomocą Tauri możliwe jest tworzenie aplikacji desktopowych, wykorzystując przy tym technologie webowe. W przeciwieństwie do rozwiązań takich jak Electron\cite{electron}, aplikacje tworzone przy użyciu Tauri zajmują znacznie mniej miejsca oraz potrzebują mniej zasobów komputera do działania. 
+	Dodatkowym atutem jest możliwość korzystania z interpretera Pythona, zainstalowanego na komputerze użytkownika. Standardowe aplikacje webowe w przeglądarce również umożliwiają wykonywanie skryptów Pythona, za pomocą interpretera skompilowanego do WebAssembly\cite{WebAssembly Python}, drugiego po JavaScript języka programowania obsługiwanego przez popularne przeglądarki\cite{browser langs}. Jest to niestety rozwiązanie stosunkowo nowe i we wczesnej fazie rozwoju\cite{pyodide}.
+
 	+ vite + npm
 	
 \chapter{Podstawy teorytyczne}
@@ -91,15 +95,15 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 
 	Liczby zespolone są nadzbiorem liczb rzeczywistych, wzbogaconym o jednostkę urojoną $i$ \cite{liczby zespolone}definiowaną jako: 
 	
-	\begin{center}
-	$i^2=-1$.\\
-	\end{center}
+	\begin{equation}
+	i^2=-1.
+	\end{equation}
 	
 	Dowolną liczbę zespoloną możemy więc zapisać w postaci algebraicznej, będącej sumą części rzeczywistej i urojonej, tj. będącej rzeczywistą wielokrotnością jednostki urojonej:
 	
-	\begin{center}
-	$z = a+bi$,
-	\end{center}
+	\begin{equation}
+	z = a+bi,
+	\end{equation}
 	gdzie
 	$z \in \mathbb{C}$,
 	$a \in \mathbb{R}$,
@@ -107,9 +111,9 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 	Do graficznego opisu liczby zespolonej poza osią rzeczywistą, potrzebna jest dodatkowa, pionowa oś urojona. Liczba zespolona może być przedstawiona jako punkt o współrzędnych $a$ i $b$ w kartezjańskim układzie współrzędnym. Moduł liczby $z$ definiowany jako odległość tego punktu od środka układu współrzędnych, można więc obliczyć stosując twierdzenia Pitagorasa:
 	
-	\begin{center}
-	$|z| = \sqrt{a^2+b^2}$,
-	\end{center}
+	\begin{equation}
+	|z| = \sqrt{a^2+b^2},
+	\end{equation}
 	
 	gdzie:
 	
@@ -121,9 +125,9 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 	Inną postacią liczby zespolonej jest postać wykładnicza, przedstawiana jako:
 	
-	\begin{center}
-	$z = |z|e^{i\phi}$,
-	\end{center}
+	\begin{equation}
+	z = |z|e^{i\phi},
+	\end{equation}
 	
 	gdzie:
 	
@@ -136,9 +140,9 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	$\phi$ -- kąt pomiędzy osią części rzeczywistej, a ramieniem poprowadzonym ze środka układu współrzędnych do liczby $z$.\\
 	
 	Szczegóły funkcji falowej $\psi$ wytłumaczone są w dalszej części pracy, jednak na szczególną uwagę zasługuje wartość kwadratu jej modułu, określająca gęstość prawdopodobieństwa znalezienia cząstki w danym położeniu. Oznacza to, że prawdopodobieństwo znalezienia cząstki w jednowymiarowym obszarze $[x_1, x_2]$ będziemy wyznaczać jako:
-	\begin{center}
-	 	$P(X) = \int\limits_{x_2}^{x_1} |\psi(x)|^2dx$,
-	\end{center}
+	\begin{equation}
+	P(X) = \int\limits_{x_2}^{x_1} |\psi(x)|^2dx,
+	\end{equation}
 	
 	gdzie:
 	
@@ -148,7 +152,9 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 	Równanie różniczkowe to równanie funkcyjne zawierające pochodne nieznanej funkcji. Znajdowanie rozwiązań takich równań znacząco wykracza poza wiedzę wymaganą do zrozumienia omawianych zagadnień fizycznych, więc nie będzie do tego przywiązywana szczególna uwaga. Wybrany zakres zagadnień wymaga jedynie zapamiętania rozwiązania jednego rodzaju równań:
 	
-	$f''(x)+K^2f(x)=0 \;\Longleftrightarrow f(x)\; = Acos(Kx) + Bsin(Kx)$ \\
+	\begin{equation}
+	f''(x)+K^2f(x)=0 \;\Longleftrightarrow f(x)\; = Acos(Kx) + Bsin(Kx),
+	\end{equation}
 
 	gdzie:
 	
@@ -160,15 +166,16 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 	
 
-	Warto zaznaczyć, że pomimo tego, że zagadnienia te są niezbędne do pełnego zrozumienia mechaniki kwantowej, nawet bez tej wiedzy użytkownik aplikacji jest w stanie zdobyć wiedzę na temat nieintuicyjnego zachowania cząstek.
+	Warto zaznaczyć, że pomimo tego, że zagadnienia te są niezbędne do pełnego zrozumienia mechaniki kwantowej, nawet bez tej wiedzy użytkownik aplikacji może dowiedzieć się o tym, jak nieintuicyjnie zachowują się cząstki.
 	\section{Falowa natura materii}
-	Wyjaśnione przez Alberta Einsteina zjawisko fotoelektryczne ukazało, że światło zachowuje się nie tylko jak fala, ale też jak cząstką\cite{photo-ele}. Nośnik światła przekazywał energię porcjami -- kwantami przez co wprowadzone zostało pojęcie fotonu jako cząstki światła.
+	Wyjaśnione przez Alberta Einsteina zjawisko fotoelektryczne ukazało, że światło zachowuje się nie tylko jak fala, ale też jak cząstką\cite{foto-ele}. Nośnik światła przekazywał energię porcjami -- kwantami przez co wprowadzone zostało pojęcie fotonu jako cząstki światła.
 	
 	 Jako konsekwencja tego odkrycia Louis de Broglie zapostulował, że cząstki materii, takie jak elektron, muszą podzielać falowe zachowanie fotonów. Korzystając z pracy Einsteina określił długość tych fal\cite{matter-wave}, zwanych falami materii, wzorem:
 	 
-	 \begin{center}
-	 $\lambda=\frac{h}{p}$,
-	 \end{center}
+	 \begin{equation}
+	 \lambda=\frac{h}{p},
+	 \end{equation}
+	
 	 
 	 gdzie:
 	 
@@ -183,7 +190,7 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	 Dokładniejszego opisu tych fal dokonał Erwin Schrödinger proponując równanie funkcji falowej $\psi$ o zespolonym zbiorze wartości. 
 	 
 	\section{Równanie Schrödingera}
-	Funkcja falowa stanowi fundament zagadnień poruszanych w aplikacji. Wynika to z faktu, że jest ona niezbędna do opisu ruchu dowolnej cząstki. Erwin Schrödinger zawarł funkcje falową w równaniu nazwanym od jego nazwiska równaniem Schrödingera.  Jeżeli skupimy się na odizolowanych układach fizycznych tj. takich, które nie oddziaływują z otoczeniem, rozwiązać należy równanie Schrödingera niezależne od czasu o postaci:
+	Funkcja falowa stanowi fundament zagadnień poruszanych w aplikacji. Wynika to z faktu, że jest ona niezbędna do opisu ruchu dowolnej cząstki. Erwin Schrödinger zawarł funkcje falową w równaniu nazwanym od jego nazwiska równaniem Schrödingera\cite{schrodinger-equation}.  Jeżeli skupimy się na odizolowanych układach fizycznych tj. takich, które nie oddziaływują z otoczeniem, rozwiązać należy równanie Schrödingera niezależne od czasu o postaci:
 	\begin{center}
 	\begin{equation}
 		-\frac{\amshbar}{2m} \frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x),
@@ -203,87 +210,146 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 	Wartość funkcji falowej $\psi(x)$ nie posiada fizycznej interpretacji, do tego potrzebny jest kwadrat jej modułu, który określa gęstość prawdopodobieństwa znalezienia cząstki w położeniu $x$. 
 	\section{Znajdowanie równania funkcji falowej}
-	Określenie położenia cząstki wymaga od nas rozwiązania równania Schrödingera, w którym będziemy mieli określoną funkcję $V(x)$, jednak w celu ułatwienia obliczeń będziemy dzielić zagadnienia na obszary o stałym potencjale. W ten sposób będziemy mieli do rozwiązania kilka równań różniczkowych, z których otrzymamy odpowiednie rozwiązania ogólne. Rozwiązania szczegółowe tych równań spełniać muszą warunki początkowe, mogące wynikać m.in. z normowania gęstości prawdopodobieństwa. Poza warunkami początkowymi, konieczne będzie też spełnienie warunków brzegowych tj. ciągłości $\psi(x)$ oraz, w zagadnieniach bez nieskończonego potencjału, ciągłości jej pochodnej. Ważne jest również, że tylko skończone wartości $\psi(x)$ mają fizyczny sens.
+	Określenie położenia cząstki wymaga od nas rozwiązania równania Schrödingera, w którym będziemy mieli określoną funkcję $V(x)$. Rozwiązanie szczegółowe tego równania spełniać muszi warunki początkowe, mogące wynikać m.in. z normowania gęstości prawdopodobieństwa. Poza warunkami początkowymi, konieczne będzie też spełnienie warunków brzegowych tj. ciągłości $\psi(x)$ oraz, w zagadnieniach bez nieskończonego potencjału, ciągłości jej pochodnej. Ważne jest również, że tylko skończone wartości $\psi(x)$ mają fizyczny sens \cite{fiz atom}.
 	
-	Zanim jednak zajmiemy się bardziej złożonymi przykładami, sprawdźmy jaką postać przyjmuje $\psi$ dla cząstki swobodnej tj. takiej o zerowej energii potencjalnej. Otrzymujemy równanie 
-\begin{center}
-$\frac{d^2\psi}{dx^2}+k^2\psi=0$,
-\end{center}
+	\section{Cząstka swobodna}
+	Zanim zajmiemy się bardziej złożonymi przykładami, sprawdźmy jaką postać przyjmuje $\psi$ dla cząstki swobodnej, tj. o zerowej energii potencjalnej $V(x)$, która porusza się w stronę dodatnich wartości $x$. Otrzymujemy równanie 
+	\begin{equation}\label{eqn:free-particle-schrodigner}
+	\frac{d^2\psi}{dx^2}+k^2\psi=0,
+	\end{equation}
 gdzie
-\begin{center}
-$k=\frac{1}{\amshbar}\sqrt{2mE}$.
-\end{center}
+	\begin{equation}
+	k=\frac{1}{\amshbar}\sqrt{2mE}.
+	\end{equation}
 Rozwiązanie ogólne ma więc postać
-\begin{center}
-$\psi(x)=Ae^{ikx}$,
-\end{center}
-gdzie stałą $A$ można wyznaczyć jeśli chciałoby się znormalizować gęstość prawdopodobieństwa $|\psi|^2$, na określonym obszarze. Widać równocześnie, że gęstość prawdopodobieństwa jest jednolita w całym takim obszarze.
+	\begin{equation}\label{eqn:free-particle-gen-solution}
+	\psi(x)=Ae^{ikx} + Be^{-ikx},
+	\end{equation}
+gdzie stała $B$ musi być równa 0, ponieważ drugi wyraz opisuje falę poruszającą się w stronę ujemnych wartości $x$. Finalnie równanie przyjmuje postać:
+	\begin{equation}\label{eqn:free-particle-solution}
+	\psi(x) = Ae^{ikx},
+	\end{equation}
+w którym stałą $A$ można wyznaczyć jeśli chciałoby się znormalizować gęstość prawdopodobieństwa $|\psi|^2$, na określonym obszarze. Widać jednocześnie, że gęstość prawdopodobieństwa jest jednolita w całym takim obszarze.
 	
-	Zaczynając od przypadku cząstki poruszającej się w nieskończonej studni potencjału o szerokości $a$, dzielimy zagadnienie na trzy obszary. Otrzymujemy obszar I, gdzie x$\in(-\infty,-\frac{a}{2}>$, obszar II, gdzie x$\in<-\frac{a}{2}, \frac{a}{2})$ oraz obszar III, gdzie x$\in<\frac{a}{2}, +\infty)$. W obszarach I i III potencjał jest nieskończony, więc jeśli $\psi\neq0$ to $\frac{d^2\psi}{dx^2}$ musi być nieskończone, jednak nie ma to fizycznego sensu, więc $\psi$ musi być równe 0 w tych obszarach. Dla obszaru II otrzymujemy równanie
-\begin{center}
-$\frac{d^2\psi}{dx^2}+k^2\psi=0$,
-\end{center}
-gdzie:
-\begin{center}
-$k=\frac{1}{\amshbar}\sqrt{2mE}$.
-\end{center}
-Rozwiązanie ogólne przyjmuje więc postać
-\begin{center}
-$\psi=A\sin(kx) + B\cos(kx)$. \color{red}{Czemu inne niż dla cząstki swobodnej?}
-\end{center}
-Ciągłość $\psi$ pomiędzy obszarami jest możliwa tylko jeśli funkcja ta będzie równa 0 na granicach studni, co jest możliwe tylko jeśli $A=0$ lub $B=0$, a szerokość studni $a$ jest całkowitą wielokrotnością długości tej fali. Zależność tę można zapisać jako
-\begin{center}
-$ka=n\pi$, \;\;gdzie $n\in\{1, 2, 3...\}$.
-\end{center}
+	\section{Nieskończona studnia potencjału}
+	Zaczynając od przypadku cząstki poruszającej się w nieskończonej studni potencjału o szerokości $a$, dzielimy zagadnienie na trzy obszary. Otrzymujemy obszar I, gdzie x$\in\left(-\infty,-\frac{a}{2}\right>$, obszar II, gdzie x$\in\left<-\frac{a}{2}, \frac{a}{2}\right)$ oraz obszar III, gdzie x$\in\left<\frac{a}{2}, +\infty\right)$. W obszarach I i III potencjał jest nieskończony, więc jeśli $\psi\neq0$ to $\frac{d^2\psi}{dx^2}$ musi być nieskończone, jednak nie ma to fizycznego sensu, więc $\psi$ musi być równe 0 w tych obszarach. Dla obszaru II otrzymujemy równanie \ref{eqn:free-particle-schrodigner} oraz rozwiązanie \ref{eqn:free-particle-gen-solution}. Na potrzebę tego przypadku rozwiązanie przekształcamy na równanie
+	\begin{equation}
+	\psi(x) = A\sin(kx) + B\cos(kx),
+	\end{equation}
+mając na uwadze, że współczynniki A i B nie są równe tym z równania \ref{eqn:free-particle-gen-solution}. Ciągłość $\psi$ pomiędzy obszarami jest możliwa tylko jeśli funkcja ta będzie równa 0 na granicach studni, co jest możliwe tylko jeśli $A=0$ lub $B=0$, a szerokość studni $a$ jest całkowitą wielokrotnością długości tej fali. Zależność tę można zapisać jako
+	\begin{equation}
+	ka=n\pi, \;\;\textrm{gdzie}\;\;\ n\in\{1, 2, 3...\}.
+	\end{equation}
 Rozwiązaniem jest więc
-\begin{center}
-$\psi = Asin(kx)$ dla $n\in\{2, 4, 6...\}$,\\
-$\psi = Bcos(kx)$ dla $n\in\{1, 3, 5...\}$,
-\end{center}
-gdzie $A$ i $B$ można wyznaczyć, w celu znormalizowania gęstości prawdopodobieństwa $|\psi|^2$, jako
-\begin{center}
-$A=B=\sqrt{\frac{2}{a}}$.
-\end{center}
+	\begin{equation}\label{eqn:well-inside-sol}
+	\begin{split}
+		&\psi = Asin(kx) \;\;\ \textrm{dla} \;\;\ n\in\{2, 4, 6...\}, \\
+		&\psi = Bcos(kx) \;\;\ \textrm{dla} \;\;\ n\in\{1, 3, 5...\},
+	\end{split}
+	\end{equation}
 
-W przypadku studni skończonej postępujemy bardzo podobnie dzieląc zagadnienie na trzy obszary, jednak przyjmujemy, że potencjał wynosi 0 dla obszarów I i III oraz $-V_0$ dla obszaru II. Jako $W$ oznaczymy energię wiązania tj. dodatnią wartość wymaganą do uwolnienia cząstki z studni. W obszarze II równanie Schrödingera przyjmie tą samą postać, jednak tym razem
-\begin{center}
-$k=\frac{1}{\amshbar}\sqrt{2m(V_0-W)}$,
-\end{center}
-dzięki czemu otrzymamy to samo, co wcześniej rozwiązanie ogólne 
-\begin{center}
-$\psi_{II}=A\sin(kx)+B\cos(kx)$.
-\end{center}
+	\section{Skończona studnia potencjału}
+	W przypadku studni skończonej postępujemy bardzo podobnie dzieląc zagadnienie na trzy obszary, jednak przyjmujemy, że potencjał wynosi 0 dla obszarów I i III oraz $-V_0$ dla obszaru II. Jako $W$ oznaczymy energię wiązania tj. dodatnią wartość wymaganą do uwolnienia cząstki z studni. W obszarze II równanie Schrödingera znowu przyjmie postać \ref{eqn:free-particle-schrodigner} z rozwiązaniem \ref{eqn:well-inside-sol}, z tą różnicą że:
+	\begin{equation}\label{eqn:k-fi-well}
+	k=\frac{1}{\amshbar}\sqrt{2m(V_0-W)},
+	\end{equation}
 Dla obszarów I i III równanie zapiszemy jako
-\begin{center}
-$\frac{d^2\psi}{dx^2}-\gamma^2 \psi = 0$,
-\end{center}
+	\begin{equation}
+	\frac{d^2\psi}{dx^2}-\gamma^2 \psi = 0,
+	\end{equation}
 gdzie
-\begin{center}
-$\gamma = \frac{1}{\amshbar}\sqrt{2mW}$,
-\end{center}
+	\begin{equation}\label{eqn:gamma-fi-well}
+	\gamma = \frac{1}{\amshbar}\sqrt{2mW},
+	\end{equation}
 co daje rozwiązanie ogólne
-\begin{center}
-$\psi_{I,III}= Ce^{\gamma x} + De^{-\gamma x}$ 
-\end{center}
+	\begin{equation}
+	\psi_{I,III}= Ce^{\gamma x} + De^{-\gamma x}
+	\end{equation}
 Celem znalezienia dozwolonych wartości $k$ dopasowujemy na granicach obszarów pochodne logarytmiczne:
-\begin{center}
-$\frac{1}{\psi_I}\frac{d\psi_I}{dx} = \frac{1}{\psi_{II}}\frac{d\psi_{II}}{dx}$\;\; w\;\; $x=-\frac{a}{2}$
-\end{center}
+	\begin{equation}
+	\frac{1}{\psi_I}\frac{d\psi_I}{dx} = \frac{1}{\psi_{II}}\frac{d\psi_{II}}{dx}
+	\;\; \textrm{w}\;\; 
+	x=-\frac{a}{2}
+	\end{equation}
 oraz
-\begin{center}
-$\frac{1}{\psi_II}\frac{d\psi_II}{dx} = \frac{1}{\psi_{III}}\frac{d\psi_{III}}{dx}$\;\; w\;\; $x=\frac{a}{2}$.
-\end{center}
+	\begin{equation}
+	\frac{1}{\psi_{II}}\frac{d\psi_{II}}{dx} = \frac{1}{\psi_{III}}\frac{d\psi_{III}}{dx}
+	\;\; \textrm{w} \;\;
+	x=\frac{a}{2}.
+	\end{equation}
 Z obydwu równań otrzymujemy te same wnioski:
-\begin{center}
-$\gamma = k \cot\left(-\frac{ka}{2}\right)$\;\; dla \;\; $B = 0$,\\
-$\gamma = -k \tan\left(-\frac{ka}{2}\right)$\;\; dla \;\; $A = 0$.
-\end{center}
-Są to warunki konieczne do spełnienia, aby otrzymać wzór poprawny funkcji $\psi$.
+	\begin{equation}\label{eqn:fi-well-k-gamma}
+	\begin{split}
+	\gamma = k \cot\left(-\frac{ka}{2}\right)\;\; \textrm{dla} \;\; B = 0,\\
+	\gamma = -k \tan\left(-\frac{ka}{2}\right)\;\; \textrm{dla} \;\; A = 0.
+	\end{split}
+	\end{equation}
+Są to warunki konieczne do spełnienia, aby otrzymać poprawny wzór funkcji $\psi$.
 Zarówno we wzorach na $k$ jak i $\gamma$ znajduje się wartość energii wiązania $W$, więc zagadnienie sprowadza się do znalezienia takich wartości $W$, aby powyższe warunki były spełnione. Nie jest to problem dający się w łatwy sposób rozwiązać analitycznie, jednak pokazuje, że dla skończonej studni też istnieją pewne dyskretne stany energetyczne cząstki. W rozdziale czwartym szerzej opisałem znajdowanie tych wartości metodą numeryczną.
 
-Progiem potencjału nazwiemy...
+	\section{Próg potencjału}
+	Prostokątnym progiem potencjału nazwiemy sytuację w której w punkcie wartość energii potencjalnej rośnie z $0$ do jakiejś wartości oznaczonej $V_0$. Przyjmując, że próg potencjału znajduje się w punkcie $x = 0 $, możemy zapisać:
+	\begin{equation}
+	\begin{split}
+		&V(x) = 0 \;\; \textrm{dla} \;\; x \in \left(-\infty, 0\right), \\
+		&V(x) = V_0 \;\; \textrm{dla} \;\; x \in \left<0, +\infty\right).
+	\end{split}
+	\end{equation}
+Tym razem zagadnienie dwa obszary - obszar I gdzie $V(x)=0$ oraz obszar II gdzie $V(x)=V_0$. W obu tych obszarach możemy policzyć liczbę falową k jako:
+	\begin{equation}
+	k_I = \frac{1}{\amshbar}\sqrt{2mE}	,
+	\end{equation}
+	\begin{equation}
+	k_{II} = \frac{1}{\amshbar}\sqrt{2m(E-V_0)}.
+	\end{equation}
+Niech w stronę progu porusza się strumień cząstek o energii całkowitej $E > V_0$, opisany równaniem $e^{ik_Ix}$. Warunkiem koniecznym do spełnienia równania Schrödingera, jest założenie że część cząstek odbije się od progu, a część przejdzie za niego. Funkcje falowe dla tych obszarów możemy więc zapisać jako:
+	\begin{equation}\label{eqn:potential-jump-solution}
+	\begin{split}
+	&\psi_I(x) = e^{ik_Ix} + Re^{-ik_Ix}, \\
+	&\psi_{II}(x) = Te^{ik_{II}x}.
+	\end{split}
+	\end{equation}
+Z warunków brzegowych, czyli ciągłości $\psi$ i jej pochodnej po x w punkcie $x=0$ możemy wyznaczyć współczynniki $R$ i $T$ rozwiązując otrzymany układ równań:
+	\begin{equation}
+	\begin{cases}
+	1+ R = T \\
+	k_I-k_IR=k_{II}T,
+	\end{cases}
+	\end{equation}
+z którego otrzymujemy rozwiązanie
+	\begin{equation}
+	\begin{cases}
+	T = \frac{2k_I}{k_I+k_{II}} \\
+	R = \frac{k_I-k_{II}}{k_I+k_{II}}.
+	\end{cases}
+	\end{equation}
+W przypadku, gdy $E < V_0$ podchodzimy do rozwiązania tego problemu tak samo, z tą tylko różnicą, że $k_{II}$ przyjmuje wartość urojoną. Z tego tez powodu, możemy zapisać $\psi_{II}$ bez jednostki urojonej w wykładniku liczby e, czyli
+	\begin{equation}
+	\psi_{II}(x) = Te^{\kappa x},
+	\end{equation}
+gdzie $\kappa=ik_{II}$. Pomimo, że T też jest teraz urojone, w funkcji pojawia się rzeczywista funkcja wykładnicza, która szybko dąży do 0 dla x zmierzającego do nieskończoności. Zobaczyć więc można, że $|\psi|^2$ za barierą jest dodatnie, a co za tym idzie szansa na znalezienie cząstki za barierą jest niezerowa, chociaż szybko maleje w miarę oddalania się od niej. Cząstka może się w ten sposób pojawić w obszarze wzbronionym klasycznie.
 
-Jako ostatni omawiany jest przypadek bariery potencjału...
+	\section{Bariera potencjału}
+	Jako ostatni omawiany jest przypadek bariery potencjału, w którym energia potencjalna zmienia się jak w progu potencjału, jednak przyjmujemy, że w punkcie $x=a$ spada poniżej $V_0$. Mamy więc trzy obszary o różnych energiach potencjalnych i tak jak w przypadku studni potencjału będziemy je numerować I, II i III. Zaczynając od sytuacji, gdy energia cząstki $E>V_0$ i pamiętając z rozwiązywania przypadku progu potencjału o tym, że część cząstek odbije się w miejscach zmiany energii potencjalnej, możemy zapisać funkcje falowe jako:
+	\begin{equation}
+	\begin{split}
+		&\psi_I(x) = e^{ik_Ix} + Re^{-ik_Ix}, \\
+		&\psi_{II}(x) = Ce^{ik_{II}x} + De^{-ik_{II}x}. \\
+		&\psi_{III}(x) = Te^{ik_{III}x}.
+	\end{split}
+	\end{equation}
+Znowu wymagamy, aby funkcja falowa i jej pochodna po $x$ były ciągłe, tylko tym razem zarówno w punkcie $x=0$ jak i $x=a$. Możemy to zapisać jako
+	\begin{equation}\label{eqn:barrier-system}
+	\begin{cases}
+		1 + R = C + D \\
+		k_I - k_IR = k_{II}C - k_{II}D \\
+		Ce^{ik_{II}a} + De^{-ik_{II}a} = Te^{ik_{III}a} \\
+		k_{II}Ce^{ik_{II}a} - k_{II}De^{-ik_{II}a} = k_{III}Te^{ik_{III}a}.
+	\end{cases}
+	\end{equation}
+Rozwiązując powyższy układ równań, możemy znaleźć wartości wszystkich stałych, z których wartość $T$ umożliwi nam obliczenie gęstości prawdopodobieństwa $|T|^2$, mówiącej jaka część cząstek przejdzie przez barierę potencjału. 
+
+	Jeśli będziemy chcieli rozważyć przypadek, kiedy energia cząstki $E < V_0$, postąpimy dokładnie tam samo, tylko wartość $k_{II}$ przyjmie wartość urojoną. Gęstość prawdopodobieństwa $|T|^2$ i w tym przypadku jest dodatnia, a co za tym idzie istnieje niezerowe prawdopodobieństwo przejścia cząstek przez barierę, pomimo energii zbyt małej, według fizyki klasycznej, na jej przekroczenie.
 	
 	
 \chapter{Budowa i struktura aplikacji}
@@ -293,51 +359,105 @@ Jako ostatni omawiany jest przypadek bariery potencjału...
 	html + css, BEM, struktura stron
 	\section{Typescript i manipulacja DOM}
 	\section{Obliczenia fizyczne w Pythonie}
-		Implementacja obliczeń zagadnień cząstki swobodnej(rysunek), nieskończonej studni potencjału(rysunek) i progu potencjału, jest trywialnym zagadnieniem i nie wymaga dłuższego tłumaczenia.
+		Implementacja obliczeń zagadnień cząstki swobodnej, nieskończonej studni potencjału i progu potencjału, wymaga jedynie przepisania równań \ref{eqn:free-particle-gen-solution}, \ref{eqn:well-inside-sol} i \ref{eqn:potential-jump-solution} do Pythona co nie wymaga dłuższego tłumaczenia.
 		
-		Sytuacja jest już odmienna dla pozostałych zagadnień, zaczynając od skończonej studnii potencjału. Istnieją w niej bowiem, tak jak w studni nieskończonej, skwantowane stany energii dla cząstki związanej, jednak wyznaczenie ich nie wyraża się prostym wzorem. Wiadomo, że $\psi(x)$ wyraża się wzorem:
-		$\psi_1(x) = Ce^{\gamma x}$
+		Sytuacja jest już odmienna dla pozostałych zagadnień, zaczynając od skończonej studni potencjału. Istnieją w niej bowiem, tak jak w studni nieskończonej, skwantowane stany energii dla cząstki związanej, jednak wyznaczenie ich nie wyraża się prostym wzorem. Na podstawie wzorów \ref{eqn:k-fi-well}, \ref{eqn:gamma-fi-well}, \ref{eqn:fi-well-k-gamma} możemy to zagadnienie sprowadzić do jednej zmiennej $v$\cite{wikipedia-well}:
 		
-		$\psi_2(x) = Asin(kx) + Bcos(kx)$
+		\begin{equation}\label{eqn:fi-well-vu}
+			\sqrt{u_0^2-v^2} = 
+			\left\{
+		\begin{matrix}
+			v\tan v \\ -v\cot v 
+		\end{matrix}\right. ,
+		\end{equation}
 		
-		$\psi_3(x) = De^{-\gamma x}$
+gdzie:
+	\[u_0^2=\frac{ma^2V_0}{2\amshbar^2}\].
+		
+Liczbę rozwiązań równania \ref{eqn:fi-well-vu} możemy wyznaczyć jako:
 
-gdzie indeksy opisują obszar, którego dotyczy wzór funkcji.
-		Stałe $A$, $B$, $C$ i $D$ wyznaczane są z warunków brzegowych, jednak do obliczenia $\gamma$ potrzebna jest wartość $k$.
+	\begin{equation}
+	N = \left \lceil \frac{2u_0}{\pi} \right \rceil,
+	\end{equation}
+	
+a każdego z nich należy szukać w przedziałach
+
+	\begin{equation}\label{v-range}
+	v_i \in \left< \frac{\pi}{2}(i-1), \; \frac{\pi}{2}i \right) \;\; \textrm{dla} \; \; i = 1, 2, ... N
+	\end{equation}
+	
+	Ze względu na szybkość początkowo pomyślałem o zastosowaniu metody Newtona\cite{newton-method}, jednak metoda ta nie daje możliwości znalezienia miejsca zerowego w zadanym przedziale. Użyłem więc metody bisekcji\cite{bisection-method}, co przedstawiłem na rysunku \ref{fig:bisection}, a różnica czasu w wykonywaniu tych dwóch metod okazała się w moim przypadku marginalna.
 		
-		Ze względu na szybkość początkowo pomyślałem o zastosowaniu metody Newtona, jednak eksperymentalnie stwierdziłem, że przez charakter funkcji, znalezienie miejsca zerowego tą metodą jest bardzo wolne. Znacznie lepsze efekty przyniosła metoda bisekcji i ona wykorzystywana została w ostatecznej implementacji.
+	\begin{figure}[h]
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bisection.png}
+		\caption{Implementacja metody bisekcji}
+		\label{fig:bisection}
+	\end{figure}
+
+Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatniego rozwiązania tj. $v_N$. Prawa granica przedziału \ref{v-range}, może być na tyle oddalona od rozwiązania, że wartość z połowy przedziału, liczonej w pierwszej iteracji algorytmu bisekcji, wyniesie więcej niż $u_0$, co spowoduje że w równaniu \ref{eqn:fi-well-vu} pierwiastkowana będzie liczba ujemna. Ponieważ szukane rozwiązania muszą być wartościami rzeczywistymi, przy ostatniej iteracji prawą granicę przedziału, w którym szukane jest miejsce zerowe, ustalam jako $u_0$, co można zobaczyć na rysunku \ref{fig:bisection2}.
+	\begin{figure}[H]
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bisection2.png} 
+		\caption{Funkcja znajdująca wszystkie wartości $v$}
+		\label{fig:bisection2}
+	\end{figure}
+	
+	Kolejnym nietrywialnym przypadkiem jest obliczenie stałych z układu równań \ref{eqn:barrier-system} dla bariery potencjału. Pomimo że jest to układ liniowy, mnogość wyrazów oraz dziedzina liczb zespolonych powodują, że rozwiązania przyjmują bardzo złożone postacie. Przeglądając literaturę, ciężko doszukać się dokładnych rozwiązań dla każdego z tych współczynników, ponieważ zazwyczaj nie jest to konieczne w rozwiązywaniu praktycznych problemów\cite{fiz atom}\cite{mechanika kwant}\cite{fiz kwant}. Zdecydowałem się więc skorzystać z rozwiązania tego układu numerycznie przy pomocy biblioteki NumPy, co przedstawiłem na rysunku \ref{fig:linalg-solve}
+	
+	\begin{figure}[H]
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{linalg solve.png} 
+		\caption{Implementacja numerycznego rozwiązania układu równań \ref{eqn:barrier-system}}
+		\label{fig:linalg-solve}
+	\end{figure}
+
 		
+	\section{Interfejs pomiędzy językiem TypeScript i Pythonem}
+		Języki programowania tak odmienne jak TypeScript i Python uruchamiane są w zupełnie innych środowiskach. Framework Tauri daje tutaj wyjątkową możliwość obsługując język TypeScript przy użyciu WebView\cite{tauri-arch} i Pythona wykorzystująć lokalnie zainstalowany interpreter\cite{tauri-shell}.
 		
-	\section{Interfejs pomiędzy TypeScriptem i Pythonem}
-		Języki programowania tak odmienne jak TypeScript i Python uruchamiane są w zupełnie innych środowiskach. Framework Tauri daje tutaj wyjątkową możliwość obsługując TypeScriptu przy użyciu WebView\cite{tauri webview} i Pythona wykorzystująć lokalnie zainstalowany interpreter\cite{tauri shell}.
+		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w TypeScript'cie. Wyniki obliczeń fizycznych są więc serializowane w Pythonie jedną z metod na rysunku \ref{fig:to-json}, wysyłane jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w języku TypeScript przykładowo tak jak na rysunku \ref{fig:ts-run-python}.
 		
-		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w TypeScript'cie. Wyniki obliczeń fizycznych są więc serializowane(rysunek), wysyłane jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w TypeScript'cie(rysunek).  
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{to_json.png} 
+	\caption{Kod z pliku json\_export.py}
+	\label{fig:to-json}
+	\end{figure}	
+	
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{free_particle py.png} 
+	\caption{Wykorzystanie funkcji to\_json w pliku free\_particle.py}
+	\label{fig:free-particle-py}
+	\end{figure}
+	
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{ts run python.png} 
+	\caption{Kod z pliku free-particle.ts}	
+	\label{fig:ts-run-python}
+	\end{figure}
+	
+	
 	\section{Wdrożenie i dystrybucja aplikacji}
 	Aplikacja została stworzona przy użyciu frameworka Tauri, który umożliwia kompilację do formatów .msi i .exe na system Windows, .deb i .AppImage na system GNU/Linux. Możliwa jest też kompilacja na system macOS na architekturę procesora x86 i ARM, jednak nie sprawdzałem tych opcji ponieważ nie mam dostępu do takich urządzeń.
 	
 	Udostępnione przeze mnie zostały formaty .msi, który w przeciwieństwie do .exe jest dedykowany dla instalatorów programów na system Windows oraz .deb ponieważ jest to format wspierany przez największe dystrybucje systemu GNU/Linux, czyli Debian i Ubuntu. Dodatkowo format .AppImage powodował problem szerzej opisany w kolejnym rozdziale. 
 	
-	Framework Tauri sam kopiuje do wersji skompilowanej niezbędne pliki .html, .css .ts oraz wszelkie obrazy i fonty użyte w plikach .css, jednak użyte skrypty .py muszą być specjalnie oznaczone jako zasób aplikacji w pliku konfiguracyjnym tauri.conf.json. Ponieważ twórcy frameworka Tauri stworzyli go z myślą o bezpieczeństwie \cite{tauri-security}, w pliku konfiguracyjnym zadeklarować, żeby aplikacja miała możliwość wykonywania poleceń systemowych, do uruchomienia interpretera Pythona oraz możliwość odczytu plików, do użycia plików ze skryptami Pythona.
+	Framework Tauri sam kopiuje do wersji skompilowanej niezbędne pliki .html, .css .ts oraz wszelkie obrazy i fonty użyte w plikach .css, jednak użyte skrypty .py muszą być specjalnie oznaczone jako zasób aplikacji w pliku konfiguracyjnym tauri.conf.json. Ponieważ twórcy frameworka Tauri stworzyli go z myślą o bezpieczeństwie \cite{about-tauri}, w pliku konfiguracyjnym zadeklarować, żeby aplikacja miała możliwość wykonywania poleceń systemowych, do uruchomienia interpretera Pythona oraz możliwość odczytu plików, do użycia plików ze skryptami Pythona.
 	
 	Ponieważ obliczenia matematyczne wykonywane są przy użyciu języka Python, niezbędny do działania aplikacji jest zainstalowany interpreter Pythona 3.11 lub nowszy z zainstalowanym modułem NumPy. Zdecydowałem się nie dołączać interpretera do instalatora mojej aplikacji, ponieważ znacząco zwiększyłoby to rozmiar finalnego pliku. 
 	\section{Problemy, ograniczenia i możliwości rozwoju}
 	Jedno z ważniejszych ograniczenie mojej aplikacji leży w interfejsie pomiędzy językiem TypeScript i Pythonem. O ile wykonanie samych obliczeń fizycznych w Pythonie liczyć można w milisekundach to proces zserialozwania danych, przekazania ich do odczytu i deserializacji w języku TypeScript wydłuża ten proces do kilkuset milisekund, zwykle co najmniej 200. Jest to czas niezauważalny jeżeli potrzebne jest wykonanie obliczeń raz lub stosunkowo rzadko, co ma miejsce w aplikacji, jednak częste odświeżanie wyświetlanych danych byłoby po prostu niemożliwe do zrealizowania, przy zastosowanym rozwiązaniu. Należy jednocześnie zwrócić uwagę, że przy bardziej rozbudowanych scenariuszach fizycznych czas przekazywania danych może okazać się nieznaczący, jeśli samo wykonywanie obliczeń fizycznych trwać znacznie dłużej. Dokładnie takie przypadki miałem na względzie decydując o zastosowaniu Pythona w projekcie i jest to kierunek, w którym aplikacja mogłaby zostać w przyszłości rozwinięta.
-	Kolejną rzeczą, która ogranicza aplikację jest forma dystrybucji. Na przestrzeni lat aplikacje desktopowe ustępowały popularnością aplikacjom webowym. W wyniku takich zmian użytkownicy przyzwyczajeni do korzystania z przeglądarki internetowej mogą 
+	
+	Kolejną rzeczą, która ogranicza aplikację jest forma dystrybucji. Na przestrzeni lat aplikacje desktopowe ustępowały popularnością aplikacjom webowym\cite{web-vs-desktop}. W wyniku takich zmian użytkownicy przyzwyczajeni do korzystania z przeglądarki internetowej mogą nie chcieć poświęcić czasu na pobranie i zainstalowanie mojej aplikacji. Niestety jednak, pomimo że jest to już możliwe, wykonywanie skryptów Pythona w przeglądarce jest dalej w fazie rozwoju\cite{python-webassembly} co wymusza taką formę aplikacji.
+	
 	Z pozoru największym problemem jaki napotkałem był fakt, że aplikacja po skompilowaniu do formatu .AppImage nie była w stanie poprawnie wywoływać skryptów Pythona. Jak jednak powiedziałem, problem tylko z pozoru wydał się krytyczny, a to przez fakt, że formaty .deb i .msi nie sprawiały żadnych problemów. Wciąż zaintrygowany tym nieoczekiwanym zachowaniem, zgłosiłem się przez komunikator Discord o pomoc do zespołu wsparcia frameworka Tauri. Okazało się, że nie jest to spodziewane zachowanie i najprawdopodobniej napotkałem błąd w samym frameworku. Za prośbą zespołu wsparcia zamieściłem repozytorium z minimalnym kodem niezbędnym do odtworzenia tego błędu\cite{app-error-repo}.
+	
 	Ważnym aspektem, który niekiedy spowalniał tworzenie pracy, jest fakt że framework Tauri, wydany w 2022 roku\cite{tauri-release}, jest stosunkowo nową technologią. Pomimo że dostępną jest dokumentacja, to potrafi ona zawierać braki lub niedopowiedzenia, a szukanie szczegółowych odpowiedzi może stanowić wyzwanie, ponieważ nie istnieje na ten temat znacząca ilość literatury.
+	
 	Rzeczą którą niewątpliwie można poprawić, jednak nie jest ona moim zdaniem kluczowa, jest weryfikacja instalacji interpretera języka Python. Aktualnie aplikacja nie weryfikuje czy interpreter ten jest rzeczywiście zainstalowany oraz czy zainstalowany jest moduł NumPy. Dodanie takiej funkcjonalności w przyszłości niewątpliwie pomogłoby, w szukaniu problemów w razie nieprawidłowego działania aplikacji.
-	
-	
-	
-	projektowanie narratora/przedstawiania treści
-	python-typescript wolny
-	dystrybucja aplikacji desktopowych jest mało wygodna w porównaniu do web, ale web nie ma pythona (na razie)
 	
 
 \chapter{Interfejs aplikacji}
 	\section{Ekran główny}
 	\section{Interaktywna wizualizacja}
-	\section{Transkrypcja}
+	\section{Narrator}
 	
 \chapter{Podsumowanie i wnioski}
 
@@ -347,26 +467,105 @@ gdzie indeksy opisują obszar, którego dotyczy wzór funkcji.
 	M.R. Wehre, H.A. Enge, J.A. Richards,
 	\textit{Wstęp do fizyki atomowej}, 
 	Państwowe Wydawnictwo Naukowe, Warszawa 1983. ISBN 83-01-02200-0
+	
+	\bibitem{mechanika kwant}
+	L.D. Landau, E.M. Lifszyc,
+	\textit{Mechanika kwantowa Teoria nierelatywistyczna}
+	Państwowe Wydawnictwo Naukowe, Warszawa 1979. ISBN 83-01-00501-7
+	
+	\bibitem{fiz kwant}
+	R. Eisberg, R. Resnick,
+	\textit{Fizyka kwantowa atomów, cząsteczek, ciał stałych, jąder i cząstek elementarnych}
+	Państwowe Wydawnictwo Naukowe, Warszawa 1983. ISBN 83-01-04350-1
 
 	\bibitem{JS}
 	David Flanagan, 
 	\textit{JavaScript: The Definitive Guide. Master the World's Most-Used Programming Language. 7th Edition}, 
 	O'Reilly Media, 2020. ISBN 978-14-919-5198-9
 	
-	\bibitem{Python slow}
+	\bibitem{Python}
 	Wes McKinney,
-	\textit{Python for Data Analysis, str. 3}
+	\textit{Python for Data Analysis}
 	O'Reilly Media, 2012. ISBN 078-1-449-31979-3
 	
-	\bibitem{Python libs}
-	Wes McKinney,
-	\textit{Python for Data Analysis, str. 2}
-	O'Reilly Media, 2012. ISBN 078-1-449-31979-3
+	\bibitem{about-tauri}
+	Prezentacja Tauri
+	\textit{https://tauri.app/about/intro}
+	(ostatni dostęp 28.04.2024)
 	
-	\bibitem{Python sugar}
-	Wes McKinney,
-	\textit{Python for Data Analysis, str. 418}
-	O'Reilly Media, 2012. ISBN 078-1-449-31979-3
+	\bibitem{sympy}
+	Dokumentacja SymPy
+	\textit{https://docs.sympy.org/latest/index.html}
+	(ostatni dostęp 13.01.2024)
+	
+	\bibitem{nuclear-stats}
+	Statystyki eurostat na temat energetyki jądrowej
+	\textit{https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Nuclear\_energy\_statistics}
+	(ostatni dostęp 28.04.2024)
+	
+	\bibitem{foto-ele}
+	Wikipedia, efekt fotoelektryczny 
+	\textit{https://pl.wikipedia.org/wiki/Efekt\_fotoelektryczny}
+	(ostatni dostęp 15.01.2024)
+	
+	\bibitem{matter-wave}
+	Wikipedia, fale materii
+	\textit{https://pl.wikipedia.org/wiki/Fale\_materii}
+	(ostatni dostęp 15.01.2024)
+	
+	\bibitem{schrodinger-equation}
+	Wikipedia, równanie Schrödingera
+	\textit{https://pl.wikipedia.org/wiki/Równanie\_Schrödingera}
+	(ostatni dostęp 15.01.2024)
+	
+	\bibitem{wikipedia-well}
+	Wikipedia, studnia kwantowa
+	\textit{https://pl.wikipedia.org/wiki/Studnia\_kwantowa}
+	(ostatni dostęp 15.01.2024)
+	
+	\bibitem{newton-method}
+	Wikipedia, metoda Newtona
+	\textit{https://pl.wikipedia.org/wiki/Metoda\_Newtona}
+	(ostatni dostęp 15.01.2024) 
+	
+	\bibitem{bisection-method}
+	Wikipedia, metoda równego podziału
+	\textit{https://pl.wikipedia.org/wiki/Metoda\_równego\_podziału}
+	(ostatni dostep 15.01.2024)
+	
+	\bibitem{tauri-arch}
+	Architektura Tauri
+	\textit{https://tauri.app/v1/references/architecture/}
+	(ostatni dostęp 28.04.2024)
+	
+	\bibitem{tauri-shell}
+	Dokumentacja API shell w Tauri
+	\textit{https://tauri.app/v1/api/js/shell/}
+	(ostatni dostęp 28.04.2024)
+	
+	\bibitem{web-vs-desktop}
+
+	
+	\bibitem{python-webassembly}
+	Repozytorium Pyodide
+	\textit{https://github.com/pyodide/pyodide}
+	(ostatni dostęp 28.04.2024)
+	
+	\bibitem{app-error-repo}
+	Repozytorium do odtworzenia błędu w kompilacji aplikacji Tauri do AppImage
+	\textit{https://github.com/xAdiro/tauri-appimage-python-error}
+	(ostatni dostęp 28.04.2024)
+	
+	\bibitem{tauri-release}
+	Plan działania Tauri 2.0
+	\textit{https://beta.tauri.app/blog/roadmap-to-tauri-2-0/}
+	(ostatni dostęp 28.04.2024)
+	
+	
+	
+	
+	
+	
 	
 	
 	
