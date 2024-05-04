@@ -13,7 +13,7 @@
 \thesis{Praca dyplomowa na kierunku:}
 \course{Informatyka}
 \promotor{dr. Andrzeja Zembrzuskiego}
-\pworkplace{Instytut Informatyki Technicznej\\Katedra Sztucznej Inteligencji}
+\pworkplace{Instytut Informatyki Technicznej\\Katedra Systemów Informatycznych}
 
 \usepackage{hyperref}
 \usepackage{amsmath}
@@ -41,7 +41,7 @@
 \startchapterfromoddpage % niezależnie od długości spisu treści pierwszy rozdział zacznie się na nieparzystej stronie
 
 \chapter{Wstęp}
-Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej cywilizacji. Zawdzięczamy jej m.in. tranzystory oraz reaktory jądrowe, bez których ciężko wyobrazić sobie dzisiejszą energetykę\cite{nuclear-stats}. Mimo to jest to bardzo nieintuicyjny i przez większość ludzi niezrozumiały dział fizyki\cite{fiz atom}. Na temat ten napisane zostały liczne publikacje\cite{fiz atom}\cite{mechanika kwant}\cite{fiz kwant}, jednak profesjonalny język i matematyka wyższa mogą sprawić dużo trudności w zrozumieniu nawet podstawowych konceptów tej teorii.
+Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej cywilizacji. Zawdzięczamy jej m.in. tranzystory oraz reaktory jądrowe, bez których ciężko wyobrazić sobie dzisiejszą energetykę \cite{nuclear-stats}. Mimo to jest to bardzo nieintuicyjny i przez większość ludzi niezrozumiały dział fizyki \cite{fiz atom}. Na temat ten napisane zostały liczne publikacje \cite{fiz atom} \cite{mechanika kwant} \cite{fiz kwant}, jednak profesjonalny język i matematyka wyższa mogą sprawić dużo trudności w zrozumieniu nawet podstawowych konceptów tej teorii.
 
 	\section{Cel i motywacja pracy}
 	Celem pracy jest stworzenie aplikacji, która ma ułatwić naukę zagadnień z zakresu mechaniki kwantowej. Zagadnienia przedstawiane są w interaktywny sposób celem podtrzymania uwagi i zainteresowania tym nietrywialnym tematem. Osiągnięte to zostało poprzez wykorzystanie szeregu prezentacji wizualnych, na których efekt końcowy bezpośredni wpływ ma użytkownik, jednocześnie stosując samouczek, który te efekty odpowiednio tłumaczy.
@@ -57,7 +57,7 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	\item bariery potencjału.
 	\end{itemize}
 	
-	Wytłumaczone są też zjawiska tunelowe i skwantowanych stanów energetycznych jako konsekwencja dotychczas przyswojonych zagadnień. Są to często omawiane zagadnienia w podręcznikach wprowadzających do mechaniki kwantowej\cite{fiz atom}\cite{mechanika kwant}\cite{fiz kwant}, ponieważ przypadki te dobrze obrazują istotę funkcji falowej.
+	Wytłumaczone są też zjawiska tunelowe i skwantowanych stanów energetycznych jako konsekwencja dotychczas przyswojonych zagadnień. Są to często omawiane zagadnienia w podręcznikach wprowadzających do mechaniki kwantowej \cite{fiz atom} \cite{mechanika kwant} \cite{fiz kwant}, ponieważ przypadki te dobrze obrazują istotę funkcji falowej.
 	
 	W rozdziale drugim opisane zostały zastosowane technologie, charakterystyka ich działania oraz wytłumaczone zostało czym motywowany był wybór akurat ich do stworzenia aplikacji.
 	
@@ -74,18 +74,24 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	\section{Popularne technologie webowe -- HTML, CSS i TypeScript}
 	
 	\section{Biblioteki Chart.js i MathJax}
+	Chart.js jest aktualnie najpopularniejszą biblioteką, do tworzenia wykresów w języku JavaScript \cite{chartjs}, z bogatą dokumentacją i liczbą funkcji. Co było dla mnie najważniejsze przy jej wyborze, to szybka i czytelna konfiguracja wykresów liniowych. Biblioteka daje wiele możliwości dostosowywania wyglądu generowanych wykresów jak i ich dynamicznej edycji po wygenerowaniu.
+	
+	Kolejnym ważnym aspektem jest dostępność wbudowanych w bibliotekę typów, co umożliwia stosowanie jej w języku TypeScript, korzystając z zalet jakie wprowadza do języka JavaScript. We wstępnych wersjach aplikacji wykorzystywałem bibliotekę Plotly, jednak typy, pomimo że dla niej dostępne, nie są w pełni dopracowane, co wymuszało wyłączenie reguły no-explicit-any w konfiguracji języka TypeScript dla projektu. W konsekwencji tworzyło to sytuację, w której istniało ryzyko tworzenia kodu o słabym typowaniu, co w dłuższej perspektywie mogłoby sprzyjać pojawianiu się w kodzie błędów związanych z typami.
+	
+	Drugą użytą biblioteką, jednak nie stosowaną bezpośrednio w kodzie TypeScript, a w plikach HTML, jest MathJax. Umożliwia ona umieszczanie zaawansowanych formuł matematycznych, na stronach pisanych w języku HTML \cite{mathjax}, co było konieczne dla poruszanych w aplikacji zagadnień. Formuły umieszczane są pomiędzy znakami \$\$ \$\$ lub \textbackslash( \textbackslash), a ich składnia, pomimo że trochę odmienna, jest bardzo zbliżona do popularnego LaTeX'a. Wszelkie odstępstwa od LaTeX'a można szybko zweryfikować dzięki szczegółowej dokumentacji. Istotny jest również fakt, że nie jest wymagane umieszczanie całej biblioteki lokalnie w projekcie, co zajmowałoby dosyć dużo miejsca. Zamiast tego wystarczy umieścić odpowiednią adnotację w pliku HTML, aby pobrać niezbędne zasoby z internetu.
+	
 	\section{Język Python}
-	Python pomimo, że znacząco wolniejszy od wielu innych języków programowania (str. 2 w \cite{Python}), posiada bogatą kolekcję bibliotek do przetwarzania danych i obliczeń matematycznych m.in. NumPy, SciPy i SymPy. Biblioteki te najczęściej napisane w C lub Fortranie, są już z kolei znacznie szybsze od czystego Pythona (str. 2 w \cite{Python}). Charakterystyczna jest też jego przejrzysta składnia, zawierająca dużo lukru składniowego(str. 418 w \cite{Python}).
+	Python pomimo, że znacząco wolniejszy od wielu innych języków programowania (str. 2 w  \cite{Python}), posiada bogatą kolekcję bibliotek do przetwarzania danych i obliczeń matematycznych m.in. NumPy, SciPy i SymPy. Biblioteki te najczęściej napisane w C lub Fortranie, są już z kolei znacznie szybsze od czystego Pythona (str. 2 w \cite{Python}). Charakterystyczna jest też jego przejrzysta składnia, zawierająca dużo lukru składniowego(str. 418 w \cite{Python}).
 	
 	Głównymi powodami, dla których użyłem języka Pythona, jest właśnie dostępność bibliotek, a szczególnie SymPy oraz wbudowana obsługa liczb zespolonych. Co prawda do rachunku na liczbach zespolonych nie musiałem sięgać po drugi, zaraz po języku TypeScript, język programowania, jednak składnia Pythona jest w tym zastosowaniu znacznie bardziej zwięzła. Biblioteka SymPy z kolei nie została wykorzystana w żadnym miejscu w implementacji aplikacji, więc może się wydać nietypowym argumentem za wyborem języka, jednak tłumaczę ten wybór dokładniej w kolejnym akapicie. 
 	
-	SymPy jest biblioteką umożliwiającą obliczenia w matematyce symbolicznej\cite{sympy}, co najważniejsze pozwala na znajdowanie analitycznych rozwiązań dla równań różniczkowych. W mojej opinii umożliwia to łatwiejszy rozwój aplikacji i wzbogacenie jej o bardziej zaawansowane przypadki ruchu cząstki w przestrzeni.
+	SymPy jest biblioteką umożliwiającą obliczenia w matematyce symbolicznej \cite{sympy}, co najważniejsze pozwala na znajdowanie analitycznych rozwiązań dla równań różniczkowych. W mojej opinii umożliwia to łatwiejszy rozwój aplikacji i wzbogacenie jej o bardziej zaawansowane przypadki ruchu cząstki w przestrzeni.
 	
 	Dostępność Matplotlib i podobnych bibliotek szkicujących umożliwia rysowanie wykresów do wizualizacji danych, wymagając przy tym bardzo małej ilości kodu, co może okazać się niezwykle przydatne przy sprawdzaniu poprawności implementacji obliczeń bardziej złożonych wzorów matematycznych. Przy pisaniu pracy niejednokrotnie z takiej możliwości skorzystałem, na co najczęściej potrzebne były 3-4 linie kodu.
 	
 	\section{Framework Tauri}
-	Za pomocą Tauri możliwe jest tworzenie aplikacji desktopowych, wykorzystując przy tym technologie webowe. W przeciwieństwie do rozwiązań takich jak Electron\cite{electron}, aplikacje tworzone przy użyciu Tauri zajmują znacznie mniej miejsca oraz potrzebują mniej zasobów komputera do działania. 
-	Dodatkowym atutem jest możliwość korzystania z interpretera Pythona, zainstalowanego na komputerze użytkownika. Standardowe aplikacje webowe w przeglądarce również umożliwiają wykonywanie skryptów Pythona, za pomocą interpretera skompilowanego do WebAssembly\cite{WebAssembly Python}, drugiego po JavaScript języka programowania obsługiwanego przez popularne przeglądarki\cite{browser langs}. Jest to niestety rozwiązanie stosunkowo nowe i we wczesnej fazie rozwoju\cite{python-webassembly}.
+	Za pomocą Tauri możliwe jest tworzenie aplikacji desktopowych, wykorzystując przy tym technologie webowe. W przeciwieństwie do rozwiązań takich jak Electron \cite{electron}, aplikacje tworzone przy użyciu Tauri zajmują znacznie mniej miejsca oraz potrzebują mniej zasobów komputera do działania. 
+	Dodatkowym atutem jest możliwość korzystania z interpretera Pythona, zainstalowanego na komputerze użytkownika. Standardowe aplikacje webowe w przeglądarce również umożliwiają wykonywanie skryptów Pythona, za pomocą interpretera skompilowanego do WebAssembly \cite{WebAssembly Python}, drugiego po JavaScript języka programowania obsługiwanego przez popularne przeglądarki \cite{browser langs}. Jest to niestety rozwiązanie stosunkowo nowe i we wczesnej fazie rozwoju \cite{python-webassembly}.
 	
 \chapter{Podstawy teorytyczne}
 	\section{Zagadnienia matematyki wyższej}
@@ -166,9 +172,9 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 
 	Warto zaznaczyć, że pomimo tego, że zagadnienia te są niezbędne do pełnego zrozumienia mechaniki kwantowej, nawet bez tej wiedzy użytkownik aplikacji może dowiedzieć się o tym, jak nieintuicyjnie zachowują się cząstki.
 	\section{Falowa natura materii}
-	Wyjaśnione przez Alberta Einsteina zjawisko fotoelektryczne ukazało, że światło zachowuje się nie tylko jak fala, ale też jak cząstką\cite{foto-ele}. Nośnik światła przekazywał energię porcjami -- kwantami przez co wprowadzone zostało pojęcie fotonu jako cząstki światła.
+	Wyjaśnione przez Alberta Einsteina zjawisko fotoelektryczne ukazało, że światło zachowuje się nie tylko jak fala, ale też jak cząstką \cite{foto-ele}. Nośnik światła przekazywał energię porcjami -- kwantami przez co wprowadzone zostało pojęcie fotonu jako cząstki światła.
 	
-	 Jako konsekwencja tego odkrycia Louis de Broglie zapostulował, że cząstki materii, takie jak elektron, muszą podzielać falowe zachowanie fotonów. Korzystając z pracy Einsteina określił długość tych fal\cite{matter-wave}, zwanych falami materii, wzorem:
+	 Jako konsekwencja tego odkrycia Louis de Broglie zapostulował, że cząstki materii, takie jak elektron, muszą podzielać falowe zachowanie fotonów. Korzystając z pracy Einsteina określił długość tych fal \cite{matter-wave}, zwanych falami materii, wzorem:
 	 
 	 \begin{equation}
 	 \lambda=\frac{h}{p},
@@ -188,7 +194,7 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	 Dokładniejszego opisu tych fal dokonał Erwin Schrödinger proponując równanie funkcji falowej $\psi$ o zespolonym zbiorze wartości. 
 	 
 	\section{Równanie Schrödingera}
-	Funkcja falowa stanowi fundament zagadnień poruszanych w aplikacji. Wynika to z faktu, że jest ona niezbędna do opisu ruchu dowolnej cząstki. Erwin Schrödinger zawarł funkcje falową w równaniu nazwanym od jego nazwiska równaniem Schrödingera\cite{schrodinger-equation}.  Jeżeli skupimy się na odizolowanych układach fizycznych tj. takich, które nie oddziaływują z otoczeniem, rozwiązać należy równanie Schrödingera niezależne od czasu o postaci:
+	Funkcja falowa stanowi fundament zagadnień poruszanych w aplikacji. Wynika to z faktu, że jest ona niezbędna do opisu ruchu dowolnej cząstki. Erwin Schrödinger zawarł funkcje falową w równaniu nazwanym od jego nazwiska równaniem Schrödingera \cite{schrodinger-equation}.  Jeżeli skupimy się na odizolowanych układach fizycznych tj. takich, które nie oddziaływują z otoczeniem, rozwiązać należy równanie Schrödingera niezależne od czasu o postaci:
 	\begin{center}
 	\begin{equation}
 		-\frac{\amshbar}{2m} \frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x),
@@ -359,7 +365,7 @@ Rozwiązując powyższy układ równań, możemy znaleźć wartości wszystkich 
 	\section{Obliczenia fizyczne w Pythonie}
 		Implementacja obliczeń zagadnień cząstki swobodnej, nieskończonej studni potencjału i progu potencjału, wymaga jedynie przepisania równań \ref{eqn:free-particle-gen-solution}, \ref{eqn:well-inside-sol} i \ref{eqn:potential-jump-solution} do Pythona co nie wymaga dłuższego tłumaczenia.
 		
-		Sytuacja jest już odmienna dla pozostałych zagadnień, zaczynając od skończonej studni potencjału. Istnieją w niej bowiem, tak jak w studni nieskończonej, skwantowane stany energii dla cząstki związanej, jednak wyznaczenie ich nie wyraża się prostym wzorem. Na podstawie wzorów \ref{eqn:k-fi-well}, \ref{eqn:gamma-fi-well}, \ref{eqn:fi-well-k-gamma} możemy to zagadnienie sprowadzić do jednej zmiennej $v$\cite{wikipedia-well}:
+		Sytuacja jest już odmienna dla pozostałych zagadnień, zaczynając od skończonej studni potencjału. Istnieją w niej bowiem, tak jak w studni nieskończonej, skwantowane stany energii dla cząstki związanej, jednak wyznaczenie ich nie wyraża się prostym wzorem. Na podstawie wzorów \ref{eqn:k-fi-well}, \ref{eqn:gamma-fi-well}, \ref{eqn:fi-well-k-gamma} możemy to zagadnienie sprowadzić do jednej zmiennej $v$ \cite{wikipedia-well}:
 		
 		\begin{equation}\label{eqn:fi-well-vu}
 			\sqrt{u_0^2-v^2} = 
@@ -384,7 +390,7 @@ a każdego z nich należy szukać w przedziałach
 	v_i \in \left< \frac{\pi}{2}(i-1), \; \frac{\pi}{2}i \right) \;\; \textrm{dla} \; \; i = 1, 2, ... N
 	\end{equation}
 	
-	Ze względu na szybkość początkowo pomyślałem o zastosowaniu metody Newtona\cite{newton-method}, jednak metoda ta nie daje możliwości znalezienia miejsca zerowego w zadanym przedziale. Użyłem więc metody bisekcji\cite{bisection-method}, co przedstawiłem na rysunku \ref{fig:bisection}, a różnica czasu w wykonywaniu tych dwóch metod okazała się w moim przypadku marginalna.
+	Ze względu na szybkość początkowo pomyślałem o zastosowaniu metody Newtona \cite{newton-method}, jednak metoda ta nie daje możliwości znalezienia miejsca zerowego w zadanym przedziale. Użyłem więc metody bisekcji \cite{bisection-method}, co przedstawiłem na rysunku \ref{fig:bisection}, a różnica czasu w wykonywaniu tych dwóch metod okazała się w moim przypadku marginalna.
 		
 	\begin{figure}[h]
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bisection.png}
@@ -399,7 +405,7 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 		\label{fig:bisection2}
 	\end{figure}
 	
-	Kolejnym nietrywialnym przypadkiem jest obliczenie stałych z układu równań \ref{eqn:barrier-system} dla bariery potencjału. Pomimo że jest to układ liniowy, mnogość wyrazów oraz dziedzina liczb zespolonych powodują, że rozwiązania przyjmują bardzo złożone postacie. Przeglądając literaturę, ciężko doszukać się dokładnych rozwiązań dla każdego z tych współczynników, ponieważ zazwyczaj nie jest to konieczne w rozwiązywaniu praktycznych problemów\cite{fiz atom}\cite{mechanika kwant}\cite{fiz kwant}. Zdecydowałem się więc skorzystać z rozwiązania tego układu numerycznie przy pomocy biblioteki NumPy, co przedstawiłem na rysunku \ref{fig:linalg-solve}
+	Kolejnym nietrywialnym przypadkiem jest obliczenie stałych z układu równań \ref{eqn:barrier-system} dla bariery potencjału. Pomimo że jest to układ liniowy, mnogość wyrazów oraz dziedzina liczb zespolonych powodują, że rozwiązania przyjmują bardzo złożone postacie. Przeglądając literaturę, ciężko doszukać się dokładnych rozwiązań dla każdego z tych współczynników, ponieważ zazwyczaj nie jest to konieczne w rozwiązywaniu praktycznych problemów \cite{fiz atom} \cite{mechanika kwant} \cite{fiz kwant}. Zdecydowałem się więc skorzystać z rozwiązania tego układu numerycznie przy pomocy biblioteki NumPy, co przedstawiłem na rysunku \ref{fig:linalg-solve}
 	
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{linalg solve.png} 
@@ -409,7 +415,7 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 
 		
 	\section{Interfejs pomiędzy językiem TypeScript i Pythonem}
-		Języki programowania tak odmienne jak TypeScript i Python uruchamiane są w zupełnie innych środowiskach. Framework Tauri daje tutaj wyjątkową możliwość obsługując język TypeScript przy użyciu WebView\cite{tauri-arch} i Pythona wykorzystująć lokalnie zainstalowany interpreter\cite{tauri-shell}.
+		Języki programowania tak odmienne jak TypeScript i Python uruchamiane są w zupełnie innych środowiskach. Framework Tauri daje tutaj wyjątkową możliwość obsługując język TypeScript przy użyciu WebView \cite{tauri-arch} i Pythona wykorzystująć lokalnie zainstalowany interpreter \cite{tauri-shell}.
 		
 		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w TypeScript'cie. Wyniki obliczeń fizycznych są więc serializowane w Pythonie jedną z metod na rysunku \ref{fig:to-json}, wysyłane jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w języku TypeScript przykładowo tak jak na rysunku \ref{fig:ts-run-python}.
 		
@@ -443,11 +449,11 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	\section{Problemy, ograniczenia i możliwości rozwoju}
 	Jedno z ważniejszych ograniczenie mojej aplikacji leży w interfejsie pomiędzy językiem TypeScript i Pythonem. O ile wykonanie samych obliczeń fizycznych w Pythonie liczyć można w milisekundach to proces zserialozwania danych, przekazania ich do odczytu i deserializacji w języku TypeScript wydłuża ten proces do kilkuset milisekund, zwykle co najmniej 200. Jest to czas niezauważalny jeżeli potrzebne jest wykonanie obliczeń raz lub stosunkowo rzadko, co ma miejsce w aplikacji, jednak częste odświeżanie wyświetlanych danych byłoby po prostu niemożliwe do zrealizowania, przy zastosowanym rozwiązaniu. Należy jednocześnie zwrócić uwagę, że przy bardziej rozbudowanych scenariuszach fizycznych czas przekazywania danych może okazać się nieznaczący, jeśli samo wykonywanie obliczeń fizycznych trwać znacznie dłużej. Dokładnie takie przypadki miałem na względzie decydując o zastosowaniu Pythona w projekcie i jest to kierunek, w którym aplikacja mogłaby zostać w przyszłości rozwinięta.
 	
-	Kolejną rzeczą, która ogranicza aplikację jest forma dystrybucji. Na przestrzeni lat aplikacje desktopowe ustępowały popularnością aplikacjom webowym\cite{web-vs-desktop}. W wyniku takich zmian użytkownicy przyzwyczajeni do korzystania z przeglądarki internetowej mogą nie chcieć poświęcić czasu na pobranie i zainstalowanie mojej aplikacji. Niestety jednak, pomimo że jest to już możliwe, wykonywanie skryptów Pythona w przeglądarce jest dalej w fazie rozwoju\cite{python-webassembly} co wymusza taką formę aplikacji.
+	Kolejną rzeczą, która ogranicza aplikację jest forma dystrybucji. Na przestrzeni lat aplikacje desktopowe ustępowały popularnością aplikacjom webowym \cite{web-vs-desktop}. W wyniku takich zmian użytkownicy przyzwyczajeni do korzystania z przeglądarki internetowej mogą nie chcieć poświęcić czasu na pobranie i zainstalowanie mojej aplikacji. Niestety jednak, pomimo że jest to już możliwe, wykonywanie skryptów Pythona w przeglądarce jest dalej w fazie rozwoju \cite{python-webassembly} co wymusza taką formę aplikacji.
 	
-	Z pozoru największym problemem jaki napotkałem był fakt, że aplikacja po skompilowaniu do formatu .AppImage nie była w stanie poprawnie wywoływać skryptów Pythona. Jak jednak powiedziałem, problem tylko z pozoru wydał się krytyczny, a to przez fakt, że formaty .deb i .msi nie sprawiały żadnych problemów. Wciąż zaintrygowany tym nieoczekiwanym zachowaniem, zgłosiłem się przez komunikator Discord o pomoc do zespołu wsparcia frameworka Tauri. Okazało się, że nie jest to spodziewane zachowanie i najprawdopodobniej napotkałem błąd w samym frameworku. Za prośbą zespołu wsparcia zamieściłem repozytorium z minimalnym kodem niezbędnym do odtworzenia tego błędu\cite{app-error-repo}.
+	Z pozoru największym problemem jaki napotkałem był fakt, że aplikacja po skompilowaniu do formatu .AppImage nie była w stanie poprawnie wywoływać skryptów Pythona. Jak jednak powiedziałem, problem tylko z pozoru wydał się krytyczny, a to przez fakt, że formaty .deb i .msi nie sprawiały żadnych problemów. Wciąż zaintrygowany tym nieoczekiwanym zachowaniem, zgłosiłem się przez komunikator Discord o pomoc do zespołu wsparcia frameworka Tauri. Okazało się, że nie jest to spodziewane zachowanie i najprawdopodobniej napotkałem błąd w samym frameworku. Za prośbą zespołu wsparcia zamieściłem repozytorium z minimalnym kodem niezbędnym do odtworzenia tego błędu \cite{app-error-repo}.
 	
-	Ważnym aspektem, który niekiedy spowalniał tworzenie pracy, jest fakt że framework Tauri, wydany w 2022 roku\cite{tauri-release}, jest stosunkowo nową technologią. Pomimo że dostępną jest dokumentacja, to potrafi ona zawierać braki lub niedopowiedzenia, a szukanie szczegółowych odpowiedzi może stanowić wyzwanie, ponieważ nie istnieje na ten temat znacząca ilość literatury.
+	Ważnym aspektem, który niekiedy spowalniał tworzenie pracy, jest fakt że framework Tauri, wydany w 2022 roku \cite{tauri-release}, jest stosunkowo nową technologią. Pomimo że dostępną jest dokumentacja, to potrafi ona zawierać braki lub niedopowiedzenia, a szukanie szczegółowych odpowiedzi może stanowić wyzwanie, ponieważ nie istnieje na ten temat znacząca ilość literatury.
 	
 	Rzeczą którą niewątpliwie można poprawić, jednak nie jest ona moim zdaniem kluczowa, jest weryfikacja instalacji interpretera języka Python. Aktualnie aplikacja nie weryfikuje czy interpreter ten jest rzeczywiście zainstalowany oraz czy zainstalowany jest moduł NumPy. Dodanie takiej funkcjonalności w przyszłości niewątpliwie pomogłoby, w szukaniu problemów w razie nieprawidłowego działania aplikacji.
 	
@@ -485,6 +491,11 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	Wes McKinney,
 	\textit{Python for Data Analysis}
 	O'Reilly Media, 2012. ISBN 078-1-449-31979-3
+	
+	\bibitem{chartjs}
+	Dokumentacja Chart.js
+	\textit{https://www.chartjs.org/docs/latest/}
+	(ostatni dostep 30.04.2024)
 	
 	\bibitem{about-tauri}
 	Prezentacja Tauri
