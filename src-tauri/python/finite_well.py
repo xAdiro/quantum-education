@@ -90,8 +90,6 @@ def _zero(x1, x2, u0_2, even):
         if not even:
             y = s*tan(s) - sqrt(u0_2-s**2)
         else:
-            if s**2 > u0_2:
-                raise Exception(str(u0_2) + " " + str(s**2))
             y = -s/tan(s) - sqrt(u0_2-s**2)
 
         if abs(y) <= eps:

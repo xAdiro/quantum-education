@@ -12,6 +12,7 @@ def free_particle(x0, x1, m, v, h_, samples=1000):
     k = 1/h_ * m * v
     re = [A*cos(xn*k) for xn in x]
     im = [A*sin(xn*k) for xn in x]
+    # A = 1 => A^2 = A = 1
     psi_sq = [A for _ in x]
 
     return to_json(
