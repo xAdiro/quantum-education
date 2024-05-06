@@ -2,13 +2,7 @@ import { Point } from "chart.js"
 import { Command } from "@tauri-apps/api/shell"
 
 export async function freeData(
-  draw: (
-    x0: number,
-    x1: number,
-    re: Point[],
-    im: Point[],
-    psi_sq: Point[]
-  ) => void,
+  draw: (x0: number, x1: number, re: Point[], im: Point[], psi_sq: Point[]) => void,
   x0: number,
   x1: number,
   m: number,
