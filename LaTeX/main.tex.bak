@@ -18,6 +18,8 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
 
 \begin{document}
 \maketitle
@@ -241,7 +243,7 @@ w którym stałą $A$ można wyznaczyć, jeśli chciałoby się znormalizować g
 	\psi(x) = A\sin(kx) + B\cos(kx),
 	\end{equation}
 mając na uwadze, że współczynniki A i B nie są równe tym z równania \ref{eqn:free-particle-gen-solution}. Ciągłość $\psi$ pomiędzy obszarami jest możliwa tylko jeśli funkcja ta będzie równa 0 na granicach studni, co jest możliwe tylko jeśli $A=0$ lub $B=0$, a szerokość studni $a$ jest całkowitą wielokrotnością długości tej fali. Zależność tę można zapisać jako
-	\begin{equation}
+	\begin{equation}\label{eqn:discrete-well}
 	ka=n\pi, \;\;\textrm{gdzie}\;\;\ n\in\{1, 2, 3...\}.
 	\end{equation}
 Rozwiązaniem jest więc
@@ -418,7 +420,7 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	\section{Interfejs pomiędzy językiem TypeScript i Pythonem}
 		Języki programowania tak odmienne jak TypeScript i Python uruchamiane są w zupełnie innych środowiskach. Framework Tauri daje tutaj wyjątkową możliwość obsługując język TypeScript przy użyciu WebView \cite{tauri-arch} i Pythona wykorzystująć lokalnie zainstalowany interpreter \cite{tauri-shell}.
 		
-		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w TypeScript'cie. Wyniki obliczeń fizycznych są więc serializowane w Pythonie jedną z metod na rysunku \ref{fig:to-json}, przykładowo jak na rysunku \ref{fig:free-particle-py}, wysyłane jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w języku TypeScript przykładowo tak jak na rysunku \ref{fig:ts-run-python}.
+		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w TypeScript'cie. Wyniki obliczeń fizycznych są więc serializowane w Pythonie jedną z metod z rysunku \ref{fig:to-json}, przykładowo jak na rysunku \ref{fig:free-particle-py}, wysyłane jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w języku TypeScript przykładowo tak jak na rysunku \ref{fig:ts-run-python}.
 		
 	\begin{figure}[H]
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{to_json.png} 
@@ -462,6 +464,42 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 \chapter{Interfejs aplikacji}
 	\section{Ekran główny}
 	\section{Interaktywna wizualizacja}
+	Najwięcej uwagi w aplikacji przykuwają interaktywne wizualizacje omawianych zagadnień, co można zobaczyć na rysunku \ref{fig:free-chart}. Do każdego z rozwiązań równania Schrodingera przytoczonego w rozdziale 1.2 przygotowana została wizualizacja, przedstawiająca zachowanie funkcji falowej. W każdej z tych wizualizacji użytkownik ma możliwość wprowadzenia zmian niektórych parametrów oraz podglądu jak zmieni się funkcja falowa, w reakcji na te zmiany.
+	
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{free.png} 
+	\caption{Widok rozdziału cząstka swobodna}
+	\label{fig:free-chart}
+	\end{figure}	
+	
+	Zaczynając od przypadku cząstki swobodnej, widocznego na rysunku \ref{fig:free-chart}, naszkicowana została funkcja falowa, wraz z kwadratem jej modułu, czyli gęstością prawdopodobieństwa znalezienia cząstki w danym obszarze. Ponieważ funkcja falowa przyjmuje wartości zespolone, oddzielnie zostały naszkicowane część rzeczywista i urojona. Po lewej stronie znajduję się suwak, za pomocą którego użytkownik może wystrzelić elektron o prędkości z przedziału 20 km/s - 250 km/s i zobaczyć jak zmieni się kształt funkcji falowej. Amplituda funkcji falowej została ustalona jako 1, co dla opisanej na osi x skali oznacza, że gęstość prawdopodobieństwa $|\psi|^2$ jest nieprawidłowo unormowana. Zdecydowałem się na taki zabieg, aby uniknąć znacznych rozbieżności między wartościami $\psi$ oraz $|\psi|^2$ co utrudniło by przedstawienie ich na tym samym wykresie. Dodatkowo poprawna normalizacja nie była konieczna do opisu tego przypadku. 
+	
+	Kolejna wizualizacja poświęcona jest cząstce w nieskończonej studni potencjału. Zgodnie ze wzorem \ref{eqn:discrete-well} wiadomo, że cząstka przyjmuje dyskretne wartości energii, więc dołączony został suwak do zmiany numeru stanu energetycznego $n$. W przypadku studni potencjału funkcja falowa przyjmuje wartości czysto rzeczywiste lub czysto urojone nie było więc sensu rozdzielać tych wartości w legendzie i przedstawione one są zbiorczo jako $\psi$, co widać na rysunku \ref{fig:inf-well}. Dodatkowo ukazana została wartość energii każdego stanu.
+	
+	\begin{figure}[H]
+		\subfloat[$\psi$]{\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{infwell1.png}}\\
+		\subfloat[$|\psi|^2$]{\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{infwell2.png}}
+		\subfloat[Energia]{\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{infwell3.png}}
+		\caption{Wizualizacja z rozdziału nieskończona studnia potencjału}
+		\label{fig:inf-well}
+	\end{figure}
+	
+	Bardzo podobnie prezentuje się wizualizacja skończonej studni potencjału przedstawiony na rysunku \ref{fig:fi-well}, jednak w tym przypadku zdecydowałem się nanieść wszystkie wartości na jeden wykres. Przez ograniczoną głębokość studni wartości energii nie wykraczają ponad wykres, w przeciwieństwie do większych wartości $n$ w studni nieskończonej.
+	
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{fiwell.png} 
+	\caption{Wizualizacja z rodziału skończona studnia potencjału}
+	\label{fig:fi-well}
+	\end{figure}
+	
+	Dla progu potencjału, tak jak w przypadku cząstki swobodnej, oddzielnie naszkicowane zostały części rzeczywista i urojona funkcji falowej. Do dyspozycji użytkownika jest suwak widoczny na rysunku \ref{fig:potential-jump}, służący do zmiany energii wystrzelonej cząstki. Szkic wartości tej energii oznaczony został kolorem zielonym i reaguje swoją pozycją na zmiany wprowadzone suwakiem. Suwak uniemożliwia ustawienie przypadku, gdy $E=V_0$, ponieważ wymagałby on dodatkowej implementacji, a nie jest 
+	
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{jump.png} 
+	\caption{Wizualizacja z rozdziału próg potencjału}
+	\label{fig:potential-jump}
+	\end{figure}
+	
 	\section{Narrator}
 	
 \chapter{Podsumowanie i wnioski}
