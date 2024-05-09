@@ -17,3 +17,7 @@
   grid-area: chart;
   max-width: 100%;
 }
+
+.info {
+  text-align: center;
+}

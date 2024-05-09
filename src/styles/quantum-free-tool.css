@@ -27,3 +27,7 @@
 .free-particle-tool .info {
   grid-area: info;
 }
+
+.info {
+  text-align: center;
+}

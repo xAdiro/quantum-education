@@ -36,8 +36,8 @@ async function update() {
 
       quantumFreeChart.update()
     },
-    -10e-12,
-    10e-12,
+    -10e-9,
+    10e-9,
     electronMass.kg,
     v,
     diracConstant.Js
@@ -52,6 +52,6 @@ slider.addEventListener(
   "input",
   () =>
     (document.querySelector(".info__val")!.innerHTML = String(
-      Math.floor(vValue(sliderName) / 1_000_000)
+      Math.floor(vValue(sliderName) / 1_000)
     ))
 )

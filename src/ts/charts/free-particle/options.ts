@@ -27,8 +27,8 @@ export const options: ChartOptions = {
         },
       },
       type: "linear",
-      min: -10e-12,
-      max: 10e-12,
+      min: -10e-9,
+      max: 10e-9,
       ticks: {
         color: "#FFFFFF",
         font: {
@@ -36,7 +36,7 @@ export const options: ChartOptions = {
         },
         display: true,
         callback: (val, _) => {
-          return `${<number>val * 1e12}pm`
+          return `${<number>val * 1e9} nm`
         },
       },
       grid: {
@@ -47,8 +47,8 @@ export const options: ChartOptions = {
       },
     },
     y: {
-      max: 250000,
-      min: -250000,
+      max: 10000,
+      min: -10000,
       ticks: {
         color: "#FFFFFF",
         font: {
