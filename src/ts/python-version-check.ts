@@ -9,14 +9,20 @@ pythonCmd.stdout.on("data", (data) => {
 
   const verDetails = version.split(".")
 
-  if (verDetails[0] === "2" || parseInt(verDetails[1]) < 9) {
-    pythonDiv!.textContent += " ❌(<3.9)"
+  const verRegex = /\d\.\d+\.\d+/
+
+  if (!verRegex.test(version)) {
+    pythonDiv!.textContent = ""
+    pythonErrDiv!.textContent = " ❌(nie znaleziono)"
+  } else if (verDetails[0] === "2" || parseInt(verDetails[1]) < 9) {
+    pythonDiv!.textContent = ""
+    pythonErrDiv!.textContent = ` ❌(znaleziony ${version})`
   } else {
     pythonDiv!.textContent = ` ✅(znaleziony ${version})`
   }
 })
 
-pythonCmd.stderr.on("data", (data) => {
+pythonCmd.stderr.on("data", () => {
   pythonErrDiv!.textContent = "❌(nie znaleziono)"
 })
 
