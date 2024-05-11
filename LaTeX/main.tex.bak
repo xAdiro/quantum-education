@@ -74,12 +74,12 @@ Stworzenie mechaniki kwantowej okazało się niezwykle istotne dla dzisiejszej c
 	
 \chapter{Wykorzystane technologie}
 	\section{Popularne technologie webowe -- HTML, CSS i TypeScript}
-	Dzięki swojej popularności, technologie webowe wydały mi się najlepszym wyborem to stworzenia interfejsu aplikacji. HTML i CSS dają niezwykle dużo swobody i możliwości w tworzeniu interfejsów oraz dzięki ich popularności znaleźć można dużo literatury na ich temat \cite{mozilla-HTML} \cite{mozilla-CSS}. Nie ustępuje im w tym aspekcie język TypeScript, który jest nadzbiorem języka JavaScript - najpopularniejszego, według wielu źródeł, języka programowania. Dodatkowo TypeScript umożliwia łatwą modyfikację i dostęp do elementów z plików html, dzięki czemu w prosty sposób można tworzyć dynamiczne aplikacje webowe. Niewątpliwym atutem tego języka jest również duża liczba dostępnych frameworków \cite{React} \cite{Angular} \cite{Vue} \cite{Svelte} ułatwiających pracę z tym językiem, przy tworzeniu aplikacji. Najważniejszą jednak cechą języka TypeScript jest, że w przeciwieństwie do popularnego języka JavaScript, stosuje on silne typowanie, co pozwala na uniknięcie błędów w typach używanych zmiennych \cite{TS}.
+	Dzięki swojej popularności, technologie webowe wydały mi się najlepszym wyborem do stworzenia interfejsu aplikacji. HTML i CSS dają niezwykle dużo swobody i możliwości w tworzeniu interfejsów oraz dzięki ich popularności znaleźć można dużo literatury na ich temat \cite{mozilla-HTML} \cite{mozilla-CSS}. Nie ustępuje im w tym aspekcie język TypeScript, który jest nadzbiorem języka JavaScript - najpopularniejszego, według wielu źródeł, języka programowania. Dodatkowo TypeScript umożliwia łatwą modyfikację i dostęp do elementów z plików html, dzięki czemu w prosty sposób można tworzyć dynamiczne aplikacje webowe. Niewątpliwym atutem tego języka jest również duża liczba dostępnych frameworków \cite{React} \cite{Angular} \cite{Vue} \cite{Svelte} ułatwiających pracę z tym językiem, przy tworzeniu aplikacji. Najważniejszą jednak cechą języka TypeScript jest, że w przeciwieństwie do popularnego języka JavaScript, stosuje on statyczne typowanie, co pozwala na uniknięcie błędów w typach używanych zmiennych \cite{TS}.
 	
 	\section{Biblioteki Chart.js i MathJax}
 	Chart.js jest aktualnie najpopularniejszą biblioteką do tworzenia wykresów w języku JavaScript \cite{chartjs}, z bogatą dokumentacją i liczbą funkcji. Co było dla mnie najważniejsze przy jej wyborze, to szybka i czytelna konfiguracja wykresów liniowych. Biblioteka daje wiele możliwości dostosowywania wyglądu generowanych wykresów jak i ich dynamicznej edycji po wygenerowaniu.
 	
-	Kolejnym ważnym aspektem jest dostępność wbudowanych w bibliotekę typów, co umożliwia stosowanie jej w języku TypeScript z wykorzystaniem zalet, jakie wprowadza on do języka JavaScript. We wstępnych wersjach aplikacji zastosowałem bibliotekę Plotly, jednak typy, pomimo że dla niej dostępne, nie są w pełni dopracowane, co wymuszało wyłączenie reguły no-explicit-any w konfiguracji języka TypeScript dla projektu. W konsekwencji tworzyło to sytuację, w której istniało ryzyko tworzenia kodu o słabym typowaniu, co w dłuższej perspektywie mogłoby sprzyjać pojawianiu się w kodzie błędów związanych z typami.
+	Kolejnym ważnym aspektem jest dostępność wbudowanych w bibliotekę typów, co umożliwia stosowanie jej w języku TypeScript z wykorzystaniem zalet, jakie wprowadza on do języka JavaScript. We wstępnych wersjach aplikacji zastosowałem bibliotekę Plotly, jednak typy, pomimo że dla niej dostępne, nie są w pełni dopracowane, co wymuszało wyłączenie reguły no-explicit-any w konfiguracji języka TypeScript dla projektu. W konsekwencji tworzyło to sytuację, w której istniało ryzyko tworzenia kodu o dynamicznym typowaniu, co w dłuższej perspektywie mogłoby sprzyjać pojawianiu się w kodzie błędów związanych z typami.
 	
 	Drugą użytą biblioteką, jednak nie stosowaną bezpośrednio w kodzie TypeScript, a w plikach HTML, jest MathJax. Umożliwia ona umieszczanie zaawansowanych formuł matematycznych na stronach pisanych w języku HTML \cite{mathjax}, co było konieczne dla poruszanych w aplikacji zagadnień. Formuły umieszczane są pomiędzy znakami \$\$ \$\$ lub \textbackslash( \textbackslash), a ich składnia, pomimo że trochę odmienna, jest bardzo zbliżona do popularnego LaTeX'a. Wszelkie odstępstwa od LaTeX'a można szybko zweryfikować dzięki szczegółowej dokumentacji. Istotny jest również fakt, że nie jest wymagane umieszczanie całej biblioteki lokalnie w projekcie, co zajmowałoby dosyć dużo miejsca. Zamiast tego wystarczy umieścić odpowiednią adnotację w pliku HTML, aby pobrać niezbędne zasoby z internetu.
 	
@@ -308,7 +308,7 @@ Tym razem zagadnienie dwa obszary - obszar I, gdzie $V(x)=0$ oraz obszar II, gdz
 	\begin{equation}
 	k_{II} = \frac{1}{\amshbar}\sqrt{2m(E-V_0)}.
 	\end{equation}
-Niech w stronę progu porusza się strumień cząstek o energii całkowitej $E > V_0$, opisany wyrażeniem $e^{ik_Ix}$. Warunkiem koniecznym do spełnienia równania Schrödingera, jest założenie, że część cząstek odbije się od progu, a część przejdzie za niego. Funkcje falowe dla tych obszarów możemy więc zapisać jako:
+Niech w stronę progu porusza się strumień cząstek o energii całkowitej $E > V_0$, opisany wyrażeniem $e^{ik_Ix}$. Warunkiem koniecznym do spełnienia równania Schrödingera jest założenie, że część cząstek odbije się od progu, a część przejdzie za niego. Funkcje falowe dla tych obszarów możemy więc zapisać jako:
 	\begin{equation}\label{eqn:potential-jump-solution}
 	\begin{split}
 	&\psi_I(x) = e^{ik_Ix} + Re^{-ik_Ix}, \\
@@ -391,7 +391,7 @@ Rozwiązując powyższy układ równań, możemy znaleźć wartości wszystkich 
 	\label{fig:new-chart}
 	\end{figure}
 	
-	Poza tym znajduje się tutaj cała logika wykresu, czyli wybór elementu canvas, do wyświetlenia wykresu, ale co ważniejsze wywoływanie funkcji, do pozyskania danych do naszkicowania (rysunek \ref{fig:calc-data}). Proces ten został szerzej opisany w rozdziale 4.5. 
+	Poza tym znajduje się tutaj wybór elementu canvas, użytego do wyświetlenia wykresu, ale co ważniejsze wywołanie funkcji, do pozyskania danych, które mają być naniesione na wykres (rysunek \ref{fig:calc-data}). Proces ten został szerzej opisany w rozdziale 4.5. 
 	
 	\begin{figure}[H]
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{calc data.png} 
@@ -471,9 +471,9 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 
 		
 	\section{Interfejs pomiędzy językiem TypeScript i Pythonem}
-		Języki programowania tak odmienne jak TypeScript i Python uruchamiane są w zupełnie innych środowiskach. Framework Tauri daje tutaj wyjątkową możliwość, do obsługi języka TypeScript przy użyciu WebView \cite{tauri-arch} i Pythona przy wykorzystaniu lokalnie zainstalowanego interpretera \cite{tauri-shell}.
+		Języki programowania tak odmienne jak TypeScript i Python uruchamiane są w zupełnie innych środowiskach. Framework Tauri daje tutaj wyjątkową możliwość obsługi języka TypeScript przy użyciu WebView \cite{tauri-arch}, a Pythona przy wykorzystaniu lokalnie zainstalowanego interpretera \cite{tauri-shell}.
 		
-		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w języku TypeScript. Wyniki obliczeń fizycznych są więc serializowane w Pythonie jedną z metod z rysunku \ref{fig:to-json}, czego przykład widać na rysunku \ref{fig:free-particle-py}. Dalej wyniki wysyłane są jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w języku TypeScript, co można zobaczyć na rysunku \ref{fig:ts-run-python}.
+		Problemem jest jednak przesyłanie danych między tymi językami, o czym nie myślano przy ich tworzeniu. Zastosowałem więc serializację danych do formatu JSON, który jest tekstową reprezentacją obiektu w języku TypeScript \cite{JS}. Wyniki obliczeń fizycznych są więc serializowane w Pythonie jedną z metod z rysunku \ref{fig:to-json}, czego przykład widać na rysunku \ref{fig:free-particle-py}. Dalej wyniki wysyłane są jako wyjście w powłoce systemowej i przekazywane przez Tauri do skryptu napisanego w języku TypeScript, co można zobaczyć na rysunku \ref{fig:ts-run-python}.
 		
 	\begin{figure}[H]
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{to_json.png} 
@@ -511,8 +511,6 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	
 	Ważnym aspektem, który niekiedy spowalniał tworzenie pracy, jest fakt że framework Tauri, wydany w 2022 roku \cite{tauri-release}, jest stosunkowo nową technologią. Pomimo że dostępną jest dokumentacja, to potrafi ona zawierać braki lub niedopowiedzenia, a szukanie szczegółowych odpowiedzi może stanowić wyzwanie, ponieważ nie istnieje na ten temat znacząca ilość literatury.
 	
-	Rzeczą którą niewątpliwie można poprawić, jednak nie jest ona moim zdaniem kluczowa, jest weryfikacja instalacji interpretera języka Python. Aktualnie aplikacja nie weryfikuje czy interpreter ten jest rzeczywiście zainstalowany oraz czy zainstalowany jest moduł NumPy. Dodanie takiej funkcjonalności w przyszłości niewątpliwie pomogłoby, w szukaniu problemów w razie nieprawidłowego działania aplikacji.
-	
 
 \chapter{Interfejs aplikacji}
 	Przy projektowaniu interfejsu najbardziej zależało mi na przejrzystości i intuicyjności. Były to wskaźniki dla mnie najważniejsze, ponieważ chciałem, aby użytkownik mógł szybko przystąpić do korzystania z aplikacji i nauki trudnej dziedziny, jaką jest mechanika kwantowa. Dzięki prostemu interfejsowi w aplikacji nie musiałem udzielać instrukcji, jak ją nawigować i z niej korzystać, co mogłoby odstraszyć potencjalnego użytkownika.
@@ -534,7 +532,7 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	\end{figure}
 	
 	\section{Interaktywna wizualizacja}
-	Najwięcej uwagi w aplikacji przykuwają interaktywne wizualizacje omawianych zagadnień, co można zobaczyć na rysunku \ref{fig:free-chart}. Do każdego z rozwiązań równania Schrodingera przytoczonego w rozdziale 1.2 przygotowana została wizualizacja, przedstawiająca zachowanie funkcji falowej. W każdej z tych wizualizacji użytkownik ma możliwość wprowadzenia zmian niektórych parametrów oraz podglądu, jak zmieni się funkcja falowa w reakcji na te zmiany.
+	Najwięcej uwagi w aplikacji przykuwają interaktywne wizualizacje omawianych zagadnień, co można zobaczyć na rysunku \ref{fig:free-chart}. Do każdego z rozwiązań równania Schrödingera przytoczonego w rozdziale 1.2 przygotowana została wizualizacja, przedstawiająca zachowanie funkcji falowej. W każdej z tych wizualizacji użytkownik ma możliwość wprowadzenia zmian niektórych parametrów oraz podglądu, jak zmieni się funkcja falowa w reakcji na te zmiany.
 	
 	\begin{figure}[H]
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{free.png} 
@@ -579,7 +577,7 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	\end{figure}
 	
 	\section{Narrator}
-	Zastosowane wizualizacje, pomimo że interesujące, wymagają opisu do wyjaśnienia i pełnego ich zrozumienia. Nie chciałem użytkownika przytłoczyć duża ilością tekstu oraz chciałem, aby wizualizacje stanowiły centralny punkt aplikacji. Jako rozwiązanie tych problemów, pod każdym szkicem zamieściłem okno, w którym tłumaczone są kolejne kroki, do znalezienia równania funkcji falowej, dla danego scenariusza. Okno to, widoczne na rysunku \ref{fig:narrator}, składa się również z przycisków do nawigacji po kolejnych krokach. Dodatkowo wizualizacja nie jest niezależna od takiego narratora, a zamiast tego pokazywane są użytkownikowi elementy, które są akurat tłumaczone. Widać to zachowanie na rysunku \ref{fig:narrator}, gdzie przy tłumaczeniu wykresu funkcji falowej, tylko ta funkcja zostaje akurat pokazana.
+	Zastosowane wizualizacje, pomimo że interesujące, wymagają opisu do wyjaśnienia i pełnego ich zrozumienia. Nie chciałem użytkownika przytłoczyć duża ilością tekstu oraz chciałem, aby wizualizacje stanowiły centralny punkt aplikacji. Jako rozwiązanie tych problemów, pod każdym szkicem zamieściłem okno, w którym tłumaczone są kolejne kroki prowadzące do znalezienia funkcji falowej dla danego scenariusza. Okno to, widoczne na rysunku \ref{fig:narrator}, składa się również z przycisków do nawigacji po kolejnych krokach. Dodatkowo wizualizacja nie jest niezależna od takiego narratora, a zamiast tego pokazywane są użytkownikowi elementy, które są akurat tłumaczone. Widać to zachowanie na rysunku \ref{fig:narrator}, gdzie przy tłumaczeniu wykresu funkcji falowej, tylko ta funkcja zostaje akurat pokazana.
 	
 	\begin{figure}[H]
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{narrator.png} 
@@ -588,9 +586,9 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	\end{figure}
 	
 \chapter{Podsumowanie i wnioski}
-	Patrząc na stworzoną aplikację, uważam że początkowy cel został zrealizowany. Aplikacja zawiera typowe rozwiązania równania Schrodingera, a przy tym przedstawia te rozwiązania w ciekawy i przykuwający uwagę sposób. Można jej użyć do łatwiejszej nauki trudnych problemów mechaniki kwantowej, jednocześnie przedstawiając je w interesujący sposób. Należy oczywiście pamiętać, że aplikacja nie przedstawia każdego szczegółu zagadnień, a jedynie zbiera najważniejsze informacje na dane tematy.
+	Patrząc na stworzoną aplikację, uważam że początkowy cel został zrealizowany. Aplikacja zawiera typowe rozwiązania równania Schrödingera, a przy tym przedstawia te rozwiązania w ciekawy i przykuwający uwagę sposób. Można jej użyć do łatwiejszej nauki trudnych problemów mechaniki kwantowej, jednocześnie przedstawiając je w interesujący sposób. Należy oczywiście pamiętać, że aplikacja nie przedstawia każdego szczegółu zagadnień, a jedynie zbiera najważniejsze informacje na dane tematy.
 	
-	Dzięki zastosowanym technologiom możliwa jest rozbudowa aplikacji o kolejne przykłady. HTML, CSS, TypeScript i Python to bardzo popularne języki, dzięki czemu wiele osób poza mną byłoby w stanie dodać inne scenariusze do rozwiązania równania Schrodingera. Python daje też dużo elastyczności do wykonywania obliczeń fizycznych i symbolicznych, więc można niewątpliwe wyjść poza tematy opracowane przeze mnie.
+	Dzięki zastosowanym technologiom możliwa jest rozbudowa aplikacji o kolejne przykłady. HTML, CSS, TypeScript i Python to bardzo popularne języki, dzięki czemu wiele osób poza mną byłoby w stanie dodać inne scenariusze do rozwiązania równania Schrödingera. Python daje też dużo elastyczności do wykonywania obliczeń fizycznych i symbolicznych, więc można niewątpliwe wyjść poza tematy opracowane przeze mnie.
 	
 	Najbardziej ograniczającą cechą aplikacji, o której nie można zapomnieć przy planowaniu jej rozwoju, jest stosunkowo długi czas przekazywania obliczonych danych pomiędzy językami TypeScript i Python. Mając to na uwadze, tworzone wizualizacje nie mogą być zbyt dynamiczne, albo odbywać się w czasie rzeczywistym. Bardzo dobrze jednak sprawdzą się wizualizacje mniej zmienne, ale wymagające więcej czasu na obliczenie.
 
@@ -615,11 +613,16 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	R. Eisberg, R. Resnick,
 	\textit{Fizyka kwantowa atomów, cząsteczek, ciał stałych, jąder i cząstek elementarnych}
 	Państwowe Wydawnictwo Naukowe, Warszawa 1983. ISBN 83-01-04350-1
-
-	\bibitem{JS}
-	David Flanagan, 
-	\textit{JavaScript: The Definitive Guide. Master the World's Most-Used Programming Language. 7th Edition}, 
-	O'Reilly Media, 2020. ISBN 978-14-919-5198-9
+	
+	\bibitem{mozilla-HTML}
+	Dokumentacja języka HTML,
+	\textit{https://developer.mozilla.org/en-US/docs/Web/HTML}
+	(ostatni dostęp 9.05.2024)
+	
+	\bibitem{mozilla-CSS}
+	Dokumentacja języka CSS,
+	\textit{https://developer.mozilla.org/en-US/docs/Web/CSS}
+	(ostatni dostęp 9.05.2024)
 	
 	\bibitem{React}
 	Strona biblioteki React,
@@ -641,25 +644,10 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	\textit{https://svelte.dev/}
 	(ostatni dostęp 9.05.2024)
 	
-	\bibitem{mozilla-HTML}
-	Dokumentacja języka HTML,
-	\textit{https://developer.mozilla.org/en-US/docs/Web/HTML}
-	(ostatni dostęp 9.05.2024)
-	
-	\bibitem{mozilla-CSS}
-	Dokumentacja języka CSS,
-	\textit{https://developer.mozilla.org/en-US/docs/Web/CSS}
-	(ostatni dostęp 9.05.2024)
-	
 	\bibitem{TS}
 	Typy w języku TypeScript,
 	\textit{https://www.typescriptlang.org/docs/handbook/2/basic-types.html}
 	(ostatni dostęp 9.05.2024)
-	
-	\bibitem{Python}
-	Wes McKinney, 
-	\textit{Python for Data Analysis}
-	O'Reilly Media, 2012. ISBN 078-1-449-31979-3
 	
 	\bibitem{chartjs}
 	Dokumentacja Chart.js, 
@@ -671,20 +659,25 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	\textit{https://docs.mathjax.org/en/latest/}
 	(ostatni dostep 30.04.2024)
 	
-	\bibitem{wasm}
-	Strona główna WebAssembly,
-	\textit{https://webassembly.org/}
-	(ostatni dostęp 9.05.2024)
-	
-	\bibitem{about-tauri}
-	Prezentacja Tauri, 
-	\textit{https://tauri.app/about/intro}
-	(ostatni dostęp 28.04.2024)
+	\bibitem{Python}
+	Wes McKinney, 
+	\textit{Python for Data Analysis}
+	O'Reilly Media, 2012. ISBN 078-1-449-31979-3
 	
 	\bibitem{sympy}
 	Dokumentacja SymPy, 
 	\textit{https://docs.sympy.org/latest/index.html}
 	(ostatni dostęp 13.01.2024)
+	
+	\bibitem{python-webassembly}
+	Repozytorium Pyodide, 
+	\textit{https://github.com/pyodide/pyodide}
+	(ostatni dostęp 28.04.2024)
+	
+	\bibitem{wasm}
+	Strona główna WebAssembly,
+	\textit{https://webassembly.org/}
+	(ostatni dostęp 9.05.2024)
 	
 	\bibitem{liczby zespolone}
 	Liczby zespolone,
@@ -735,11 +728,15 @@ Warto jednocześnie zaznaczyć, że wyjątkowej uwagi wymaga znalezienie ostatni
 	Dokumentacja API shell w Tauri, 
 	\textit{https://tauri.app/v1/api/js/shell/}
 	(ostatni dostęp 28.04.2024)
-
 	
-	\bibitem{python-webassembly}
-	Repozytorium Pyodide, 
-	\textit{https://github.com/pyodide/pyodide}
+	\bibitem{JS}
+	David Flanagan, 
+	\textit{JavaScript: The Definitive Guide. Master the World's Most-Used Programming Language. 7th Edition}, 
+	O'Reilly Media, 2020. ISBN 978-14-919-5198-9
+	
+	\bibitem{about-tauri}
+	Prezentacja Tauri, 
+	\textit{https://tauri.app/about/intro}
 	(ostatni dostęp 28.04.2024)
 	
 	\bibitem{app-error-repo}

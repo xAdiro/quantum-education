@@ -24,9 +24,9 @@
 \contentsline {section}{\numberline {4.5}Interfejs pomiędzy językiem TypeScript i Pythonem}{28}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Wdrożenie i dystrybucja aplikacji}{30}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Problemy, ograniczenia i możliwości rozwoju}{31}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{33}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Ekran główny i nawigacja}{33}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{34}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Narrator}{37}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{39}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Bibliografia}{40}{chapter.7}%
+\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{32}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ekran główny i nawigacja}{32}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{33}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Narrator}{36}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{38}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Bibliografia}{39}{chapter.7}%
