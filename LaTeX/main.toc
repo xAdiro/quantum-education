@@ -5,28 +5,28 @@
 \contentsline {section}{\numberline {2.1}Popularne technologie webowe -- HTML, CSS i TypeScript}{11}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Biblioteki Chart.js i MathJax}{11}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Język Python}{12}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Framework Tauri}{12}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Podstawy teorytyczne}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Zagadnienia matematyki wyższej}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Falowa natura materii}{15}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Równanie Schrödingera}{15}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Znajdowanie równania funkcji falowej}{16}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Cząstka swobodna}{16}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Nieskończona studnia potencjału}{17}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Skończona studnia potencjału}{17}{section.3.7}%
+\contentsline {section}{\numberline {2.4}Framework Tauri}{13}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Podstawy teoretyczne}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Zagadnienia matematyki wyższej}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Falowa natura materii}{16}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Równanie Schrödingera}{16}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Znajdowanie równania funkcji falowej}{17}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Cząstka swobodna}{17}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Nieskończona studnia potencjału}{18}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Skończona studnia potencjału}{18}{section.3.7}%
 \contentsline {section}{\numberline {3.8}Próg potencjału}{19}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Bariera potencjału}{20}{section.3.9}%
+\contentsline {section}{\numberline {3.9}Bariera potencjału}{21}{section.3.9}%
 \contentsline {chapter}{\numberline {4}Budowa i struktura aplikacji}{22}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Struktura aplikacji}{22}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Interfejs}{22}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Typescript i manipulacja DOM}{22}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Obliczenia fizyczne w Pythonie}{22}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Interfejs pomiędzy językiem TypeScript i Pythonem}{24}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Wdrożenie i dystrybucja aplikacji}{26}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Problemy, ograniczenia i możliwości rozwoju}{27}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{29}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Ekran główny}{29}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{29}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Narrator}{32}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{33}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Bibliografia}{34}{chapter.7}%
+\contentsline {section}{\numberline {4.3}Typescript i Chart.js}{22}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Obliczenia fizyczne w Pythonie}{26}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Interfejs pomiędzy językiem TypeScript i Pythonem}{28}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Wdrożenie i dystrybucja aplikacji}{30}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Problemy, ograniczenia i możliwości rozwoju}{31}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Interfejs aplikacji}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ekran główny i nawigacja}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Interaktywna wizualizacja}{34}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Narrator}{37}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{39}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Bibliografia}{40}{chapter.7}%
