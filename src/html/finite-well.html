@@ -64,64 +64,67 @@
         <button class="narrator-box__back-button nav-button">&lt;</button>
         <p class="narrator-box__step narrator-box__step--active">Znów rozważmy ruch cząstki, tym
           razem w skończonej studni potencjału. Wewnątrz studni energia potencjalna wynosi \(V_0\),
-          a poza nią 0</p>
-        <p class="narrator-box__step">Cząstka jest związana w studni i posiada energię całkowitą
-          równą \(-W\). Wartośc \(W\) jest dodatnia, jednocześnie mniejsza od \(V_0\) i nosi nazwę
+          a poza nią 0.</p>
+        <p class="narrator-box__step">
+          Cząstka może mieć energię dodatnią lub ujemną. Będziem rozpatrywali przypadek tylko
+          przypadek cząstki o ujemnej energii, która jest związana wewnątrz studni. Ujemną energię
+          całkowitą oznaczmy jako \(-W\). Wartośc \(W\) jest dodatnia, jednocześnie mniejsza od
+          \(V_0\) i nosi nazwę
           energii wiązania.
         </p>
         <p class="narrator-box__step">
           Tak jak w studnii nieskończonej, obszar w studnii oznaczymy numerem 2, a liczbę falową
           zapiszemy jako:
-          $$k = \frac{1}{\hbar}\sqrt{2m(V_0-W)}$$
+          $$k = \frac{1}{\hbar}\sqrt{2m(V_0-W)}.$$
         </p>
         <p class="narrator-box__step">
           Rozwiązanie równania Schrödinger, dla tego obszaru, znów przybierze postać
-          $$\psi_2 = Asin(kx)+ Bcos(kx)$$
+          $$\psi_2 = Asin(kx)+ Bcos(kx).$$
         </p>
         <p class="narrator-box__step">
           Dla obszarów równanie Schrödingera zapiszemy jako:<br><br>
           \(-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+\gamma^2\psi(x)=0 \),<br><br>
-          gdzie &emsp; \(\gamma = \frac{1}{\hbar}\sqrt{2mW} \)
+          gdzie &emsp; \(\gamma = \frac{1}{\hbar}\sqrt{2mW} \).
         </p>
         <p class="narrator-box__step">
           Ogólnym rozwiązaniem tego równania jest:
-          $$ \psi_{1,3}=Ce^{\gamma x} + De^{-\gamma x}$$
+          $$ \psi_{1,3}=Ce^{\gamma x} + De^{-\gamma x}.$$
         </p>
         <p class="narrator-box__step">
           Funkcja falowa musi być skończona w każdym obszarze, aby uniknąć więc dążenia funkcji do
           nieskończoności \(D=0 \) w obszarze \(1\) i \(C=0\) w obszarze \(3\). Zapisujemy
           więc:<br><br>
-          \(\psi_1 = Ce^{\gamma x}\) i \(\psi_3 = De^{\gamma x}\)
+          \(\psi_1 = Ce^{\gamma x}\) i \(\psi_3 = De^{\gamma x}\).
         </p>
         <p class="narrator-box__step">
           Znajdowanie amplitud \(A\), \(B\), \(C\), \(D\) jest mniej znaczącym zadaniem. Znalezienie
           dozwolonych wartości \(k\) pozwoli za to na znalezienie poziomów energetycznych studnii.
           Do warunków brzegowych użyjemy więc pochodnych brzegowych:
-          $$\frac{1}{\psi_1}\frac{d\psi_1}{dx} = \frac{1}{\psi_2}\frac{d\psi_2}{dx}$$
+          $$\frac{1}{\psi_1}\frac{d\psi_1}{dx} = \frac{1}{\psi_2}\frac{d\psi_2}{dx},$$
           przez co wszystkie amplitudy w równaniu skrócą się.
         </p>
         <p class="narrator-box__step">
           Zarówno dla \(x=-\frac{a}{2}\) i \(x=\frac{a}{2}\) równania na ciągłość pochodnych
           logarytmicznych dają rozwiązania:<br><br>
-          \(\gamma = k \)ctg\((-\frac{ka}{2})\) &emsp; dla &emsp; B = 0<br><br>
-          \(\gamma = k \)tg\((-\frac{ka}{2})\) &emsp; dla &emsp; A = 0<br><br>
+          \(\gamma = k \)ctg\((-\frac{ka}{2})\) &emsp; dla &emsp; B = 0,<br><br>
+          \(\gamma = k \)tg\((-\frac{ka}{2})\) &emsp; dla &emsp; A = 0.<br><br>
         </p>
         <p class="narrator-box__step">
           Wyznaczenie dozwolonych wartości \(W\) analitycznie nie jest prostym zadaniem, wyznaczamy
-          je więc numerycznie
+          je więc numerycznie.
         </p>
         <p class="narrator-box__step">
           Obliczamy też \(k\) i \(\gamma\). Jak można zauważyć, funkcja falowa przenika do
           wzbronionego klasycznie obszaru
           poza studnią. Istnieje pewna szansa, że znajdziemy cząstkę poza studnią. Szansa ta rośnie
           wraz
-          z \(W\) co wynika bezpośrednio z:
-          $$\gamma = \frac{1}{\hbar}\sqrt{2mW}$$
+          z \(W\), co wynika bezpośrednio z:
+          $$\gamma = \frac{1}{\hbar}\sqrt{2mW}.$$
         </p>
         <p class="narrator-box__step">
           Użyty powyżej wykres przedstawia elektron w studni o \(V_0\ = 1\mathrm{eV}\) oraz
           \(a=2\mathrm{nm}\). Wartości stałych \(A\) i \(B\) ustalone zostały jako 1, w odpowiednich
-          równaniach
+          równaniach.
         </p>
 
         <button class="narrator-box__forward-button nav-button">&gt;</button>
