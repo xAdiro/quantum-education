@@ -19,9 +19,8 @@
   margin: 1em 0 1em 0;
 }
 
-.free-particle-tool .quantum-free-particle {
+.free-particle-tool .canvas-wrapper {
   grid-area: chart;
-  max-width: 100%;
 }
 
 .free-particle-tool .info {

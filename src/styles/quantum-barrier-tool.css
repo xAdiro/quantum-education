@@ -18,7 +18,6 @@
   margin: 1em 0 1em 0;
 }
 
-.quantum-barrier-tool .quantum-barrier-chart {
+.quantum-barrier-tool .canvas-wrapper {
   grid-area: chart;
-  max-width: 100%;
 }

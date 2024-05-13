@@ -18,7 +18,6 @@
   margin: 1em 0 1em 0;
 }
 
-.quantum-jump-tool .quantum-jump-chart {
+.quantum-jump-tool .canvas-wrapper {
   grid-area: chart;
-  max-width: 100%;
 }

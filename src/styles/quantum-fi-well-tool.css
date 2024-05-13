@@ -13,7 +13,6 @@
   grid-area: info;
   text-align: center;
 }
-.quantum-fi-well-tool .quantum-fi-well-chart {
+.quantum-fi-well-tool .canvas-wrapper {
   grid-area: chart;
-  max-width: 100%;
 }

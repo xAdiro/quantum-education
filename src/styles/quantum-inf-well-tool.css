@@ -13,9 +13,8 @@
   grid-area: info;
   text-align: center;
 }
-.quantum-inf-well-tool .quantum-inf-well-chart {
+.quantum-inf-well-tool .canvas-wrapper {
   grid-area: chart;
-  max-width: 100%;
 }
 
 .info {
