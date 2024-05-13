@@ -1,26 +1,16 @@
 import { Command } from "@tauri-apps/api/shell"
 import { Point } from "chart.js"
+import { resolveResource } from "@tauri-apps/api/path"
 
 export async function infWellData(
-  draw: (
-    x0: number,
-    x1: number,
-    re: Point[],
-    psiSq: Point[],
-    E: Point[]
-  ) => void,
+  draw: (x0: number, x1: number, re: Point[], psiSq: Point[], E: Point[]) => void,
   x0: number,
   x1: number,
   a: number,
   n: number
 ) {
-  const command = new Command("run-python", [
-    "python/infinite_well.py",
-    String(x0),
-    String(x1),
-    String(a),
-    String(n),
-  ])
+  const path = await resolveResource("python/infinite_well.py")
+  const command = new Command("run-python", [path, String(x0), String(x1), String(a), String(n)])
 
   command.stdout.on("data", (text) => {
     const data: Record<string, Point[]> = JSON.parse(text)

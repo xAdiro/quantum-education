@@ -18,7 +18,6 @@ export async function barrierData(
   m: number
 ) {
   const path = await resolveResource("python/potential_barrier.py")
-  console.log(path)
   const command = new Command("run-python", [
     path,
     String(x0),

@@ -1,5 +1,6 @@
 import { Point } from "chart.js"
 import { Command } from "@tauri-apps/api/shell"
+import { resolveResource } from "@tauri-apps/api/path"
 
 export async function freeData(
   draw: (x0: number, x1: number, re: Point[], im: Point[], psi_sq: Point[]) => void,
@@ -9,8 +10,9 @@ export async function freeData(
   v: number,
   h_: number
 ) {
+  const path = await resolveResource("python/free_particle.py")
   const command = new Command("run-python", [
-    "python/free_particle.py",
+    path,
     String(x0),
     String(x1),
     String(m),

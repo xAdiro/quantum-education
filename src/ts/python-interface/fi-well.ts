@@ -1,22 +1,18 @@
 import { Command } from "@tauri-apps/api/shell"
 import { Point } from "chart.js"
 import { diracConstant, electronMass } from "../physics-constants"
+import { resolveResource } from "@tauri-apps/api/path"
 
 export async function fiWellData(
-  draw: (
-    x0: number,
-    x1: number,
-    re: Point[][],
-    psiSq: Point[][],
-    E: Point[][]
-  ) => void,
+  draw: (x0: number, x1: number, re: Point[][], psiSq: Point[][], E: Point[][]) => void,
   x0: number,
   x1: number,
   a: number,
   V0: number
 ) {
+  const path = await resolveResource("python/finite_well.py")
   const command = new Command("run-python", [
-    "python/finite_well.py",
+    path,
     String(x0),
     String(x1),
     String(a),
