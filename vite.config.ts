@@ -30,7 +30,6 @@ export default defineConfig(async () => ({
         freeParticle: resolve(__dirname, "src/html/free-particle.html"),
         infiniteWell: resolve(__dirname, "src/html/infinite-well.html"),
         jump: resolve(__dirname, "src/html/jump.html"),
-        settings: resolve(__dirname, "src/html/settings.html"),
       },
     },
   },
